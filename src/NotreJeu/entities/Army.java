@@ -1,4 +1,4 @@
-package NotreJeu;
+package NotreJeu.entities;
 
 import java.awt.Canvas;
 import java.awt.Graphics;

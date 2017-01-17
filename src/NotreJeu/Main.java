@@ -1,6 +1,5 @@
 package NotreJeu;
 
-import gameframework.core.GameDefaultImpl;
 import gameframework.core.GameLevel;
 
 import java.util.ArrayList;
@@ -9,12 +8,13 @@ public class Main {
 /*
  * 
 */
-	
 	public static void main(String[] args) {
-		GameDefaultImpl g = new GameDefaultImpl();
+
+		int size = 31;
+		GameCTFImpl g = new GameCTFImpl(size,size);
 		ArrayList<GameLevel> levels = new ArrayList<>();
 		
-		levels.add(new FirstStep(g));
+		levels.add(new FirstStep(g, size));
 		g.setLevels(levels);
 		g.start();
 	}

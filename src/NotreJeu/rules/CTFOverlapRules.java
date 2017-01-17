@@ -1,4 +1,4 @@
-package NotreJeu.Rules;
+package NotreJeu.rules;
 
 import gameframework.core.GameMovableDriverDefaultImpl;
 import gameframework.core.GameUniverse;
@@ -11,9 +11,9 @@ import gameframework.moves_rules.OverlapRulesApplierDefaultImpl;
 import java.awt.Point;
 import java.util.Vector;
 
-import NotreJeu.Army;
-import NotreJeu.Flag;
-import NotreJeu.IndestructibleWall;
+import NotreJeu.entities.Army;
+import NotreJeu.entities.Flag;
+import NotreJeu.entities.IndestructibleWall;
 import pacman.entity.Ghost;
 import pacman.entity.Jail;
 import pacman.entity.Pacgum;

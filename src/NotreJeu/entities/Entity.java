@@ -1,10 +1,4 @@
-package NotreJeu;
-
-import java.awt.Graphics;
-import java.awt.Point;
-import java.awt.Rectangle;
-
-import javax.swing.text.Position;
+package NotreJeu.entities;
 
 import gameframework.core.Drawable;
 import gameframework.core.GameEntity;

@@ -1,4 +1,4 @@
-package NotreJeu;
+package NotreJeu.entities;
 
 import gameframework.core.DrawableImage;
 
@@ -7,14 +7,15 @@ import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Rectangle;
 
+import NotreJeu.FirstStep;
 import NotreJeu.FirstStep.Equip;
 
-public class Flag extends Entity {
+public class Flag implements Entity {
 	protected DrawableImage image = null;
 	protected Point _position;
 	protected boolean _catched;
 	protected Equip _side;
-	public static final int RENDERING_SIZE = 16;
+	public static final int RENDERING_SIZE = 32;
 
 	public Flag(Canvas defaultCanvas, Point pos, Equip side) {
 		image = new DrawableImage(side.getPicture(), defaultCanvas);
