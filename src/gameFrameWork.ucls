@@ -1,0 +1,910 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.1.12" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <interface id="1" language="java" name="gameframework.moves_rules.ObjectWithBoundedBox" project="AL_projet" 
+    file="/AL_projet/src/gameframework/moves_rules/ObjectWithBoundedBox.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2164" y="570"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="2" language="java" name="gameframework.moves_rules.MoveBlockerCheckerDefaultImpl" project="AL_projet" 
+    file="/AL_projet/src/gameframework/moves_rules/MoveBlockerCheckerDefaultImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1867" y="1254"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="3" language="java" name="gameframework.moves_rules.OverlapRulesApplier" project="AL_projet" 
+    file="/AL_projet/src/gameframework/moves_rules/OverlapRulesApplier.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3162" y="745"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="4" language="java" name="gameframework.core.GameUniverseDefaultImpl" project="AL_projet" 
+    file="/AL_projet/src/gameframework/core/GameUniverseDefaultImpl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2436" y="1463"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="5" language="java" name="gameframework.core.Game" project="AL_projet" 
+    file="/AL_projet/src/gameframework/core/Game.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="6052" y="687"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="6" language="java" name="gameframework.core.GameLevel" project="AL_projet" 
+    file="/AL_projet/src/gameframework/core/GameLevel.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="5710" y="577"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="7" language="java" name="gameframework.moves_rules.MoveStrategyDefaultImpl" project="AL_projet" 
+    file="/AL_projet/src/gameframework/moves_rules/MoveStrategyDefaultImpl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3854" y="1068"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="8" language="java" name="gameframework.moves_rules.MoveBlockerRulesApplier" project="AL_projet" 
+    file="/AL_projet/src/gameframework/moves_rules/MoveBlockerRulesApplier.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1627" y="1034"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="9" language="java" name="gameframework.core.GameUniverse" project="AL_projet" 
+    file="/AL_projet/src/gameframework/core/GameUniverse.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4530" y="1302"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="10" language="java" name="gameframework.core.GameEntity" project="AL_projet" 
+    file="/AL_projet/src/gameframework/core/GameEntity.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2218" y="1276"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="11" language="java" name="gameframework.moves_rules.OverlapRulesApplierDefaultImpl" project="AL_projet" 
+    file="/AL_projet/src/gameframework/moves_rules/OverlapRulesApplierDefaultImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3070" y="912"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="gameframework.core.GameMovableDriverDefaultImpl" project="AL_projet" 
+    file="/AL_projet/src/gameframework/core/GameMovableDriverDefaultImpl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4143" y="1202"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <package id="13" language="java" name="gameframework.moves_rules" project="AL_projet" 
+    file="/AL_projet/src/gameframework/moves_rules" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="46" width="196" x="353" y="124"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <class id="14" language="java" name="gameframework.core.DrawableComposite" project="AL_projet" 
+    file="/AL_projet/src/gameframework/core/DrawableComposite.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="954" y="684"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="gameframework.core.BackgroundImage" project="AL_projet" 
+    file="/AL_projet/src/gameframework/core/BackgroundImage.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1079" y="1600"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="16" language="java" name="gameframework.moves_rules.IntersectTools" project="AL_projet" 
+    file="/AL_projet/src/gameframework/moves_rules/IntersectTools.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="95" width="264" x="589" y="124"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="17" language="java" name="gameframework.core.GameUniverseViewPort" project="AL_projet" 
+    file="/AL_projet/src/gameframework/core/GameUniverseViewPort.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="5149" y="836"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="18" language="java" name="gameframework.moves_rules.OverlapProcessorDefaultImpl" project="AL_projet" 
+    file="/AL_projet/src/gameframework/moves_rules/OverlapProcessorDefaultImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3425" y="959"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="19" language="java" name="gameframework.core.GameUniverseViewPortDefaultImpl" project="AL_projet" 
+    file="/AL_projet/src/gameframework/core/GameUniverseViewPortDefaultImpl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4522" y="1605"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="20" language="java" name="gameframework.core.ObservableValue" project="AL_projet" 
+    file="/AL_projet/src/gameframework/core/ObservableValue.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="5501" y="791"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="21" language="java" name="gameframework.core.SpriteManagerDefaultImpl" project="AL_projet" 
+    file="/AL_projet/src/gameframework/core/SpriteManagerDefaultImpl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1549" y="792"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="22" language="java" name="gameframework.core.GameMovableDriver" project="AL_projet" 
+    file="/AL_projet/src/gameframework/core/GameMovableDriver.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3977" y="647"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <package id="23" language="java" name="gameframework.core" project="AL_projet" 
+    file="/AL_projet/src/gameframework/core" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="46" width="147" x="893" y="124"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <interface id="24" language="java" name="gameframework.core.Overlappable" project="AL_projet" 
+    file="/AL_projet/src/gameframework/core/Overlappable.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3367" y="600"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="25" language="java" name="gameframework.core.Movable" project="AL_projet" 
+    file="/AL_projet/src/gameframework/core/Movable.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2190" y="769"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="26" language="java" name="gameframework.core.GameLevelDefaultImpl" project="AL_projet" 
+    file="/AL_projet/src/gameframework/core/GameLevelDefaultImpl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="5380" y="1351"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="27" language="java" name="gameframework.moves_rules.MoveStrategyRandom" project="AL_projet" 
+    file="/AL_projet/src/gameframework/moves_rules/MoveStrategyRandom.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4555" y="1064"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="28" language="java" name="gameframework.moves_rules.IllegalMoveException" project="AL_projet" 
+    file="/AL_projet/src/gameframework/moves_rules/IllegalMoveException.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="95" width="145" x="1080" y="124"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="29" language="java" name="gameframework.moves_rules.InvalidDrawableException" project="AL_projet" 
+    file="/AL_projet/src/gameframework/moves_rules/InvalidDrawableException.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="95" width="187" x="1265" y="124"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="30" language="java" name="gameframework.moves_rules.SpeedVector" project="AL_projet" 
+    file="/AL_projet/src/gameframework/moves_rules/SpeedVector.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4536" y="638"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="31" language="java" name="gameframework.core.Drawable" project="AL_projet" 
+    file="/AL_projet/src/gameframework/core/Drawable.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1256" y="340"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="32" language="java" name="gameframework.moves_rules.MoveBlockerRulesApplierDefaultImpl" project="AL_projet" 
+    file="/AL_projet/src/gameframework/moves_rules/MoveBlockerRulesApplierDefaultImpl.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1495" y="1262"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="33" language="java" name="gameframework.core.GameDefaultImpl" project="AL_projet" 
+    file="/AL_projet/src/gameframework/core/GameDefaultImpl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="6021" y="1380"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="34" language="java" name="gameframework.core.GameMovable" project="AL_projet" 
+    file="/AL_projet/src/gameframework/core/GameMovable.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3493" y="1237"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="35" language="java" name="gameframework.moves_rules.MoveBlocker" project="AL_projet" 
+    file="/AL_projet/src/gameframework/moves_rules/MoveBlocker.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1885" y="756"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="36" language="java" name="gameframework.moves_rules.MoveStrategy" project="AL_projet" 
+    file="/AL_projet/src/gameframework/moves_rules/MoveStrategy.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4188" y="756"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="37" language="java" name="gameframework.moves_rules.MoveStrategyKeyboard" project="AL_projet" 
+    file="/AL_projet/src/gameframework/moves_rules/MoveStrategyKeyboard.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4347" y="1063"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="38" language="java" name="gameframework.core.CanvasDefaultImpl" project="AL_projet" 
+    file="/AL_projet/src/gameframework/core/CanvasDefaultImpl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="5111" y="1117"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="39" language="java" name="gameframework.moves_rules.SpeedVectorDefaultImpl" project="AL_projet" 
+    file="/AL_projet/src/gameframework/moves_rules/SpeedVectorDefaultImpl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="5020" y="611"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="40" language="java" name="gameframework.core.DrawableImage" project="AL_projet" 
+    file="/AL_projet/src/gameframework/core/DrawableImage.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1224" y="679"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="41" language="java" name="gameframework.core.SpriteManager" project="AL_projet" 
+    file="/AL_projet/src/gameframework/core/SpriteManager.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1569" y="409"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="42" language="java" name="gameframework.moves_rules.MoveStrategyStraightLine" project="AL_projet" 
+    file="/AL_projet/src/gameframework/moves_rules/MoveStrategyStraightLine.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3943" y="898"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="43" language="java" name="gameframework.moves_rules.Overlap" project="AL_projet" 
+    file="/AL_projet/src/gameframework/moves_rules/Overlap.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="113" width="206" x="3589" y="763"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="44" language="java" name="gameframework.moves_rules.MoveBlockerChecker" project="AL_projet" 
+    file="/AL_projet/src/gameframework/moves_rules/MoveBlockerChecker.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2208" y="934"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <interface id="45" language="java" name="gameframework.moves_rules.OverlapProcessor" project="AL_projet" 
+    file="/AL_projet/src/gameframework/moves_rules/OverlapProcessor.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2861" y="727"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <generalization id="46">    
+    <end type="SOURCE" refId="35"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <realization id="47">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="3"/>  
+  </realization>  
+  <association id="48">    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="49" name="background">        
+        <position height="0" width="0" x="-2673" y="-87"/>      
+      </attribute>      
+      <multiplicity id="50" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-2673" y="-87"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="51">    
+    <end type="SOURCE" refId="26" navigable="false">      
+      <attribute id="52" name="score">        
+        <position height="0" width="0" x="-311" y="-2"/>      
+      </attribute>      
+      <multiplicity id="53" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="-311" y="-2"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="54">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="55" name="overlapRules">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="56" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="57">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="58" name="moveStrategy">        
+        <position height="0" width="0" x="-382" y="30"/>      
+      </attribute>      
+      <multiplicity id="59" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-382" y="30"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="36" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="60">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="61" name="drawables">        
+        <position height="0" width="0" x="158" y="-178"/>      
+      </attribute>      
+      <multiplicity id="62" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="158" y="-178"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="31" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="63">    
+    <end type="SOURCE" refId="26" navigable="false">      
+      <attribute id="64" name="endOfGame">        
+        <position height="0" width="0" x="-311" y="-2"/>      
+      </attribute>      
+      <multiplicity id="65" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-311" y="-2"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="66">    
+    <bendpoint x="5945" y="828"/>    
+    <end type="SOURCE" refId="33" navigable="false">      
+      <attribute id="67" name="gameLevels">        
+        <position height="0" width="0" x="-246" y="-413"/>      
+      </attribute>      
+      <multiplicity id="68" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="-246" y="-413"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="69">    
+    <end type="SOURCE" refId="27"/>    
+    <end type="TARGET" refId="36"/>  
+  </realization>  
+  <realization id="70">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="44"/>  
+  </realization>  
+  <generalization id="71">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <generalization id="72">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="40"/>  
+  </generalization>  
+  <association id="73">    
+    <bendpoint x="5925" y="862"/>    
+    <end type="SOURCE" refId="33" navigable="false">      
+      <attribute id="74" name="endOfGame">        
+        <position height="0" width="0" x="-311" y="-2"/>      
+      </attribute>      
+      <multiplicity id="75" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-311" y="-2"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="76">    
+    <end type="SOURCE" refId="33" navigable="false">      
+      <attribute id="77" name="score">        
+        <position height="0" width="0" x="-311" y="-2"/>      
+      </attribute>      
+      <multiplicity id="78" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="-311" y="-2"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="79">    
+    <end type="SOURCE" refId="24"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <association id="80">    
+    <end type="SOURCE" refId="33" navigable="false">      
+      <attribute id="81" name="currentPlayedLevel">        
+        <position height="0" width="0" x="-395" y="-5"/>      
+      </attribute>      
+      <multiplicity id="82" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-395" y="-5"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="26" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="83">    
+    <end type="SOURCE" refId="34" navigable="false">      
+      <attribute id="84" name="speedVector">        
+        <position height="0" width="0" x="228" y="224"/>      
+      </attribute>      
+      <multiplicity id="85" minimum="0" maximum="1">        
+        <position height="0" width="0" x="228" y="224"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="30" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="86">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="87" name="moveBlockerChecker">        
+        <position height="0" width="0" x="353" y="-191"/>      
+      </attribute>      
+      <multiplicity id="88" minimum="0" maximum="1">        
+        <position height="0" width="0" x="353" y="-191"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="44" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="89">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="22"/>  
+  </realization>  
+  <realization id="90">    
+    <end type="SOURCE" refId="26"/>    
+    <end type="TARGET" refId="6"/>  
+  </realization>  
+  <realization id="91">    
+    <end type="SOURCE" refId="21"/>    
+    <end type="TARGET" refId="41"/>  
+  </realization>  
+  <realization id="92">    
+    <end type="SOURCE" refId="37"/>    
+    <end type="TARGET" refId="36"/>  
+  </realization>  
+  <association id="93">    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="94" name="universe">        
+        <position height="0" width="0" x="19" y="-136"/>      
+      </attribute>      
+      <multiplicity id="95" minimum="0" maximum="1">        
+        <position height="0" width="0" x="19" y="-136"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="96">    
+    <end type="SOURCE" refId="34"/>    
+    <end type="TARGET" refId="25"/>  
+  </realization>  
+  <association id="97">    
+    <end type="SOURCE" refId="33" navigable="false">      
+      <attribute id="98" name="defaultCanvas">        
+        <position height="0" width="0" x="-361" y="271"/>      
+      </attribute>      
+      <multiplicity id="99" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-361" y="271"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="38" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="100">    
+    <bendpoint x="5905" y="902"/>    
+    <end type="SOURCE" refId="33" navigable="false">      
+      <attribute id="101" name="life">        
+        <position height="0" width="0" x="-311" y="-2"/>      
+      </attribute>      
+      <multiplicity id="102" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="-311" y="-2"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="103">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="104" name="moveBlockers">        
+        <position height="0" width="0" x="281" y="-333"/>      
+      </attribute>      
+      <multiplicity id="105" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="281" y="-333"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="35" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="106">    
+    <end type="SOURCE" refId="37" navigable="false">      
+      <attribute id="107" name="speedVector">        
+        <position height="0" width="0" x="228" y="224"/>      
+      </attribute>      
+      <multiplicity id="108" minimum="0" maximum="1">        
+        <position height="0" width="0" x="228" y="224"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="30" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="109">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="110" name="gameEntities">        
+        <position height="0" width="0" x="452" y="11"/>      
+      </attribute>      
+      <multiplicity id="111" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="452" y="11"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="10" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="112">    
+    <end type="SOURCE" refId="26" navigable="false">      
+      <attribute id="113" name="g">        
+        <position height="0" width="0" x="-104" y="-492"/>      
+      </attribute>      
+      <multiplicity id="114" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-104" y="-492"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="115">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="45"/>  
+  </realization>  
+  <realization id="116">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="9"/>  
+  </realization>  
+  <realization id="117">    
+    <end type="SOURCE" refId="39"/>    
+    <end type="TARGET" refId="30"/>  
+  </realization>  
+  <association id="118">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="119" name="overlappablesMovable">        
+        <position height="16" width="117" x="3290" y="718"/>      
+      </attribute>      
+      <multiplicity id="120" minimum="0" maximum="2147483647">        
+        <position height="14" width="21" x="3396" y="657"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="24" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="121">    
+    <end type="SOURCE" refId="40"/>    
+    <end type="TARGET" refId="31"/>  
+  </realization>  
+  <association id="122">    
+    <end type="SOURCE" refId="43" navigable="false">      
+      <attribute id="123" name="overlappable2">        
+        <position height="16" width="78" x="3388" y="694"/>      
+      </attribute>      
+      <multiplicity id="124" minimum="0" maximum="1">        
+        <position height="14" width="23" x="3453" y="644"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="24" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="125">    
+    <end type="SOURCE" refId="26" navigable="false">      
+      <attribute id="126" name="gameBoard">        
+        <position height="0" width="0" x="-259" y="-271"/>      
+      </attribute>      
+      <multiplicity id="127" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-259" y="-271"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="128">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="129" name="moveBlockerRuleApplier">        
+        <position height="0" width="0" x="581" y="-64"/>      
+      </attribute>      
+      <multiplicity id="130" minimum="0" maximum="1">        
+        <position height="0" width="0" x="581" y="-64"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="131">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="31"/>  
+  </realization>  
+  <realization id="132">    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="17"/>  
+  </realization>  
+  <association id="133">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="134" name="movablesTmp">        
+        <position height="16" width="77" x="3284" y="648"/>      
+      </attribute>      
+      <multiplicity id="135" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="24" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="136">    
+    <end type="SOURCE" refId="42"/>    
+    <end type="TARGET" refId="36"/>  
+  </realization>  
+  <association id="137">    
+    <end type="SOURCE" refId="26" navigable="false">      
+      <attribute id="138" name="life">        
+        <position height="0" width="0" x="-311" y="-2"/>      
+      </attribute>      
+      <multiplicity id="139" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="-311" y="-2"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="140">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="141" name="overlapProcessor">        
+        <position height="0" width="0" x="702" y="-398"/>      
+      </attribute>      
+      <multiplicity id="142" minimum="0" maximum="1">        
+        <position height="0" width="0" x="702" y="-398"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="45" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="143">    
+    <end type="SOURCE" refId="34" navigable="false">      
+      <attribute id="144" name="moveDriver">        
+        <position height="0" width="0" x="1311" y="-451"/>      
+      </attribute>      
+      <multiplicity id="145" minimum="0" maximum="1">        
+        <position height="0" width="0" x="1311" y="-451"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="22" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="146">    
+    <end type="SOURCE" refId="26" navigable="false">      
+      <attribute id="147" name="universe">        
+        <position height="0" width="0" x="19" y="-136"/>      
+      </attribute>      
+      <multiplicity id="148" minimum="0" maximum="1">        
+        <position height="0" width="0" x="19" y="-136"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="149">    
+    <end type="SOURCE" refId="27" navigable="false">      
+      <attribute id="150" name="currentMove">        
+        <position height="16" width="72" x="4479" y="757"/>      
+      </attribute>      
+      <multiplicity id="151" minimum="0" maximum="1">        
+        <position height="14" width="23" x="4558" y="761"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="30" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="152">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="153" name="overlappablesNonMovable">        
+        <position height="16" width="137" x="3223" y="669"/>      
+      </attribute>      
+      <multiplicity id="154" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="24" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="155">    
+    <end type="SOURCE" refId="33"/>    
+    <end type="TARGET" refId="5"/>  
+  </realization>  
+  <association id="156">    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="157" name="image">        
+        <position height="0" width="0" x="-357" y="-158"/>      
+      </attribute>      
+      <multiplicity id="158" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-357" y="-158"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="40" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="159">    
+    <end type="SOURCE" refId="32"/>    
+    <end type="TARGET" refId="8"/>  
+  </realization>  
+  <association id="160">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="161" name="moveBlockerChecker">        
+        <position height="0" width="0" x="353" y="-191"/>      
+      </attribute>      
+      <multiplicity id="162" minimum="0" maximum="1">        
+        <position height="0" width="0" x="353" y="-191"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="44" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="163">    
+    <end type="SOURCE" refId="43" navigable="false">      
+      <attribute id="164" name="overlappable1">        
+        <position height="16" width="78" x="3321" y="690"/>      
+      </attribute>      
+      <multiplicity id="165" minimum="0" maximum="1">        
+        <position height="14" width="23" x="3437" y="666"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="24" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="166">    
+    <end type="SOURCE" refId="38" navigable="false">      
+      <attribute id="167" name="drawingGameBoard">        
+        <position height="0" width="0" x="-259" y="-271"/>      
+      </attribute>      
+      <multiplicity id="168" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-259" y="-271"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="169">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="36"/>  
+  </realization>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>
