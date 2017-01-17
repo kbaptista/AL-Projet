@@ -20,13 +20,14 @@ import pacman.entity.TeleportPairOfPoints;
 
 public class CTFOverlapRules extends OverlapRulesApplierDefaultImpl {
 	protected GameUniverse universe;
-	protected Vector<Ghost> vGhosts = new Vector<Ghost>();
+	protected Vector<Army> vGhosts = new Vector<Army>();
 
 	// Time duration during which pacman is invulnerable and during which ghosts
 	// can be eaten (in number of cycles)
 	static final int INVULNERABLE_DURATION = 60;
-	protected Point pacManStartPos;
-	protected Point ghostStartPos;
+	
+	/*protected Point pacManStartPos;
+	protected Point ghostStartPos;*/
 	protected boolean managePacmanDeath;
 	private final ObservableValue<Integer> score;
 	private final ObservableValue<Integer> life;
