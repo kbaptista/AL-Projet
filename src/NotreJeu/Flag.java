@@ -7,19 +7,20 @@ import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Rectangle;
 
+import NotreJeu.FirstStep.Equip;
+
 public class Flag extends Entity {
 	protected DrawableImage image = null;
 	protected Point _position;
 	protected boolean _catched;
+	protected Equip _side;
 	public static final int RENDERING_SIZE = 16;
 
-	public Flag(Canvas defaultCanvas, Point pos, boolean side) {
-		if(side)
-			image = new DrawableImage("images/ctf_green-flag.gif", defaultCanvas);
-		else
-			image = new DrawableImage("images/ctf_yellow-flag.gif", defaultCanvas);
+	public Flag(Canvas defaultCanvas, Point pos, Equip side) {
+		image = new DrawableImage(side.getPicture(), defaultCanvas);
 		_position = pos;
 		_catched = false;
+		_side=side;
 	}
 
 	public Point getPosition() {

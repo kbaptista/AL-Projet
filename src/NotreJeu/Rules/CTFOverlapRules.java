@@ -11,6 +11,9 @@ import gameframework.moves_rules.OverlapRulesApplierDefaultImpl;
 import java.awt.Point;
 import java.util.Vector;
 
+import NotreJeu.Army;
+import NotreJeu.Flag;
+import NotreJeu.IndestructibleWall;
 import pacman.entity.Ghost;
 import pacman.entity.Jail;
 import pacman.entity.Pacgum;
@@ -20,7 +23,7 @@ import pacman.entity.TeleportPairOfPoints;
 
 public class CTFOverlapRules extends OverlapRulesApplierDefaultImpl {
 	protected GameUniverse universe;
-	protected Vector<Army> vGhosts = new Vector<Army>();
+	protected Vector<Army> vArmys = new Vector<Army>();
 
 	// Time duration during which pacman is invulnerable and during which ghosts
 	// can be eaten (in number of cycles)
@@ -32,14 +35,11 @@ public class CTFOverlapRules extends OverlapRulesApplierDefaultImpl {
 	private final ObservableValue<Integer> score;
 	private final ObservableValue<Integer> life;
 	private final ObservableValue<Boolean> endOfGame;
-	private int totalNbGums = 0;
-	private int nbEatenGums = 0;
+	//private int totalNbGums = 0;
+	//private int nbEatenGums = 0;
 
-	public CTFOverlapRules(Point pacPos, Point gPos,
-			ObservableValue<Integer> life, ObservableValue<Integer> score,
+	public CTFOverlapRules(ObservableValue<Integer> life, ObservableValue<Integer> score,
 			ObservableValue<Boolean> endOfGame) {
-		pacManStartPos = (Point) pacPos.clone();
-		ghostStartPos = (Point) gPos.clone();
 		this.life = life;
 		this.score = score;
 		this.endOfGame = endOfGame;
@@ -48,23 +48,24 @@ public class CTFOverlapRules extends OverlapRulesApplierDefaultImpl {
 	public void setUniverse(GameUniverse universe) {
 		this.universe = universe;
 	}
-
-	public void setTotalNbGums(int totalNbGums) {
+/*
+	public void setTotalNbFlags(int totalNbGums) {
 		this.totalNbGums = totalNbGums;
 	}
-
-	public void addGhost(Ghost g) {
-		vGhosts.addElement(g);
+*/
+	public void addArmy(Army g) {
+		vArmys.addElement(g);
 	}
 
+	//TODO : comprendre
 	@Override
 	public void applyOverlapRules(Vector<Overlap> overlappables) {
 		managePacmanDeath = true;
 		super.applyOverlapRules(overlappables);
 	}
 
-	public void overlapRule(Pacman p, Ghost g) {
-		if (!p.isVulnerable()) {
+	public void overlapRule(Army a, Army a2) {
+		/*if (!p.isVulnerable()) {
 			if (g.isActive()) {
 				g.setAlive(false);
 				MoveStrategyStraightLine strat = new MoveStrategyStraightLine(
@@ -85,13 +86,13 @@ public class CTFOverlapRules extends OverlapRulesApplierDefaultImpl {
 					managePacmanDeath = false;
 				}
 			}
-		}
+		}*/
 	}
+/*
+	public void overlapRule(Army a, IndestructibleWall w) {
+	}*/
 
-	public void overlapRule(Ghost g, SuperPacgum spg) {
-	}
-
-	public void overlapRule(Ghost g, Pacgum spg) {
+	public void overlapRule(Army a, Flag f) {
 	}
 
 	public void overlapRule(Ghost g, TeleportPairOfPoints teleport) {
@@ -109,7 +110,7 @@ public class CTFOverlapRules extends OverlapRulesApplierDefaultImpl {
 			GameMovableDriverDefaultImpl ghostDriv = (GameMovableDriverDefaultImpl) g
 					.getDriver();
 			ghostDriv.setStrategy(strat);
-			g.setPosition(ghostStartPos);
+			//g.setPosition(ghostStartPos);
 		}
 	}
 
@@ -118,9 +119,9 @@ public class CTFOverlapRules extends OverlapRulesApplierDefaultImpl {
 		universe.removeGameEntity(spg);
 		pacgumEatenHandler();
 		p.setInvulnerable(INVULNERABLE_DURATION);
-		for (Ghost ghost : vGhosts) {
+		/*for (Ghost ghost : vGhosts) {
 			ghost.setAfraid(INVULNERABLE_DURATION);
-		}
+		}*/
 	}
 
 	public void overlapRule(Pacman p, Pacgum pg) {
@@ -130,9 +131,9 @@ public class CTFOverlapRules extends OverlapRulesApplierDefaultImpl {
 	}
 
 	private void pacgumEatenHandler() {
-		nbEatenGums++;
-		if (nbEatenGums >= totalNbGums) {
-			endOfGame.setValue(true);
-		}
+		//nbEatenGums++;
+		//if (nbEatenGums >= totalNbGums) {
+		//	endOfGame.setValue(true);
+		//}
 	}
 }
