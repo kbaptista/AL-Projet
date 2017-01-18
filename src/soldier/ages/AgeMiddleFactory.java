@@ -1,11 +1,12 @@
 /**
  * D. Auber & P. Narbel
- * Solution TD Architecture Logicielle 2016 Université Bordeaux.
+ * Solution TD Architecture Logicielle 2016 Universitï¿½ Bordeaux.
  */
 package soldier.ages;
 
 import soldier.core.AgeAbstractFactory;
 import soldier.core.Unit;
+import soldier.core.UnitGroup;
 import soldier.core.Weapon;
 import soldier.units.UnitCenturion;
 import soldier.units.UnitHorseMan;
@@ -24,6 +25,12 @@ public class AgeMiddleFactory implements AgeAbstractFactory {
 		return new UnitHorseMan(name);
 	}
 
+	//ADDED
+	@Override
+	public Unit groupUnit(String name) {
+		return new UnitGroup(name);
+	}
+	
 	@Override
 	public Weapon attackWeapon() {
 		return new WeaponSword();

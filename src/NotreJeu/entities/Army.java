@@ -5,7 +5,6 @@ import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Rectangle;
 
-import gameframework.core.Movable;
 import gameframework.core.SpriteManagerDefaultImpl;
 import soldier.core.Unit;
 
@@ -14,21 +13,21 @@ public class Army extends EntityMovable {
 	public static final int RENDERING_SIZE = 16;
 	private SpriteManagerDefaultImpl spriteManager;
 	
-	private boolean hasTheFlag;
-	private boolean movable ;
-	private Unit unit;
-	private int side;
+	private boolean _hasTheFlag;
+	private boolean _movable ;
+	private Unit _unit;
+	private int _side;
 	
 	public Army(Canvas defaultCanvas, Unit unit, int side) {
 		// TODO Auto-generated constructor stub
-		this.side=side;
-		this.unit=unit;
-		movable = true;
+		this._side=side;
+		this._unit=unit;
+		_movable = true;
 		spriteManager = new SpriteManagerDefaultImpl("images/ctf_horseman.gif",defaultCanvas, RENDERING_SIZE, 6);
 	}
 	
 	public void CaptureTheFlag(){
-		hasTheFlag=true;
+		_hasTheFlag=true;
 	}
 	
 	@Override
@@ -36,7 +35,7 @@ public class Army extends EntityMovable {
 		// TODO Auto-generated method stub
 		String spriteType = "";
 		Point tmp = getSpeedVector().getDirection();
-		movable = true;
+		_movable = true;
 
 		spriteType = "right";
 

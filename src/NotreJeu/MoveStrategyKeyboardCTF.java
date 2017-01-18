@@ -36,11 +36,11 @@ public class MoveStrategyKeyboardCTF extends MoveStrategyKeyboard {
 			speedVector.setDirection(new Point(0, 1));
 			break;
 			//TODO: chercher comment receptionner cet event sans passer par MoveStrategy
-		case KeyEvent.VK_F1:
-			//TODO: créer infantry
-			break;
-		case KeyEvent.VK_F2:
-			//TODO: crer cheval
+		case KeyEvent.VK_F1: //créer infantry
+			//_barrack.createArmy(1);
+			break;			
+		case KeyEvent.VK_F2: //créer cheval	
+			//_barrack.createArmy(2);
 			break;
 		}
 	}

@@ -52,7 +52,7 @@ public class FirstStep extends GameLevelDefaultImpl{
 		} 
 
 	};
-
+/* UNUSED
 	public enum Element{
 		NOTHING(0), WALL(1), FLAG(2), BUILDING(3), ARMY(4);
 		private int value;
@@ -65,7 +65,7 @@ public class FirstStep extends GameLevelDefaultImpl{
 			return this.value;
 		}
 	}
-
+*/
 	Canvas canvas;
 
 	//our specific Environment

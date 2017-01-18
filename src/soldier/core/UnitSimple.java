@@ -1,6 +1,6 @@
 /**
  * D. Auber & P. Narbel
- * Solution TD Architecture Logicielle 2016 Université Bordeaux.
+ * Solution TD Architecture Logicielle 2016 Universitï¿½ Bordeaux.
  */
 package soldier.core;
 
@@ -68,8 +68,7 @@ public abstract class UnitSimple extends ObservableAbstract<Unit>
 			current = ((BehaviorExtension) current).parent();
 		}
 		if (((BehaviorExtension) current).getOwner() == w) {
-			((BehaviorExtension) previous)
-					.reparent(((BehaviorExtension) previous).parent());
+			((BehaviorExtension) previous).reparent(((BehaviorExtension) previous).parent());
 		}
 	}
 

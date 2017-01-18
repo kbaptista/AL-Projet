@@ -1,6 +1,6 @@
 /**
  * D. Auber & P. Narbel
- * Solution TD Architecture Logicielle 2016 Université Bordeaux.
+ * Solution TD Architecture Logicielle 2016 Universitï¿½ Bordeaux.
  */
 package soldier.core;
 
@@ -9,6 +9,9 @@ public interface AgeAbstractFactory {
 
 	Unit riderUnit(String name);
 
+	//ADDED
+	Unit groupUnit(String name);
+	
 	Weapon attackWeapon();
 
 	Weapon defenseWeapon();
