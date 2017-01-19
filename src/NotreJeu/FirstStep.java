@@ -52,20 +52,7 @@ public class FirstStep extends GameLevelDefaultImpl{
 		} 
 
 	};
-/* UNUSED
-	public enum Element{
-		NOTHING(0), WALL(1), FLAG(2), BUILDING(3), ARMY(4);
-		private int value;
 
-		private Element(int value){
-			this.value = value;
-		}
-
-		public int getValue(){
-			return this.value;
-		}
-	}
-*/
 	Canvas _canvas;
 
 	//our specific Environment
@@ -141,7 +128,6 @@ public class FirstStep extends GameLevelDefaultImpl{
 
 		OverlapProcessor overlapProcessor = new OverlapProcessorDefaultImpl();
 
-		//unused now
 		MoveBlockerChecker moveBlockerChecker = new MoveBlockerCheckerDefaultImpl();
 		moveBlockerChecker.setMoveBlockerRules(new PacmanMoveBlockers());
 
