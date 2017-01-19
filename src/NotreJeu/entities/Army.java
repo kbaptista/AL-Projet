@@ -28,7 +28,7 @@ public class Army extends EntityMovable {
 		_spriteManager = new SpriteManagerDefaultImpl("images/ctf_horseman.gif",canvas, RENDERING_SIZE, 6);
 	}
 	
-	public void CaptureTheFlag(){
+	public void captureTheFlag(){
 		_hasTheFlag = true;
 	}
 	
