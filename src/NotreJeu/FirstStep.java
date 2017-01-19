@@ -105,8 +105,6 @@ public class FirstStep extends GameLevelDefaultImpl{
 		{ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 },
 		{ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 },
 		{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 } };*/
-
-	private ArmyFactory _armyfactory;
 	
 	public static final int SPRITE_SIZE = 32;
 
@@ -135,13 +133,6 @@ public class FirstStep extends GameLevelDefaultImpl{
 		tab[0+4][_height/2] = 3;
 		tab[_width-5][_height/2] = 3;
 		
-		/*
-		for (int i = 0; i < tab.length; i++) {
-			for (int j = 0; j < tab.length; j++) {
-				System.out.print(tab[i][j]+" ");
-			}
-			System.out.println();
-		}*/
 		return tab;
 	}
 
@@ -180,9 +171,6 @@ public class FirstStep extends GameLevelDefaultImpl{
 				case 3:
 					universe.addGameEntity(new Barrack(_canvas, j * SPRITE_SIZE, i * SPRITE_SIZE));
 					break;
-				case 4:
-					//universe.addGameEntity(new Army());// TODO
-					break;
 				case 0:
 				default:
 					break;
@@ -196,6 +184,5 @@ public class FirstStep extends GameLevelDefaultImpl{
 		_width = size;
 		_height = size;
 		_canvas = g.getCanvas();
-		_armyfactory = new ArmyFactory();
 	}
 }

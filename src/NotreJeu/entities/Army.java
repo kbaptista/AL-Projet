@@ -5,29 +5,43 @@ import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Rectangle;
 
+import NotreJeu.FirstStep.Equip;
 import gameframework.core.SpriteManagerDefaultImpl;
 import soldier.core.Unit;
 
 public class Army extends EntityMovable {
 
 	public static final int RENDERING_SIZE = 16;
-	private SpriteManagerDefaultImpl spriteManager;
+	private SpriteManagerDefaultImpl _spriteManager;
 	
 	private boolean _hasTheFlag;
-	private boolean _movable ;
+	private boolean _movable;
 	private Unit _unit;
-	private int _side;
+	private Equip _side;
 	
-	public Army(Canvas canvas, Unit unit, int side) {
+	public Army(Canvas canvas, Unit unit, Equip side) {
 		// TODO Auto-generated constructor stub
-		this._side=side;
-		this._unit=unit;
+		_side = side;
+		_unit = unit;
 		_movable = true;
-		spriteManager = new SpriteManagerDefaultImpl("images/ctf_horseman.gif",canvas, RENDERING_SIZE, 6);
+		_hasTheFlag = false;
+		_spriteManager = new SpriteManagerDefaultImpl("images/ctf_horseman.gif",canvas, RENDERING_SIZE, 6);
 	}
 	
 	public void CaptureTheFlag(){
-		_hasTheFlag=true;
+		_hasTheFlag = true;
+	}
+	
+	public boolean haveAFlag(){
+		return _hasTheFlag;
+	}
+	
+	public Equip getSide(){
+		return _side;
+	}
+	
+	public Unit getSoldiers(){
+		return _unit;
 	}
 	
 	@Override
@@ -49,8 +63,8 @@ public class Army extends EntityMovable {
 			spriteType += "right";
 		}
 
-		spriteManager.setType(spriteType);
-		spriteManager.draw(g, getPosition());
+		_spriteManager.setType(spriteType);
+		_spriteManager.draw(g, getPosition());
 	}
 
 	@Override
@@ -60,7 +74,7 @@ public class Army extends EntityMovable {
 
 	@Override
 	public void oneStepMoveAddedBehavior() {
-		spriteManager.increment();
+		_spriteManager.increment();
 	}
 
 }

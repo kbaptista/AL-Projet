@@ -7,7 +7,6 @@ import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Rectangle;
 
-import NotreJeu.FirstStep;
 import NotreJeu.FirstStep.Equip;
 
 public class Flag implements Entity {
@@ -27,7 +26,23 @@ public class Flag implements Entity {
 	public Point getPosition() {
 		return _position;
 	}
+	
+	/*
+	 * if this flag is already catched, you can't catch it.
+	 * return : true (you take it), false (already catched)
+	*/
+	public boolean alreadyCatched(){
+		return _catched?false:true;
+	}
+	
+	public void catchTheFlag(){
+		_catched = true;
+	}
 
+	public Equip getSide(){
+		return _side;
+	}
+	
 	public void draw(Graphics g) {
 		if(!_catched)
 			g.drawImage(image.getImage(), (int) getPosition().getX(),
