@@ -5,6 +5,8 @@ import gameframework.core.Game;
 import gameframework.core.GameLevel;
 import gameframework.core.GameLevelDefaultImpl;
 import gameframework.core.ObservableValue;
+import soldier.ages.AgeMiddleFactory;
+import soldier.core.AgeAbstractFactory;
 
 import java.awt.BorderLayout;
 import java.awt.Button;
@@ -22,14 +24,23 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.FileInputStream;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.Set;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+
+import com.sun.javafx.geom.transform.GeneralTransform3D;
+
+import NotreJeu.FirstStep.Equip;
 
 /**
  * Create a basic game application with menus and displays of lives and score
@@ -50,9 +61,12 @@ public class GameCTFImpl implements Game, Observer {
 
 	private Frame f;
 
-	private GameLevelDefaultImpl currentPlayedLevel = null;
+	private FirstStep currentPlayedLevel = null;
 	protected int levelNumber;
 	protected ArrayList<GameLevel> gameLevels;
+	
+	private ArmyFactory armyFactory;
+	private AgeAbstractFactory ageFactory;
 
 	protected Label lifeText, scoreText;
 	protected Label information;
@@ -61,6 +75,7 @@ public class GameCTFImpl implements Game, Observer {
 	protected Label currentLevel;
 	protected Label currentLevelValue;
 
+	
 	public GameCTFImpl(int nb_columns, int nb_rows) {
 		NB_COLUMNS = nb_columns;
 		NB_ROWS = nb_rows;
@@ -74,6 +89,8 @@ public class GameCTFImpl implements Game, Observer {
 		information = new Label("State:");
 		informationValue = new Label("Playing");
 		currentLevel = new Label("Level:");
+		armyFactory = new ArmyFactory();
+		ageFactory = new AgeMiddleFactory();
 		createGUI();
 	}
 
@@ -89,6 +106,7 @@ public class GameCTFImpl implements Game, Observer {
 		defaultCanvas.setSize(SPRITE_SIZE * NB_COLUMNS, SPRITE_SIZE * NB_ROWS);
 		f.add(defaultCanvas);
 		f.add(c, BorderLayout.NORTH);
+		f.add(buttonsPanel, BorderLayout.NORTH);
 		f.pack();
 		f.setVisible(true);
 
@@ -171,22 +189,86 @@ public class GameCTFImpl implements Game, Observer {
 		return c;
 	}
 	
+	class AddSoldierButton implements ActionListener{
+		private int nb_soldier = 0;
+		private JButton button;
+		private String type ;
+		
+		public AddSoldierButton(JButton but, String type) {
+			button = but;
+			this.type = type;
+		}
+		
+		public String getType(){return type;}
+		public int getValue(){return nb_soldier;}
+		public void setValue(int i){
+			nb_soldier=i;
+			button.setText(String.valueOf(nb_soldier));
+		}
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			nb_soldier++;
+			button.setText(String.valueOf(nb_soldier));
+		}
+	}
+	
+	class ReleaseArmyButtonAction implements ActionListener{
+		
+		private Set<AddSoldierButton> instanciateButtons;
+		
+		public ReleaseArmyButtonAction() {
+			instanciateButtons = new HashSet<AddSoldierButton>();
+		}
+		
+		public void addAddSoldierButton(AddSoldierButton but){instanciateButtons.add(but);}
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			int nb_infantryman = 0 ;
+			int nb_horseman = 0 ;
+			for(AddSoldierButton but : instanciateButtons){
+				if(but.getType().matches("horseman")){nb_horseman = but.getValue();}
+				if(but.getType().matches("infantryman")){nb_infantryman = but.getValue();}
+				but.setValue(0);
+			}
+			currentPlayedLevel.addArmy(armyFactory.getArmy(defaultCanvas, ageFactory, nb_horseman, nb_infantryman, Equip.RED, "Player"+String.valueOf(Equip.RED)), defaultCanvas);
+		}
+	}
+	
+	private JButton createButton(String name){
+		JButton res = new JButton();
+		try {
+			Image img = ImageIO.read(new FileInputStream("images/"+name+"_icon.png"));
+			res.setIcon(new ImageIcon(img));
+		} catch (Exception ex) {System.out.println(ex);}
+		res.setVerticalTextPosition(SwingConstants.BOTTOM);
+		res.setHorizontalTextPosition(SwingConstants.RIGHT);
+		
+		return res;
+	}
+	
 	private Panel createButtonsPanel(){
 		Panel res = new Panel();
 		
-		JButton horseman_button = new JButton();
-		try {
-			Image img = ImageIO.read(getClass().getResource("images/horseman_icon.png"));
-			horseman_button.setIcon(new ImageIcon(img));
-		} catch (Exception ex) {System.out.println(ex);}
-		res.add(horseman_button);
+		final JButton infantryman_button = createButton("infantryman");
+		final JButton horseman_button = createButton("horseman");
+		final JButton release_button = createButton("release");
 		
-		JButton infantryman_button = new JButton();
-		try {
-			Image img = ImageIO.read(getClass().getResource("images/infantryman_icon.png"));
-			infantryman_button.setIcon(new ImageIcon(img));
-		} catch (Exception ex) {System.out.println(ex);}
+		AddSoldierButton infantryman_button_action = new AddSoldierButton(infantryman_button, "infantryman");
+		AddSoldierButton horseman_button_action = new AddSoldierButton(horseman_button, "horseman");
+		ReleaseArmyButtonAction release_button_action = new ReleaseArmyButtonAction();
+
+		infantryman_button.addActionListener(infantryman_button_action);
+		horseman_button.addActionListener(horseman_button_action);
+		
+		release_button_action.addAddSoldierButton(infantryman_button_action);
+		release_button_action.addAddSoldierButton(horseman_button_action);
+		release_button.addActionListener(release_button_action);
+		
 		res.add(infantryman_button);
+		res.add(horseman_button);
+		res.add(release_button);
 		
 		return res ;
 	}
@@ -211,7 +293,7 @@ public class GameCTFImpl implements Game, Observer {
 					currentPlayedLevel.interrupt();
 					currentPlayedLevel = null;
 				}
-				currentPlayedLevel = (GameLevelDefaultImpl) level;
+				currentPlayedLevel = (FirstStep) level;
 				levelNumber++;
 				currentLevelValue.setText(Integer.toString(levelNumber));
 				currentPlayedLevel.start();

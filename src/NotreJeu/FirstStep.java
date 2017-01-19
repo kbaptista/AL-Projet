@@ -3,31 +3,46 @@ package NotreJeu;
 import gameframework.core.CanvasDefaultImpl;
 import gameframework.core.Game;
 import gameframework.core.GameLevelDefaultImpl;
+import gameframework.core.GameMovableDriverDefaultImpl;
 import gameframework.core.GameUniverseDefaultImpl;
 import gameframework.moves_rules.MoveBlockerChecker;
 import gameframework.moves_rules.MoveBlockerCheckerDefaultImpl;
+import gameframework.moves_rules.MoveStrategyKeyboard;
 import gameframework.moves_rules.OverlapProcessor;
 import gameframework.moves_rules.OverlapProcessorDefaultImpl;
 
 import java.awt.Canvas;
 import java.awt.Point;
 
+import NotreJeu.entities.Army;
 import NotreJeu.entities.Barrack;
 import NotreJeu.entities.Flag;
 import NotreJeu.entities.IndestructibleWall;
+import NotreJeu.rules.CTFMoveBlockers;
 import NotreJeu.rules.CTFOverlapRules;
 import pacman.rule.PacmanMoveBlockers;
 
 public class FirstStep extends GameLevelDefaultImpl{
 
-	public enum Equip{
+	public enum Equip{//TODO change to class
 		YELLOW(0), GREEN(1), BLUE(2), VIOLET(3), RED(4), ORANGE(5);
 		private int value;
+		private Point position;
 
+		
 		private Equip(int value){
 			this.value = value;
+			position=new Point(2*SPRITE_SIZE, 2*SPRITE_SIZE);
 		}
 
+		public void setPosition(Point p) {
+			position=(Point) p.clone();
+		}
+		
+		public Point getPosition(){
+			return position;
+		}
+		
 		public int getValue(){
 			return this.value;
 		}
@@ -60,6 +75,8 @@ public class FirstStep extends GameLevelDefaultImpl{
 	public int _width = 31;
 	public int _height = 31;
 	public int[][] _tab = generate_tab(); 
+	public MoveBlockerChecker moveBlockerChecker;
+	
 	/*{ 
 		{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
 		{ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 },
@@ -128,8 +145,8 @@ public class FirstStep extends GameLevelDefaultImpl{
 
 		OverlapProcessor overlapProcessor = new OverlapProcessorDefaultImpl();
 
-		MoveBlockerChecker moveBlockerChecker = new MoveBlockerCheckerDefaultImpl();
-		moveBlockerChecker.setMoveBlockerRules(new PacmanMoveBlockers());
+		moveBlockerChecker = new MoveBlockerCheckerDefaultImpl();
+		moveBlockerChecker.setMoveBlockerRules(new CTFMoveBlockers());
 
 		CTFOverlapRules overlapRules = new CTFOverlapRules(life[0], score[0], endOfGame);
 		overlapProcessor.setOverlapRules(overlapRules);
@@ -152,6 +169,7 @@ public class FirstStep extends GameLevelDefaultImpl{
 					break;
 				case 2:
 					boolean side = j < (_width/2);
+					if(side){Equip.RED.setPosition(new Point(i,j));}else{Equip.BLUE.setPosition(new Point(i,j));}
 					universe.addGameEntity(new Flag(_canvas, new Point(j * SPRITE_SIZE, i * SPRITE_SIZE), side?Equip.RED:Equip.BLUE));
 					break;
 				case 3:
@@ -165,6 +183,17 @@ public class FirstStep extends GameLevelDefaultImpl{
 		}
 	}
 
+	public void addArmy(Army army, Canvas canvas){
+		GameMovableDriverDefaultImpl armyDriver = new GameMovableDriverDefaultImpl();
+		MoveStrategyKeyboard keyPlayer = new MoveStrategyKeyboard(); //TODO check utilité MSKCTF
+		armyDriver.setStrategy(keyPlayer);
+		armyDriver.setmoveBlockerChecker(moveBlockerChecker);
+		canvas.addKeyListener(keyPlayer);
+		army.setDriver(armyDriver);
+		army.setPosition(army.getSide().getPosition());
+		universe.addGameEntity(army);
+	}
+	
 	public FirstStep(Game g, int size) {
 		super(g);
 		_width = size;

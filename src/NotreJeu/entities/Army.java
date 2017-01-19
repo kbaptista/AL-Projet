@@ -11,7 +11,7 @@ import soldier.core.Unit;
 
 public class Army extends EntityMovable {
 
-	public static final int RENDERING_SIZE = 16;
+	public static final int RENDERING_SIZE = 32;
 	private SpriteManagerDefaultImpl _spriteManager;
 	
 	private boolean _hasTheFlag;
@@ -26,6 +26,10 @@ public class Army extends EntityMovable {
 		_movable = true;
 		_hasTheFlag = false;
 		_spriteManager = new SpriteManagerDefaultImpl("images/ctf_horseman.gif",canvas, RENDERING_SIZE, 6);
+		_spriteManager.setTypes(//
+				"right", "left", "up",
+				"down");
+		
 	}
 	
 	public void captureTheFlag(){
@@ -50,8 +54,6 @@ public class Army extends EntityMovable {
 		String spriteType = "";
 		Point tmp = getSpeedVector().getDirection();
 		_movable = true;
-
-		spriteType = "right";
 
 		if (tmp.getX() == -1) {
 			spriteType += "left";

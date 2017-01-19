@@ -1,13 +1,14 @@
 package NotreJeu.entities;
 
 import gameframework.core.DrawableImage;
+import gameframework.moves_rules.MoveBlocker;
 
 import java.awt.Canvas;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Rectangle;
 
-public class IndestructibleWall implements Entity {
+public class IndestructibleWall implements Entity, MoveBlocker {
 	protected static DrawableImage image = null;
 	int x, y;
 	public static final int RENDERING_SIZE = 32;
