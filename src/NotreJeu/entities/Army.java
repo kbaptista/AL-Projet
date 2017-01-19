@@ -18,12 +18,12 @@ public class Army extends EntityMovable {
 	private Unit _unit;
 	private int _side;
 	
-	public Army(Canvas defaultCanvas, Unit unit, int side) {
+	public Army(Canvas canvas, Unit unit, int side) {
 		// TODO Auto-generated constructor stub
 		this._side=side;
 		this._unit=unit;
 		_movable = true;
-		spriteManager = new SpriteManagerDefaultImpl("images/ctf_horseman.gif",defaultCanvas, RENDERING_SIZE, 6);
+		spriteManager = new SpriteManagerDefaultImpl("images/ctf_horseman.gif",canvas, RENDERING_SIZE, 6);
 	}
 	
 	public void CaptureTheFlag(){

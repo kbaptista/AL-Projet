@@ -24,13 +24,13 @@ public class AgeFutureFactory implements AgeAbstractFactory {
 	public Unit riderUnit(String name) {
 		return new UnitBikerMan(name);
 	}
-
+/*
 	//ADDED
 	@Override
 	public Unit groupUnit(String name) {
 		return new UnitGroup(name);
 	}
-	
+	*/
 	@Override
 	public Weapon attackWeapon() {
 		return new WeaponGun();

@@ -8,10 +8,10 @@ public interface AgeAbstractFactory {
 	Unit infantryUnit(String name);
 
 	Unit riderUnit(String name);
-
+/*
 	//ADDED
 	Unit groupUnit(String name);
-	
+	*/
 	Weapon attackWeapon();
 
 	Weapon defenseWeapon();

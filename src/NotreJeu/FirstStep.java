@@ -66,13 +66,13 @@ public class FirstStep extends GameLevelDefaultImpl{
 		}
 	}
 */
-	Canvas canvas;
+	Canvas _canvas;
 
 	//our specific Environment
-	public String background = "images/ctf_grass.png";
-	int width = 31;
-	int height = 31;
-	int[][] tab = generate_tab(); 
+	public String _background = "images/ctf_grass.png";
+	public int _width = 31;
+	public int _height = 31;
+	public int[][] _tab = generate_tab(); 
 	/*{ 
 		{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
 		{ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 },
@@ -106,32 +106,34 @@ public class FirstStep extends GameLevelDefaultImpl{
 		{ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 },
 		{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 } };*/
 
+	private ArmyFactory _armyfactory;
+	
 	public static final int SPRITE_SIZE = 32;
 
 	private int[][] generate_tab(){
-		int[][] tab = new int[width][height];
+		int[][] tab = new int[_width][_height];
 		// -- empty spaces 
-		for (int i = 1; i < height-1; i++) {
-			for (int j = 1; j < width-1; j++) {
+		for (int i = 1; i < _height-1; i++) {
+			for (int j = 1; j < _width-1; j++) {
 				tab[j][i]=0; 
 			}
 		}
 		// -- frame
-		for (int i = 0; i < height; i++) {
+		for (int i = 0; i < _height; i++) {
 			tab[0][i]=1;
-			tab[width-1][i]=1;
+			tab[_width-1][i]=1;
 		}
-		for (int j = 0; j < width; j++) {
+		for (int j = 0; j < _width; j++) {
 			tab[j][0]=1;
-			tab[j][height-1]=1;
+			tab[j][_height-1]=1;
 		}
 		// -- flags
-		tab[0+2][height/2] = 2;
-		tab[width-3][height/2] = 2;
+		tab[0+2][_height/2] = 2;
+		tab[_width-3][_height/2] = 2;
 		
 		// -- buildings
-		tab[0+4][height/2] = 3;
-		tab[width-5][height/2] = 3;
+		tab[0+4][_height/2] = 3;
+		tab[_width-5][_height/2] = 3;
 		
 		/*
 		for (int i = 0; i < tab.length; i++) {
@@ -158,25 +160,25 @@ public class FirstStep extends GameLevelDefaultImpl{
 		universe = new GameUniverseDefaultImpl(moveBlockerChecker, overlapProcessor);
 		overlapRules.setUniverse(universe);
 
-		gameBoard = new GameUniverseViewPortCTFImpl(canvas, universe, SPRITE_SIZE, width);
-		((GameUniverseViewPortCTFImpl)gameBoard).setBackground(background, SPRITE_SIZE, width);
+		gameBoard = new GameUniverseViewPortCTFImpl(_canvas, universe, SPRITE_SIZE, _width);
+		((GameUniverseViewPortCTFImpl)gameBoard).setBackground(_background, SPRITE_SIZE, _width);
 
 
-		((CanvasDefaultImpl) canvas).setDrawingGameBoard(gameBoard);
+		((CanvasDefaultImpl) _canvas).setDrawingGameBoard(gameBoard);
 
 		// Filling up the universe with basic non movable entities and inclusion in the universe
-		for (int i = 0; i < height; ++i) {
-			for (int j = 0; j < width; ++j) {
-				switch(tab[i][j]){
+		for (int i = 0; i < _height; ++i) {
+			for (int j = 0; j < _width; ++j) {
+				switch(_tab[i][j]){
 				case 1:
-					universe.addGameEntity(new IndestructibleWall(canvas, j * SPRITE_SIZE, i * SPRITE_SIZE));;
+					universe.addGameEntity(new IndestructibleWall(_canvas, j * SPRITE_SIZE, i * SPRITE_SIZE));;
 					break;
 				case 2:
-					boolean side = j < (width/2);
-					universe.addGameEntity(new Flag(canvas, new Point(j * SPRITE_SIZE, i * SPRITE_SIZE), side?Equip.RED:Equip.BLUE));
+					boolean side = j < (_width/2);
+					universe.addGameEntity(new Flag(_canvas, new Point(j * SPRITE_SIZE, i * SPRITE_SIZE), side?Equip.RED:Equip.BLUE));
 					break;
 				case 3:
-					universe.addGameEntity(new Barrack(canvas, j * SPRITE_SIZE, i * SPRITE_SIZE));
+					universe.addGameEntity(new Barrack(_canvas, j * SPRITE_SIZE, i * SPRITE_SIZE));
 					break;
 				case 4:
 					//universe.addGameEntity(new Army());// TODO
@@ -191,8 +193,9 @@ public class FirstStep extends GameLevelDefaultImpl{
 
 	public FirstStep(Game g, int size) {
 		super(g);
-		width = size;
-		height = size;
-		canvas = g.getCanvas();
+		_width = size;
+		_height = size;
+		_canvas = g.getCanvas();
+		_armyfactory = new ArmyFactory();
 	}
 }

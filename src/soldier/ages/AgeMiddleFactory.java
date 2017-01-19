@@ -24,13 +24,13 @@ public class AgeMiddleFactory implements AgeAbstractFactory {
 	public Unit riderUnit(String name) {
 		return new UnitHorseMan(name);
 	}
-
+/*
 	//ADDED
 	@Override
 	public Unit groupUnit(String name) {
 		return new UnitGroup(name);
 	}
-	
+	*/
 	@Override
 	public Weapon attackWeapon() {
 		return new WeaponSword();
