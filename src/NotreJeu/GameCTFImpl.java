@@ -7,14 +7,17 @@ import gameframework.core.GameLevelDefaultImpl;
 import gameframework.core.ObservableValue;
 
 import java.awt.BorderLayout;
+import java.awt.Button;
 import java.awt.Canvas;
 import java.awt.Container;
 import java.awt.Frame;
 import java.awt.GridBagLayout;
+import java.awt.Image;
 import java.awt.Label;
 import java.awt.Menu;
 import java.awt.MenuBar;
 import java.awt.MenuItem;
+import java.awt.Panel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
@@ -23,6 +26,9 @@ import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JPanel;
 
 /**
@@ -77,6 +83,7 @@ public class GameCTFImpl implements Game, Observer {
 
 		createMenuBar();
 		Container c = createStatusBar();
+		Panel buttonsPanel = createButtonsPanel();
 
 		defaultCanvas = new CanvasDefaultImpl();
 		defaultCanvas.setSize(SPRITE_SIZE * NB_COLUMNS, SPRITE_SIZE * NB_ROWS);
@@ -162,6 +169,26 @@ public class GameCTFImpl implements Game, Observer {
 		c.add(information);
 		c.add(informationValue);
 		return c;
+	}
+	
+	private Panel createButtonsPanel(){
+		Panel res = new Panel();
+		
+		JButton horseman_button = new JButton();
+		try {
+			Image img = ImageIO.read(getClass().getResource("images/horseman_icon.png"));
+			horseman_button.setIcon(new ImageIcon(img));
+		} catch (Exception ex) {System.out.println(ex);}
+		res.add(horseman_button);
+		
+		JButton infantryman_button = new JButton();
+		try {
+			Image img = ImageIO.read(getClass().getResource("images/infantryman_icon.png"));
+			infantryman_button.setIcon(new ImageIcon(img));
+		} catch (Exception ex) {System.out.println(ex);}
+		res.add(infantryman_button);
+		
+		return res ;
 	}
 
 	public Canvas getCanvas() {
