@@ -192,56 +192,6 @@ public class GameCTFImpl implements Game, Observer {
 		return res;
 	}
 	
-	class AddSoldierButtonAction implements ActionListener{
-		private int nb_soldier = 0;
-		private JButton button;
-		private String type ;
-		
-		public AddSoldierButtonAction(JButton but, String type) {
-			button = but;
-			this.type = type;
-		}
-		
-		public String getType(){return type;}
-		public int getValue(){return nb_soldier;}
-		public void setValue(int i){
-			nb_soldier=i;
-			button.setText(String.valueOf(nb_soldier));
-		}
-		
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			nb_soldier++;
-			button.setText(String.valueOf(nb_soldier));
-		}
-	}
-	
-	class ReleaseArmyButtonAction implements ActionListener{
-		
-		private Set<AddSoldierButtonAction> instanciateButtons;
-		
-		public ReleaseArmyButtonAction() {
-			instanciateButtons = new HashSet<AddSoldierButtonAction>();
-		}
-		
-		public void addAddSoldierButton(AddSoldierButtonAction but){instanciateButtons.add(but);}
-		
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			if(true){//TODO : vérifier si le joueur possède une équipe
-
-				int nb_infantryman = 0 ;
-				int nb_horseman = 0 ;
-				for(AddSoldierButtonAction but : instanciateButtons){
-					if(but.getType().matches("horseman")){nb_horseman = but.getValue();}
-					if(but.getType().matches("infantryman")){nb_infantryman = but.getValue();}
-					but.setValue(0);
-				}
-				currentPlayedLevel.addArmy(armyFactory.getArmy(defaultCanvas, ageFactory, nb_horseman, nb_infantryman, "Player"), defaultCanvas);
-			}
-		}
-	}
-	
 	private Panel createButtonsPanel(){
 		Panel res = new Panel();
 		
