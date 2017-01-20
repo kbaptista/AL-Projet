@@ -1,4 +1,4 @@
-package NotreJeu;
+package notreJeu;
 
 import java.awt.Point;
 

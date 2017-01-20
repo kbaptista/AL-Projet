@@ -1,11 +1,11 @@
-package NotreJeu.entities;
+package notreJeu.entities;
 
 import java.awt.Canvas;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Rectangle;
 
-import NotreJeu.Team;
+import notreJeu.Team;
 import gameframework.core.SpriteManagerDefaultImpl;
 import soldier.core.Unit;
 

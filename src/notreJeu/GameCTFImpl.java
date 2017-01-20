@@ -1,4 +1,4 @@
-package NotreJeu;
+package notreJeu;
 
 import gameframework.core.CanvasDefaultImpl;
 import gameframework.core.Game;

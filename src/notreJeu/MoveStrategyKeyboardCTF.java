@@ -1,11 +1,11 @@
-package NotreJeu;
+package notreJeu;
 
 import gameframework.moves_rules.MoveStrategyKeyboard;
 
 import java.awt.Point;
 import java.awt.event.KeyEvent;
 
-import NotreJeu.entities.Barrack;
+import notreJeu.entities.Barrack;
 
 /**
  * {@link MoveStrategy} which listens to the keyboard and answers new

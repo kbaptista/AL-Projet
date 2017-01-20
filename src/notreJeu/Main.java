@@ -1,4 +1,4 @@
-package NotreJeu;
+package notreJeu;
 
 import gameframework.core.GameLevel;
 
@@ -15,5 +15,4 @@ public class Main {
 		g.setLevels(levels);
 		g.start();
 	}
-
 }

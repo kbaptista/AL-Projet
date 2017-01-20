@@ -1,4 +1,4 @@
-package NotreJeu;
+package notreJeu;
 
 import gameframework.core.CanvasDefaultImpl;
 import gameframework.core.Game;
@@ -16,12 +16,12 @@ import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 
-import NotreJeu.entities.Army;
-import NotreJeu.entities.Barrack;
-import NotreJeu.entities.Flag;
-import NotreJeu.entities.IndestructibleWall;
-import NotreJeu.rules.CTFMoveBlockers;
-import NotreJeu.rules.CTFOverlapRules;
+import notreJeu.entities.Army;
+import notreJeu.entities.Barrack;
+import notreJeu.entities.Flag;
+import notreJeu.entities.IndestructibleWall;
+import notreJeu.rules.CTFMoveBlockers;
+import notreJeu.rules.CTFOverlapRules;
 
 public class FirstStep extends GameLevelDefaultImpl{
 

@@ -1,4 +1,4 @@
-package NotreJeu.entities;
+package notreJeu.entities;
 
 import gameframework.core.DrawableImage;
 
@@ -7,7 +7,7 @@ import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Rectangle;
 
-import NotreJeu.Team;
+import notreJeu.Team;
 
 public class Flag implements Entity {
 	protected DrawableImage image = null;

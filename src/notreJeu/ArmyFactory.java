@@ -1,10 +1,10 @@
-package NotreJeu;
+package notreJeu;
 
 import java.awt.Canvas;
 
+import notreJeu.entities.Army;
 import soldier.core.AgeAbstractFactory;
 import soldier.core.UnitGroup;
-import NotreJeu.entities.Army;
 
 public class ArmyFactory {
 	
