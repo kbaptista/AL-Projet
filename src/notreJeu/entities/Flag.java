@@ -29,7 +29,7 @@ public class Flag implements Entity {
 	
 	/*
 	 * if this flag is already catched, you can't catch it.
-	 * return : true (you take it), false (already catched)
+	 * return : true (you can take it), false (already catched)
 	*/
 	public boolean alreadyCatched(){
 		return _catched?false:true;

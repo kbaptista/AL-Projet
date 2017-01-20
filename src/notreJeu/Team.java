@@ -25,7 +25,7 @@ public class Team {
 	}
 	
 	public Point getPosition(){
-		return _spawn_position;
+		return (Point) _spawn_position.clone();
 	}
 	
 	public String getPicture(){
@@ -48,6 +48,8 @@ public class Team {
 		return _army_factory;
 	}
 	
-	
+	public CreationFlagRules getCreationFlagRule(){
+		return _rule;
+	}
 	
 }
