@@ -1,4 +1,4 @@
-package notreJeu;
+package notreJeu.coreextensions;
 
 import gameframework.core.CanvasDefaultImpl;
 import gameframework.core.Game;
@@ -34,6 +34,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+
+import notreJeu.ArmyFactory;
+import notreJeu.levels.CTFLevel1;
 
 /**
  * Create a basic game application with menus and displays of lives and score

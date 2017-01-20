@@ -1,4 +1,4 @@
-package notreJeu;
+package notreJeu.levels;
 
 import gameframework.core.CanvasDefaultImpl;
 import gameframework.core.Game;
@@ -16,6 +16,9 @@ import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 
+import notreJeu.Equip;
+import notreJeu.Team;
+import notreJeu.coreextensions.GameUniverseViewPortCTFImpl;
 import notreJeu.entities.Army;
 import notreJeu.entities.Barrack;
 import notreJeu.entities.Flag;
@@ -107,6 +110,7 @@ public class CTFLevel1 extends GameLevelDefaultImpl{
 					break;
 				case 3:
 					universe.addGameEntity(new Barrack(_canvas, j * SPRITE_SIZE, i * SPRITE_SIZE));
+					
 					break;
 				case 0:
 				default:

@@ -1,4 +1,4 @@
-package notreJeu;
+package notreJeu.coreextensions;
 
 import gameframework.core.DrawableImage;
 
