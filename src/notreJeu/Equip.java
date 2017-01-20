@@ -1,4 +1,4 @@
-package NotreJeu;
+package notreJeu;
 
 public enum Equip{
 	YELLOW, GREEN, BLUE, VIOLET, RED, ORANGE;

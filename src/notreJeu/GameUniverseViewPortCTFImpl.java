@@ -1,4 +1,4 @@
-package NotreJeu;
+package notreJeu;
 
 import gameframework.core.Drawable;
 import gameframework.core.GameEntity;

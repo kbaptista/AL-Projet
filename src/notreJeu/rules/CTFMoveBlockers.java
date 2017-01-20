@@ -1,7 +1,7 @@
-package NotreJeu.rules;
+package notreJeu.rules;
 
-import NotreJeu.entities.Army;
-import NotreJeu.entities.IndestructibleWall;
+import notreJeu.entities.Army;
+import notreJeu.entities.IndestructibleWall;
 import gameframework.moves_rules.IllegalMoveException;
 import gameframework.moves_rules.MoveBlockerRulesApplierDefaultImpl;
 

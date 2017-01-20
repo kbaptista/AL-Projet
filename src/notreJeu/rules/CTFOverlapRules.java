@@ -1,4 +1,4 @@
-package NotreJeu.rules;
+package notreJeu.rules;
 
 import gameframework.core.GameUniverse;
 import gameframework.core.ObservableValue;
@@ -7,9 +7,9 @@ import gameframework.moves_rules.OverlapRulesApplierDefaultImpl;
 
 import java.util.Vector;
 
-import NotreJeu.entities.Army;
-import NotreJeu.entities.Barrack;
-import NotreJeu.entities.Flag;
+import notreJeu.entities.Army;
+import notreJeu.entities.Barrack;
+import notreJeu.entities.Flag;
 import soldier.core.Unit;
 
 public class CTFOverlapRules extends OverlapRulesApplierDefaultImpl {

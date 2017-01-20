@@ -1,4 +1,4 @@
-package NotreJeu;
+package notreJeu;
 
 import gameframework.core.GameLevel;
 
@@ -11,9 +11,8 @@ public class Main {
 		GameCTFImpl g = new GameCTFImpl(size,size);
 		ArrayList<GameLevel> levels = new ArrayList<>();
 		
-		levels.add(new FirstStep(g, size));
+		levels.add(new CTFLevel1(g, size));
 		g.setLevels(levels);
 		g.start();
 	}
-
 }

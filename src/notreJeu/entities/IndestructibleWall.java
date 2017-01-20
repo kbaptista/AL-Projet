@@ -1,4 +1,4 @@
-package NotreJeu.entities;
+package notreJeu.entities;
 
 import gameframework.core.DrawableImage;
 import gameframework.moves_rules.MoveBlocker;
