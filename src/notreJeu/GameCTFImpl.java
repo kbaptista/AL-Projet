@@ -54,7 +54,7 @@ public class GameCTFImpl implements Game, Observer {
 
 	private Frame f;
 
-	private FirstStep currentPlayedLevel = null;
+	private CTFLevel1 currentPlayedLevel = null;
 	protected int levelNumber;
 	protected ArrayList<GameLevel> gameLevels;
 	
@@ -289,7 +289,7 @@ public class GameCTFImpl implements Game, Observer {
 					currentPlayedLevel.interrupt();
 					currentPlayedLevel = null;
 				}
-				currentPlayedLevel = (FirstStep) level;
+				currentPlayedLevel = (CTFLevel1) level;
 				levelNumber++;
 				currentLevelValue.setText(Integer.toString(levelNumber));
 				currentPlayedLevel.start();

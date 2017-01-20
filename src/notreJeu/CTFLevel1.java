@@ -23,7 +23,7 @@ import notreJeu.entities.IndestructibleWall;
 import notreJeu.rules.CTFMoveBlockers;
 import notreJeu.rules.CTFOverlapRules;
 
-public class FirstStep extends GameLevelDefaultImpl{
+public class CTFLevel1 extends GameLevelDefaultImpl{
 
 	Canvas _canvas;
 
@@ -128,7 +128,7 @@ public class FirstStep extends GameLevelDefaultImpl{
 		universe.addGameEntity(army);
 	}
 	
-	public FirstStep(Game g, int size) {
+	public CTFLevel1(Game g, int size) {
 		super(g);
 		_width = size;
 		_height = size;
