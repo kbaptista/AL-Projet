@@ -28,7 +28,6 @@ public class Army extends EntityMovable {
 		_spriteManager.setTypes(
 				"right", "left", "up",
 				"down");
-		
 	}
 	
 	public void captureTheFlag(){
@@ -68,7 +67,7 @@ public class Army extends EntityMovable {
 		}
 
 		_spriteManager.setType(spriteType);
-		
+		g.drawString(_unit.getName(), getPosition().x-1, getPosition().y);
 		_spriteManager.draw(g, getPosition());
 	}
 
