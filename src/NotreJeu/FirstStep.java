@@ -13,6 +13,8 @@ import gameframework.moves_rules.OverlapProcessorDefaultImpl;
 
 import java.awt.Canvas;
 import java.awt.Point;
+import java.util.ArrayList;
+import java.util.List;
 
 import NotreJeu.entities.Army;
 import NotreJeu.entities.Barrack;
@@ -20,53 +22,8 @@ import NotreJeu.entities.Flag;
 import NotreJeu.entities.IndestructibleWall;
 import NotreJeu.rules.CTFMoveBlockers;
 import NotreJeu.rules.CTFOverlapRules;
-import pacman.rule.PacmanMoveBlockers;
 
 public class FirstStep extends GameLevelDefaultImpl{
-
-	public enum Equip{//TODO change to class
-		YELLOW(0), GREEN(1), BLUE(2), VIOLET(3), RED(4), ORANGE(5);
-		private int value;
-		private Point position;
-
-		
-		private Equip(int value){
-			this.value = value;
-			position=new Point(2*SPRITE_SIZE, 2*SPRITE_SIZE);
-		}
-
-		public void setPosition(Point p) {
-			position=(Point) p.clone();
-		}
-		
-		public Point getPosition(){
-			return position;
-		}
-		
-		public int getValue(){
-			return this.value;
-		}
-
-		public String getPicture(){
-			switch(this){
-			case YELLOW:
-				return "images/ctf_flag_yellow.png"; 
-			case GREEN:
-				return "images/ctf_flag_green.png"; 
-			case BLUE:
-				return "images/ctf_flag_blue.png"; 
-			case VIOLET:
-				return "images/ctf_flag_violet.png";
-			case RED:
-				return "images/ctf_flag_red.png"; 
-			case ORANGE:
-				return "images/ctf_flag_orange.png"; 
-			default:
-				return "images/ctf_flag_white.png";
-			}
-		} 
-
-	};
 
 	Canvas _canvas;
 
@@ -76,6 +33,8 @@ public class FirstStep extends GameLevelDefaultImpl{
 	public int _height = 31;
 	public int[][] _tab = generate_tab(); 
 	public MoveBlockerChecker moveBlockerChecker;
+	
+	public List<Team> _teams;
 	
 	/*{ 
 		{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
@@ -160,6 +119,8 @@ public class FirstStep extends GameLevelDefaultImpl{
 
 		((CanvasDefaultImpl) _canvas).setDrawingGameBoard(gameBoard);
 
+		_teams = new ArrayList<Team>();
+		
 		// Filling up the universe with basic non movable entities and inclusion in the universe
 		for (int i = 0; i < _height; ++i) {
 			for (int j = 0; j < _width; ++j) {
@@ -168,9 +129,15 @@ public class FirstStep extends GameLevelDefaultImpl{
 					universe.addGameEntity(new IndestructibleWall(_canvas, j * SPRITE_SIZE, i * SPRITE_SIZE));;
 					break;
 				case 2:
-					boolean side = j < (_width/2);
-					if(side){Equip.RED.setPosition(new Point(i,j));}else{Equip.BLUE.setPosition(new Point(i,j));}
-					universe.addGameEntity(new Flag(_canvas, new Point(j * SPRITE_SIZE, i * SPRITE_SIZE), side?Equip.RED:Equip.BLUE));
+					boolean side = i < (_width/2);
+					Team t;
+					if(side)
+						t = new Team(_teams.size(),new Point(i,j), Equip.BLUE);
+					else
+						t = new Team(_teams.size(),new Point(i,j), Equip.RED);
+
+					universe.addGameEntity(new Flag(_canvas, new Point(j * SPRITE_SIZE, i * SPRITE_SIZE), t));
+					_teams.add(t);
 					break;
 				case 3:
 					universe.addGameEntity(new Barrack(_canvas, j * SPRITE_SIZE, i * SPRITE_SIZE));
@@ -185,11 +152,12 @@ public class FirstStep extends GameLevelDefaultImpl{
 
 	public void addArmy(Army army, Canvas canvas){
 		GameMovableDriverDefaultImpl armyDriver = new GameMovableDriverDefaultImpl();
-		MoveStrategyKeyboard keyPlayer = new MoveStrategyKeyboard(); //TODO check utilité MSKCTF
+		MoveStrategyKeyboard keyPlayer = new MoveStrategyKeyboard();
 		armyDriver.setStrategy(keyPlayer);
 		armyDriver.setmoveBlockerChecker(moveBlockerChecker);
 		canvas.addKeyListener(keyPlayer);
 		army.setDriver(armyDriver);
+		army.setTeam(_teams.get(0)); // get(0) parce que la première équipe intégrée est le joueur.
 		army.setPosition(army.getSide().getPosition());
 		universe.addGameEntity(army);
 	}

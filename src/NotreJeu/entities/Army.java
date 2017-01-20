@@ -5,7 +5,7 @@ import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Rectangle;
 
-import NotreJeu.FirstStep.Equip;
+import NotreJeu.Team;
 import gameframework.core.SpriteManagerDefaultImpl;
 import soldier.core.Unit;
 
@@ -17,16 +17,15 @@ public class Army extends EntityMovable {
 	private boolean _hasTheFlag;
 	private boolean _movable;
 	private Unit _unit;
-	private Equip _side;
+	private Team _side;
 	
-	public Army(Canvas canvas, Unit unit, Equip side) {
-		// TODO Auto-generated constructor stub
+	public Army(Canvas canvas, Unit unit, Team side) {
 		_side = side;
 		_unit = unit;
 		_movable = true;
 		_hasTheFlag = false;
 		_spriteManager = new SpriteManagerDefaultImpl("images/ctf_horseman.gif",canvas, RENDERING_SIZE, 6);
-		_spriteManager.setTypes(//
+		_spriteManager.setTypes(
 				"right", "left", "up",
 				"down");
 		
@@ -40,7 +39,7 @@ public class Army extends EntityMovable {
 		return _hasTheFlag;
 	}
 	
-	public Equip getSide(){
+	public Team getSide(){
 		return _side;
 	}
 	
@@ -48,9 +47,12 @@ public class Army extends EntityMovable {
 		return _unit;
 	}
 	
+	public void setTeam(Team t){
+		_side = t;
+	}
+	
 	@Override
 	public void draw(Graphics g) {
-		// TODO Auto-generated method stub
 		String spriteType = "";
 		Point tmp = getSpeedVector().getDirection();
 		_movable = true;
@@ -66,6 +68,7 @@ public class Army extends EntityMovable {
 		}
 
 		_spriteManager.setType(spriteType);
+		
 		_spriteManager.draw(g, getPosition());
 	}
 
