@@ -132,9 +132,9 @@ public class FirstStep extends GameLevelDefaultImpl{
 					boolean side = i < (_width/2);
 					Team t;
 					if(side)
-						t = new Team(_teams.size(),new Point(i,j), Equip.BLUE);
+						t = new Team(_teams.size(),new Point(0,0), Equip.BLUE);
 					else
-						t = new Team(_teams.size(),new Point(i,j), Equip.RED);
+						t = new Team(_teams.size(),new Point(0,0), Equip.RED);
 
 					universe.addGameEntity(new Flag(_canvas, new Point(j * SPRITE_SIZE, i * SPRITE_SIZE), t));
 					_teams.add(t);

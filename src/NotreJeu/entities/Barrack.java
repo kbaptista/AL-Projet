@@ -13,16 +13,13 @@ public class Barrack extends Building{
 	protected static DrawableImage image = null;
 	
 	private AgeAbstractFactory _factory;
+	private Team _team;
 	
 	public Barrack(Canvas defaultCanvas, int xx, int yy) {
 		super(defaultCanvas, xx, yy);
 		image = new DrawableImage("images/ctf_castle.png", defaultCanvas);
 		//TODO: choisir l'age a la création de barrack
 		_factory = new AgeMiddleFactory();
-	}
-
-	public void createArmy(){
-		
 	}
 	
 	@Override
