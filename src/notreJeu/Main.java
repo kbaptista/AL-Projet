@@ -4,6 +4,9 @@ import gameframework.core.GameLevel;
 
 import java.util.ArrayList;
 
+import notreJeu.coreextensions.GameCTFImpl;
+import notreJeu.levels.CTFLevel1;
+
 public class Main {
 
 	public static void main(String[] args) {

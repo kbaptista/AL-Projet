@@ -1,4 +1,4 @@
-package notreJeu;
+package notreJeu.coreextensions;
 
 import gameframework.core.CanvasDefaultImpl;
 import gameframework.core.Game;
@@ -35,6 +35,9 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+import notreJeu.ArmyFactory;
+import notreJeu.levels.CTFLevel1;
+
 /**
  * Create a basic game application with menus and displays of lives and score
  */
@@ -58,9 +61,6 @@ public class GameCTFImpl implements Game, Observer {
 	protected int levelNumber;
 	protected ArrayList<GameLevel> gameLevels;
 	
-	private ArmyFactory armyFactory;
-	private AgeAbstractFactory ageFactory;
-
 	protected Label lifeText, scoreText;
 	protected Label information;
 	protected Label informationValue;
@@ -82,13 +82,11 @@ public class GameCTFImpl implements Game, Observer {
 		information = new Label("State:");
 		informationValue = new Label("Playing");
 		currentLevel = new Label("Level:");
-		armyFactory = new ArmyFactory();
-		ageFactory = new AgeMiddleFactory();
 		createGUI();
 	}
 
 	public void createGUI() {
-		f = new Frame("Default Game");
+		f = new Frame("CatchTheFlag Game");
 		f.dispose();
 
 		createMenuBar();
@@ -364,3 +362,4 @@ public class GameCTFImpl implements Game, Observer {
 		}
 	}
 }
+

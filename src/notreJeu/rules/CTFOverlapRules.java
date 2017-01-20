@@ -14,7 +14,7 @@ import soldier.core.Unit;
 
 public class CTFOverlapRules extends OverlapRulesApplierDefaultImpl {
 	protected GameUniverse universe;
-	protected Vector<Army> vArmys = new Vector<Army>();
+	//protected Vector<Army> vArmys = new Vector<Army>();
 	
 	private final ObservableValue<Integer> score;
 	private final ObservableValue<Integer> life;
@@ -31,11 +31,11 @@ public class CTFOverlapRules extends OverlapRulesApplierDefaultImpl {
 	public void setUniverse(GameUniverse universe) {
 		this.universe = universe;
 	}
-
+/*
 	public void addArmy(Army g) {
 		vArmys.addElement(g);
 	}
-
+*/
 	@Override
 	public void applyOverlapRules(Vector<Overlap> overlappables) {
 		super.applyOverlapRules(overlappables);
