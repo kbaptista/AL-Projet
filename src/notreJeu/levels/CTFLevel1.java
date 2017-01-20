@@ -16,6 +16,10 @@ import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 
+import soldier.ages.AgeMiddleFactory;
+import soldier.core.AgeAbstractFactory;
+import notreJeu.AbstractLevelCTF;
+import notreJeu.ArmyFactory;
 import notreJeu.Equip;
 import notreJeu.Team;
 import notreJeu.coreextensions.GameUniverseViewPortCTFImpl;
@@ -25,8 +29,10 @@ import notreJeu.entities.Flag;
 import notreJeu.entities.IndestructibleWall;
 import notreJeu.rules.CTFMoveBlockers;
 import notreJeu.rules.CTFOverlapRules;
+import notreJeu.rules.CreationFlagRuleHorizontalAxisImpl;
+import notreJeu.rules.CreationFlagRules;
 
-public class CTFLevel1 extends GameLevelDefaultImpl{
+public class CTFLevel1 extends AbstractLevelCTF{
 
 	Canvas _canvas;
 
@@ -59,12 +65,12 @@ public class CTFLevel1 extends GameLevelDefaultImpl{
 			tab[j][_height-1]=1;
 		}
 		// -- flags
-		tab[0+2][_height/2] = 2;
-		tab[_width-3][_height/2] = 2;
+		//tab[0+2][_height/2] = 2;
+		//tab[_width-3][_height/2] = 2;
 		
 		// -- buildings
-		tab[0+4][_height/2] = 3;
-		tab[_width-5][_height/2] = 3;
+		tab[0+4][_height/2] = 2;
+		tab[_width-5][_height/2] = 2;
 		
 		return tab;
 	}
@@ -72,6 +78,10 @@ public class CTFLevel1 extends GameLevelDefaultImpl{
 	@Override
 	protected void init() {
 
+		ArmyFactory armyFactory = new ArmyFactory();
+		AgeAbstractFactory ageFactory = new AgeMiddleFactory(); 
+		CreationFlagRules cfr = new CreationFlagRuleHorizontalAxisImpl();
+		
 		OverlapProcessor overlapProcessor = new OverlapProcessorDefaultImpl();
 
 		moveBlockerChecker = new MoveBlockerCheckerDefaultImpl();
@@ -90,6 +100,8 @@ public class CTFLevel1 extends GameLevelDefaultImpl{
 
 		_teams = new ArrayList<Team>();
 		
+		
+		Equip[] equips = Equip.values();
 		// Filling up the universe with basic non movable entities and inclusion in the universe
 		for (int i = 0; i < _height; ++i) {
 			for (int j = 0; j < _width; ++j) {
@@ -97,19 +109,13 @@ public class CTFLevel1 extends GameLevelDefaultImpl{
 				case 1:
 					universe.addGameEntity(new IndestructibleWall(_canvas, j * SPRITE_SIZE, i * SPRITE_SIZE));;
 					break;
-				case 2:
-					boolean side = i < (_width/2);
-					Team t;
-					if(side)
-						t = new Team(_teams.size(),new Point(i,j), Equip.BLUE);
-					else
-						t = new Team(_teams.size(),new Point(i,j), Equip.RED);
-
-					universe.addGameEntity(new Flag(_canvas, new Point(j * SPRITE_SIZE, i * SPRITE_SIZE), t));
-					_teams.add(t);
-					break;
 				case 3:
-					universe.addGameEntity(new Barrack(_canvas, j * SPRITE_SIZE, i * SPRITE_SIZE));
+					Team t =new Team(_teams.size(),new Point(i,j), equips[_teams.size()], armyFactory,cfr);
+					Point p = new Point(j * SPRITE_SIZE, i * SPRITE_SIZE);
+					universe.addGameEntity(new Barrack(_canvas, p.x, p.y));
+					universe.addGameEntity(new Flag(_canvas, cfr.getFlagPosition(p, new Point(_width/2,_height/2)), t));
+					_teams.add(t);
+					
 					
 					break;
 				case 0:
@@ -120,6 +126,8 @@ public class CTFLevel1 extends GameLevelDefaultImpl{
 		}
 	}
 
+	
+	
 	public void addArmy(Army army, Canvas canvas){
 		GameMovableDriverDefaultImpl armyDriver = new GameMovableDriverDefaultImpl();
 		MoveStrategyKeyboard keyPlayer = new MoveStrategyKeyboard();

@@ -12,7 +12,8 @@ public class Team {
 	private ArmyFactory _army_factory;
 	private CreationFlagRules _rule;
 	
-	public Team(int equip_id, Point position, Equip side, ArmyFactory af, CreationFlagRules flagrule) {
+	public Team(int equip_id, Point position, Equip side, 
+				ArmyFactory af, CreationFlagRules flagrule) {
 		_equip = equip_id;
 		_spawn_position = position;
 		_side = side;

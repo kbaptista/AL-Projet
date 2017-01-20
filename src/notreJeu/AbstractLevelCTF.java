@@ -16,4 +16,6 @@ public abstract class AbstractLevelCTF extends GameLevelDefaultImpl{
 		_teams = new HashSet<Team>(); 
 	}
 
+	
+	
 }

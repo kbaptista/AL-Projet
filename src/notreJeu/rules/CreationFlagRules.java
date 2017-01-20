@@ -1,5 +1,10 @@
 package notreJeu.rules;
 
-public class CreationFlagRules {
+import java.awt.Point;
 
+public interface CreationFlagRules {
+	
+	public default Point getFlagPosition(Point base, Point reference){
+		return base;
+	};
 }

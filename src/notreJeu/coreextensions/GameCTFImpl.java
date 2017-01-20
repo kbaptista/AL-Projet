@@ -61,9 +61,6 @@ public class GameCTFImpl implements Game, Observer {
 	protected int levelNumber;
 	protected ArrayList<GameLevel> gameLevels;
 	
-	private ArmyFactory armyFactory;
-	private AgeAbstractFactory ageFactory;
-
 	protected Label lifeText, scoreText;
 	protected Label information;
 	protected Label informationValue;
@@ -85,13 +82,11 @@ public class GameCTFImpl implements Game, Observer {
 		information = new Label("State:");
 		informationValue = new Label("Playing");
 		currentLevel = new Label("Level:");
-		armyFactory = new ArmyFactory();
-		ageFactory = new AgeMiddleFactory();
 		createGUI();
 	}
 
 	public void createGUI() {
-		f = new Frame("Default Game");
+		f = new Frame("CatchTheFlag Game");
 		f.dispose();
 
 		createMenuBar();
