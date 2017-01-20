@@ -4,9 +4,12 @@ import java.awt.Canvas;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 import javax.swing.JButton;
+
+import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
 
 import gameframework.core.Game;
 import gameframework.core.GameLevelDefaultImpl;
@@ -88,18 +91,16 @@ public abstract class AbstractLevelCTF extends GameLevelDefaultImpl{
 			button.setText(String.valueOf(nb_soldier));
 		}
 	}
-	
 	class ReleaseArmyButtonAction implements ActionListener{
 		
-		private Set<AddSoldierButtonAction> instanciateButtons;
-
-		private CTFLevel1 currentPlayedLevel = null;
+		private Set<AddSoldierButtonAction> instanciateActions;
 		
-		public ReleaseArmyButtonAction() {
-			instanciateButtons = new HashSet<AddSoldierButtonAction>();
+		public ReleaseArmyButtonAction(ActionListener[] list) {
+			instanciateActions = new HashSet<AddSoldierButtonAction>();
+			for (ActionListener act : list) {
+				instanciateActions.add((AddSoldierButtonAction)act);
+			}
 		}
-		
-		public void addAddSoldierButton(AddSoldierButtonAction but){instanciateButtons.add(but);}
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -107,17 +108,27 @@ public abstract class AbstractLevelCTF extends GameLevelDefaultImpl{
 
 				int nb_infantryman = 0 ;
 				int nb_horseman = 0 ;
-				for(AddSoldierButtonAction but : instanciateButtons){
-					if(but.getType().matches("horseman")){nb_horseman = but.getValue();}
-					if(but.getType().matches("infantryman")){nb_infantryman = but.getValue();}
-					but.setValue(0);
+				for(AddSoldierButtonAction action : instanciateActions){
+					if(action.getType().matches("horseman")){nb_horseman = action.getValue();}
+					if(action.getType().matches("infantryman")){nb_infantryman = action.getValue();}
+					action.setValue(0);
 				}
 				Team t = _teams.iterator().next();
 				ArmyFactory a =t.getArmyFactory();
-				this.addArmy(a.getArmy(_canvas, nb_horseman, nb_infantryman, t, "Player"+t.getSide()), _canvas);
+				addArmy(a.getArmy(_canvas, nb_horseman, nb_infantryman, t, "Player"+String.valueOf(t.getSide())), _canvas);
 			}
 		}
 	}
+	
+	public AddSoldierButtonAction getAddSoldierButtonAction(JButton but, String type){
+		return new AddSoldierButtonAction(but, type);
+	}
+	
+	public ReleaseArmyButtonAction getReleaseArmyButtonAction(ActionListener[] list){
+		
+		return new ReleaseArmyButtonAction(list);
+	}
+	
 	public void addArmy(Army army, Canvas canvas){
 		GameMovableDriverDefaultImpl armyDriver = new GameMovableDriverDefaultImpl();
 		MoveStrategyKeyboard keyPlayer = new MoveStrategyKeyboard();

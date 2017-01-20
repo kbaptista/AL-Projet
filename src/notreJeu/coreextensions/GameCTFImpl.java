@@ -7,6 +7,7 @@ import gameframework.core.ObservableValue;
 import soldier.ages.AgeMiddleFactory;
 import soldier.core.AgeAbstractFactory;
 
+
 import java.awt.BorderLayout;
 import java.awt.Canvas;
 import java.awt.Container;
@@ -24,10 +25,8 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.FileInputStream;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Observable;
 import java.util.Observer;
-import java.util.Set;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -35,8 +34,8 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-import notreJeu.ArmyFactory;
 import notreJeu.levels.CTFLevel1;
+import notreJeu.levels.AbstractLevelCTF;
 
 /**
  * Create a basic game application with menus and displays of lives and score
@@ -57,9 +56,9 @@ public class GameCTFImpl implements Game, Observer {
 
 	private Frame f;
 
-	private CTFLevel1 currentPlayedLevel = null;
 	protected int levelNumber;
-	protected ArrayList<GameLevel> gameLevels;
+	protected ArrayList<AbstractLevelCTF> gameLevels;
+	private AbstractLevelCTF currentPlayedLevel = null;
 	
 	protected Label lifeText, scoreText;
 	protected Label information;
@@ -77,6 +76,7 @@ public class GameCTFImpl implements Game, Observer {
 			score[i] = new ObservableValue<Integer>(0);
 			life[i] = new ObservableValue<Integer>(0);
 		}
+		
 		lifeText = new Label("Lives:");
 		scoreText = new Label("Score:");
 		information = new Label("State:");
@@ -199,15 +199,13 @@ public class GameCTFImpl implements Game, Observer {
 		final JButton horseman_button = createButton("horseman");
 		final JButton release_button = createButton("release");
 		
-		AddSoldierButtonAction infantryman_button_action = new AddSoldierButtonAction(infantryman_button, "infantryman");
-		AddSoldierButtonAction horseman_button_action = new AddSoldierButtonAction(horseman_button, "horseman");
-		ReleaseArmyButtonAction release_button_action = new ReleaseArmyButtonAction();
+		ActionListener infantryman_button_action = currentPlayedLevel.getAddSoldierButtonAction(infantryman_button, "infantryman");
+		ActionListener horseman_button_action = currentPlayedLevel.getAddSoldierButtonAction(horseman_button, "horseman");
+		ActionListener[] tmp = {infantryman_button_action,horseman_button_action};
+		ActionListener release_button_action = currentPlayedLevel.getReleaseArmyButtonAction(tmp);
 
 		infantryman_button.addActionListener(infantryman_button_action);
 		horseman_button.addActionListener(horseman_button_action);
-		
-		release_button_action.addAddSoldierButton(infantryman_button_action);
-		release_button_action.addAddSoldierButton(horseman_button_action);
 		release_button.addActionListener(release_button_action);
 		
 		res.add(infantryman_button);
@@ -278,8 +276,10 @@ public class GameCTFImpl implements Game, Observer {
 		return endOfGame;
 	}
 
-	public void setLevels(ArrayList<GameLevel> levels) {
+	public void setLevels(ArrayList<AbstractLevelCTF> levels) {
+		System.out.println(levels.toString());
 		gameLevels = levels;
+		start();
 	}
 
 	public void update(Observable o, Object arg) {

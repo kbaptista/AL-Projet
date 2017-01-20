@@ -8,6 +8,7 @@ import soldier.core.AgeAbstractFactory;
 import soldier.core.Unit;
 import soldier.core.Weapon;
 import gameframework.core.DrawableImage;
+import notreJeu.Team;
 
 public class Barrack extends Building{
 	protected static DrawableImage image = null;
