@@ -3,13 +3,11 @@ package NotreJeu;
 import gameframework.core.CanvasDefaultImpl;
 import gameframework.core.Game;
 import gameframework.core.GameLevel;
-import gameframework.core.GameLevelDefaultImpl;
 import gameframework.core.ObservableValue;
 import soldier.ages.AgeMiddleFactory;
 import soldier.core.AgeAbstractFactory;
 
 import java.awt.BorderLayout;
-import java.awt.Button;
 import java.awt.Canvas;
 import java.awt.Container;
 import java.awt.Frame;
@@ -27,7 +25,6 @@ import java.awt.event.WindowEvent;
 import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.Set;
@@ -37,10 +34,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
-
-import com.sun.javafx.geom.transform.GeneralTransform3D;
-
-import NotreJeu.FirstStep.Equip;
 
 /**
  * Create a basic game application with menus and displays of lives and score
@@ -246,7 +239,7 @@ public class GameCTFImpl implements Game, Observer {
 					if(but.getType().matches("infantryman")){nb_infantryman = but.getValue();}
 					but.setValue(0);
 				}
-				currentPlayedLevel.addArmy(armyFactory.getArmy(defaultCanvas, ageFactory, nb_horseman, nb_infantryman, Equip.RED, "Player"+String.valueOf(Equip.RED)), defaultCanvas);
+				currentPlayedLevel.addArmy(armyFactory.getArmy(defaultCanvas, ageFactory, nb_horseman, nb_infantryman, "Player"), defaultCanvas);
 			}
 		}
 	}

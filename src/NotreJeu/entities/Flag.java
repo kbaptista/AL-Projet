@@ -7,16 +7,16 @@ import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Rectangle;
 
-import NotreJeu.FirstStep.Equip;
+import NotreJeu.Team;
 
 public class Flag implements Entity {
 	protected DrawableImage image = null;
 	protected Point _position;
 	protected boolean _catched;
-	protected Equip _side;
+	protected Team _side;
 	public static final int RENDERING_SIZE = 32;
 
-	public Flag(Canvas defaultCanvas, Point pos, Equip side) {
+	public Flag(Canvas defaultCanvas, Point pos, Team side) {
 		image = new DrawableImage(side.getPicture(), defaultCanvas);
 		_position = pos;
 		_catched = false;
@@ -39,7 +39,7 @@ public class Flag implements Entity {
 		_catched = true;
 	}
 
-	public Equip getSide(){
+	public Team getSide(){
 		return _side;
 	}
 	
