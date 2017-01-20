@@ -189,12 +189,24 @@ public class GameCTFImpl implements Game, Observer {
 		return c;
 	}
 	
-	class AddSoldierButton implements ActionListener{
+	private JButton createButton(String name){
+		JButton res = new JButton();
+		try {
+			Image img = ImageIO.read(new FileInputStream("images/"+name+"_icon.png"));
+			res.setIcon(new ImageIcon(img));
+		} catch (Exception ex) {System.out.println(ex);}
+		res.setVerticalTextPosition(SwingConstants.BOTTOM);
+		res.setHorizontalTextPosition(SwingConstants.RIGHT);
+		
+		return res;
+	}
+	
+	class AddSoldierButtonAction implements ActionListener{
 		private int nb_soldier = 0;
 		private JButton button;
 		private String type ;
 		
-		public AddSoldierButton(JButton but, String type) {
+		public AddSoldierButtonAction(JButton but, String type) {
 			button = but;
 			this.type = type;
 		}
@@ -215,37 +227,28 @@ public class GameCTFImpl implements Game, Observer {
 	
 	class ReleaseArmyButtonAction implements ActionListener{
 		
-		private Set<AddSoldierButton> instanciateButtons;
+		private Set<AddSoldierButtonAction> instanciateButtons;
 		
 		public ReleaseArmyButtonAction() {
-			instanciateButtons = new HashSet<AddSoldierButton>();
+			instanciateButtons = new HashSet<AddSoldierButtonAction>();
 		}
 		
-		public void addAddSoldierButton(AddSoldierButton but){instanciateButtons.add(but);}
+		public void addAddSoldierButton(AddSoldierButtonAction but){instanciateButtons.add(but);}
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			int nb_infantryman = 0 ;
-			int nb_horseman = 0 ;
-			for(AddSoldierButton but : instanciateButtons){
-				if(but.getType().matches("horseman")){nb_horseman = but.getValue();}
-				if(but.getType().matches("infantryman")){nb_infantryman = but.getValue();}
-				but.setValue(0);
+			if(true){//TODO : vérifier si le joueur possède une équipe
+
+				int nb_infantryman = 0 ;
+				int nb_horseman = 0 ;
+				for(AddSoldierButtonAction but : instanciateButtons){
+					if(but.getType().matches("horseman")){nb_horseman = but.getValue();}
+					if(but.getType().matches("infantryman")){nb_infantryman = but.getValue();}
+					but.setValue(0);
+				}
+				currentPlayedLevel.addArmy(armyFactory.getArmy(defaultCanvas, ageFactory, nb_horseman, nb_infantryman, Equip.RED, "Player"+String.valueOf(Equip.RED)), defaultCanvas);
 			}
-			currentPlayedLevel.addArmy(armyFactory.getArmy(defaultCanvas, ageFactory, nb_horseman, nb_infantryman, Equip.RED, "Player"+String.valueOf(Equip.RED)), defaultCanvas);
 		}
-	}
-	
-	private JButton createButton(String name){
-		JButton res = new JButton();
-		try {
-			Image img = ImageIO.read(new FileInputStream("images/"+name+"_icon.png"));
-			res.setIcon(new ImageIcon(img));
-		} catch (Exception ex) {System.out.println(ex);}
-		res.setVerticalTextPosition(SwingConstants.BOTTOM);
-		res.setHorizontalTextPosition(SwingConstants.RIGHT);
-		
-		return res;
 	}
 	
 	private Panel createButtonsPanel(){
@@ -255,8 +258,8 @@ public class GameCTFImpl implements Game, Observer {
 		final JButton horseman_button = createButton("horseman");
 		final JButton release_button = createButton("release");
 		
-		AddSoldierButton infantryman_button_action = new AddSoldierButton(infantryman_button, "infantryman");
-		AddSoldierButton horseman_button_action = new AddSoldierButton(horseman_button, "horseman");
+		AddSoldierButtonAction infantryman_button_action = new AddSoldierButtonAction(infantryman_button, "infantryman");
+		AddSoldierButtonAction horseman_button_action = new AddSoldierButtonAction(horseman_button, "horseman");
 		ReleaseArmyButtonAction release_button_action = new ReleaseArmyButtonAction();
 
 		infantryman_button.addActionListener(infantryman_button_action);
