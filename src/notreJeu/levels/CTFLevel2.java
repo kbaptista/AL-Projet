@@ -2,11 +2,9 @@ package notreJeu.levels;
 
 import gameframework.core.CanvasDefaultImpl;
 import gameframework.core.Game;
-import gameframework.core.GameMovableDriverDefaultImpl;
 import gameframework.core.GameUniverseDefaultImpl;
 import gameframework.moves_rules.MoveBlockerChecker;
 import gameframework.moves_rules.MoveBlockerCheckerDefaultImpl;
-import gameframework.moves_rules.MoveStrategyKeyboard;
 import gameframework.moves_rules.OverlapProcessor;
 import gameframework.moves_rules.OverlapProcessorDefaultImpl;
 
@@ -19,13 +17,11 @@ import java.util.Queue;
 
 import soldier.ages.AgeFutureFactory;
 import soldier.ages.AgeMiddleFactory;
-import notreJeu.AbstractLevelCTF;
 import notreJeu.ArmyFactory;
 import notreJeu.Equip;
 import notreJeu.GetAgeFactory;
 import notreJeu.Team;
 import notreJeu.coreextensions.GameUniverseViewPortCTFImpl;
-import notreJeu.entities.Army;
 import notreJeu.entities.Barrack;
 import notreJeu.entities.Flag;
 import notreJeu.entities.IndestructibleWall;
@@ -42,13 +38,12 @@ public class CTFLevel2 extends AbstractLevelCTF{
 	public String _background = "images/ctf_grass.png";
 	public int _width = 31;
 	public int _height = 31;
-	public int[][] _tab = generate_tab(); 
 	public MoveBlockerChecker moveBlockerChecker;
 	public List<Team> _teams;
 	
 	public static final int SPRITE_SIZE = 32;
 	
-	private int[][] generate_tab(){
+	protected int[][] generateMap(){
 		int[][] tab = new int[_width][_height];
 		// -- empty spaces 
 		for (int i = 1; i < _height-1; i++) {
@@ -103,7 +98,7 @@ public class CTFLevel2 extends AbstractLevelCTF{
 		// Filling up the universe with basic non movable entities and inclusion in the universe
 		for (int i = 0; i < _height; ++i) {
 			for (int j = 0; j < _width; ++j) {
-				switch(_tab[i][j]){
+				switch(_map[i][j]){
 				case 1:
 					universe.addGameEntity(new IndestructibleWall(_canvas, j * SPRITE_SIZE, i * SPRITE_SIZE));;
 					break;
@@ -137,5 +132,4 @@ public class CTFLevel2 extends AbstractLevelCTF{
 		_height = size;
 		_canvas = g.getCanvas();
 	}
-	
 }

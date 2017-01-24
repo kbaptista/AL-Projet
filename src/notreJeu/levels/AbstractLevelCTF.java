@@ -4,12 +4,9 @@ import java.awt.Canvas;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Set;
 
 import javax.swing.JButton;
-
-import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
 
 import gameframework.core.Game;
 import gameframework.core.GameLevelDefaultImpl;
@@ -32,14 +29,14 @@ public abstract class AbstractLevelCTF extends GameLevelDefaultImpl{
 	protected MoveBlockerChecker moveBlockerChecker;
 	protected Set<Team> _teams;
 	
-	protected static final int SPRITE_SIZE = 32;
+	protected static int SPRITE_SIZE = 32;
 	
 	public AbstractLevelCTF(Game g) {
 		super(g);
 		
 		_teams = new HashSet<Team>(); 
 	}
-
+	
 	protected abstract int[][] generateMap();
 	
 	class AddSoldierButtonAction implements ActionListener{
@@ -87,12 +84,9 @@ public abstract class AbstractLevelCTF extends GameLevelDefaultImpl{
 					if(action.getType().matches("infantryman")){nb_infantryman = action.getValue();}
 					action.setValue(0);
 				}
-				Team t = _teams.iterator().next(); //first team is the player
-				ArmyFactory af = t.getArmyFactory();
-				String side = String.valueOf(t.getSide());
-				System.out.println("Team P0 ArmyFactory = " + af.toString());
-				Army a = af.getArmy(_canvas, nb_horseman, nb_infantryman, t, "Player"+side);
-				addArmy(a, _canvas);
+				Team t = _teams.iterator().next();
+				ArmyFactory a =t.getArmyFactory();
+				addArmy(a.getArmy(_canvas, nb_horseman, nb_infantryman, t, "Player"+String.valueOf(t.getSide())), _canvas);
 			}
 		}
 	}
@@ -118,5 +112,7 @@ public abstract class AbstractLevelCTF extends GameLevelDefaultImpl{
 		universe.addGameEntity(army);
 	}
 	
-	
+	public void setSpriteSize(int size){
+		SPRITE_SIZE = size;
+	}
 }
