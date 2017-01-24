@@ -94,12 +94,14 @@ public class GameCTFImpl implements Game, Observer {
 		createMenuBar();
 		Container c = createStatusBar();
 		buttonsPanel = createButtonsPanel();
-
+		Panel accessor = new Panel(new BorderLayout());
+		accessor.add(c, BorderLayout.NORTH);
+		accessor.add(buttonsPanel, BorderLayout.SOUTH);
+		
 		defaultCanvas = new CanvasDefaultImpl();
 		defaultCanvas.setSize(SPRITE_SIZE * NB_COLUMNS, SPRITE_SIZE * NB_ROWS);
 		f.add(defaultCanvas);
-		f.add(c, BorderLayout.NORTH);
-		f.add(buttonsPanel, BorderLayout.NORTH);
+		f.add(accessor,BorderLayout.NORTH);
 		f.pack();
 		f.setVisible(true);
 

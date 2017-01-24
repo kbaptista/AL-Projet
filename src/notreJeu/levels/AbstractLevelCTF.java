@@ -1,6 +1,7 @@
 package notreJeu.levels;
 
 import java.awt.Canvas;
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashSet;
@@ -108,7 +109,9 @@ public abstract class AbstractLevelCTF extends GameLevelDefaultImpl{
 		canvas.addKeyListener(keyPlayer);
 		army.setDriver(armyDriver);
 		army.setTeam(_teams.iterator().next()); // get(0) parce que la première équipe intégrée est le joueur.
-		army.setPosition(army.getTeam().getPosition());
+		Point pos = army.getTeam().getPosition();
+		pos.setLocation(pos.getX()*SPRITE_SIZE, pos.getY()*SPRITE_SIZE);
+		army.setPosition(pos);
 		universe.addGameEntity(army);
 	}
 	
