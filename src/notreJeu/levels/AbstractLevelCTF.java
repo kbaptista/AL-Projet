@@ -5,6 +5,7 @@ import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 import javax.swing.JButton;
@@ -28,14 +29,15 @@ public abstract class AbstractLevelCTF extends GameLevelDefaultImpl{
 	protected int[][] _map = generateMap(); 
 	
 	protected MoveBlockerChecker moveBlockerChecker;
-	protected Set<Team> _teams;
+	protected Set<Team> _teams_played;
+	protected Set<Team> _teams_ia;
 	
 	protected static int SPRITE_SIZE = 32;
 	
 	public AbstractLevelCTF(Game g) {
 		super(g);
-		
-		_teams = new HashSet<Team>(); 
+		_teams_played = new HashSet<Team>();
+		_teams_ia = new HashSet<Team>();
 	}
 	
 	protected abstract int[][] generateMap();
@@ -85,7 +87,7 @@ public abstract class AbstractLevelCTF extends GameLevelDefaultImpl{
 					if(action.getType().matches("infantryman")){nb_infantryman = action.getValue();}
 					action.setValue(0);
 				}
-				Team t = _teams.iterator().next();
+				Team t = _teams_played.iterator().next();
 				ArmyFactory a =t.getArmyFactory();
 				addArmy(a.getArmy(_canvas, nb_horseman, nb_infantryman, t, "Player"+String.valueOf(t.getSide())), _canvas);
 			}
@@ -108,9 +110,11 @@ public abstract class AbstractLevelCTF extends GameLevelDefaultImpl{
 		armyDriver.setmoveBlockerChecker(moveBlockerChecker);
 		canvas.addKeyListener(keyPlayer);
 		army.setDriver(armyDriver);
-		army.setTeam(_teams.iterator().next()); // get(0) parce que la première équipe intégrée est le joueur.
+		try{
+			army.setTeam(_teams_played.iterator().next());
+		}catch(Exception e){e.printStackTrace();}
 		Point pos = army.getTeam().getPosition();
-		pos.setLocation(pos.getX()*SPRITE_SIZE, pos.getY()*SPRITE_SIZE);
+		pos.setLocation(pos.getX(), pos.getY());
 		army.setPosition(pos);
 		universe.addGameEntity(army);
 	}

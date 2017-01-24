@@ -46,14 +46,16 @@ public class CTFOverlapRules extends OverlapRulesApplierDefaultImpl {
 
 	public void overlapRule(Army a, Flag f) {
 		//si c'est une armée d'un camps qui rencontre le drapeau d'un autre camps
-		if(!(f.getTeam().getSide() == a.getTeam().getSide())){
-			if ((!f.alreadyCatched()) && !a.haveAFlag())
+		if(f.getTeam().getSide() != a.getTeam().getSide()){
+			if ((!f.isCatched()) && !a.haveAFlag()){
 				a.captureTheFlag();
+			}
 		}
 		//si une armée arrive à son propre drapeau
 		else{
-			if(a.haveAFlag())
+			if(a.haveAFlag()){
 				endOfGame.setValue(true);
+			}
 		}
 	}
 

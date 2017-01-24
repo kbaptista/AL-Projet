@@ -26,7 +26,6 @@ public class Army extends EntityMovable {
 		_hasTheFlag = false;
 		_spriteManager = new SpriteManagerDefaultImpl("images/ctf_horseman.gif",canvas, RENDERING_SIZE, 6);
 		_spriteManager.setTypes("right", "left", "up","down");
-		System.out.println("  >  "+getPosition()); //TMP
 	}
 	
 	public void captureTheFlag(){
@@ -72,7 +71,7 @@ public class Army extends EntityMovable {
 
 	@Override
 	public Rectangle getBoundingBox() {
-		return (new Rectangle(0, 0, 3*RENDERING_SIZE, 3*RENDERING_SIZE));
+		return (new Rectangle(0, 0, RENDERING_SIZE, RENDERING_SIZE));
 	}
 
 	@Override

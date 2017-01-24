@@ -80,8 +80,6 @@ public class CTFLevel2 extends AbstractLevelCTF{
 		((GameUniverseViewPortCTFImpl)gameBoard).setBackground(_background_path, SPRITE_SIZE, _width);
 
 		((CanvasDefaultImpl) _canvas).setDrawingGameBoard(gameBoard);
-
-		_teams = new HashSet<Team>();
 		
 		Equip[] equips = Equip.values();
 		// Filling up the universe with basic non movable entities and inclusion in the universe
@@ -101,11 +99,20 @@ public class CTFLevel2 extends AbstractLevelCTF{
 						armyFactory = new ArmyFactory(getAgeFactory);
 					} catch (Exception e) {e.printStackTrace();}
 					
-					Team t =new Team(_teams.size(),new Point(i,j), equips[_teams.size()], armyFactory,cfr);
-					Point p = new Point(j * SPRITE_SIZE, i * SPRITE_SIZE);
-					universe.addGameEntity(new Barrack(_canvas, p.x, p.y));
-					universe.addGameEntity(new Flag(_canvas, cfr.getFlagPosition(p, new Point(_width/2,_height/2)), t));
-					_teams.add(t);
+					Point p = new Point(i,j);
+					Point flag_pos = cfr.getFlagPosition(p, new Point((_width)/2,(_height)/2));
+			
+					p.setLocation(p.x* SPRITE_SIZE, p.y* SPRITE_SIZE);
+					flag_pos.setLocation(flag_pos.x* SPRITE_SIZE, flag_pos.y* SPRITE_SIZE);
+					
+					int team_id = _teams_played.size()+_teams_ia.size();
+					Team t = new Team(team_id, p, equips[team_id], armyFactory, cfr);
+					universe.addGameEntity(new Barrack(_canvas, p));
+					universe.addGameEntity(new Flag(_canvas, flag_pos, t));
+					if(team_id == 0)
+						_teams_played.add(t);
+					else
+						_teams_ia.add(t);
 					break;
 				case 0:
 				default:
