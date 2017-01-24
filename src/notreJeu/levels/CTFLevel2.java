@@ -66,8 +66,8 @@ public class CTFLevel2 extends AbstractLevelCTF{
 		}
 
 		// -- buildings
-		tab[0+4][_height/3] = 2;
-		tab[_width-5][_height-(_height/3)] = 2;
+		tab[0+4][_height/3] = 3;
+		tab[_width-5][_height-(_height/3)] = 3;
 
 		return tab;
 	}

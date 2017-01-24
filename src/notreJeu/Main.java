@@ -17,7 +17,7 @@ public class Main {
 		ArrayList<AbstractLevelCTF> levels = new ArrayList<>();
 		
 		levels.add(new CTFLevel1(g, size));
-		levels.add(new CTFLevel2(g, size));
+		//levels.add(new CTFLevel2(g, size));
 		g.setLevels(levels);
 		g.start();
 	}
