@@ -18,6 +18,7 @@ public class Team {
 		_spawn_position = position;
 		_side = side;
 		_rule= flagrule;
+		_army_factory = af;
 	}
 	
 	public void setPosition(Point p) {

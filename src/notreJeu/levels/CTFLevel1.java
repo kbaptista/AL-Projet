@@ -60,8 +60,8 @@ public class CTFLevel1 extends AbstractLevelCTF{
 		//map[_width-3][_height/2] = 2;
 		
 		// -- buildings
-		map[0+4][_height/2] = 2;
-		map[_width-5][_height/2] = 2;
+		map[0+4][_height/2] = 3;
+		map[_width-5][_height/2] = 3;
 		
 		return map;
 	}
@@ -104,10 +104,15 @@ public class CTFLevel1 extends AbstractLevelCTF{
 					getAgeFactory.add(()->{return new AgeFutureFactory();});
 					ArmyFactory armyFactory=null;
 					try{
-						armyFactory = new ArmyFactory(getAgeFactory);}
+						armyFactory = new ArmyFactory(getAgeFactory);
+					}
 					catch(Exception e){e.printStackTrace();}
 					
-					Team t =new Team(_teams.size(),new Point(i,j), equips[_teams.size()], armyFactory,cfr);
+					Team t =new Team(_teams.size(),
+									 new Point(i,j),
+									 equips[_teams.size()],
+									 armyFactory,
+									 cfr);
 					Point p = new Point(j * SPRITE_SIZE, i * SPRITE_SIZE);
 					universe.addGameEntity(new Barrack(_canvas, p.x, p.y));
 					universe.addGameEntity(new Flag(_canvas, cfr.getFlagPosition(p, new Point(_width*SPRITE_SIZE/2,SPRITE_SIZE*_height/2)), t));

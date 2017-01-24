@@ -38,16 +38,16 @@ public class Army extends EntityMovable {
 		return _hasTheFlag;
 	}
 	
-	public Team getSide(){
+	public Team getTeam(){
 		return _side;
-	}
-	
-	public Unit getSoldiers(){
-		return _unit;
 	}
 	
 	public void setTeam(Team t){
 		_side = t;
+	}
+	
+	public Unit getSoldiers(){
+		return _unit;
 	}
 	
 	@Override

@@ -39,7 +39,7 @@ public class Flag implements Entity {
 		_catched = true;
 	}
 
-	public Team getSide(){
+	public Team getTeam(){
 		return _side;
 	}
 	

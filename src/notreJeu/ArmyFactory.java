@@ -12,13 +12,14 @@ import soldier.core.Weapon;
 
 public class ArmyFactory implements Cloneable{
 	
-	public AgeAbstractFactory _ageFactory;
-	public Queue<GetAgeFactory> _getAgeFactory;
+	public AgeAbstractFactory _ageFactory=null;
+	public Queue<GetAgeFactory> _getAgeFactory=null;
 	
 	public ArmyFactory(Queue<GetAgeFactory> queueAgeFactory) throws Exception {
 		_getAgeFactory = queueAgeFactory;
-		if(!_getAgeFactory.isEmpty())
+		if(!_getAgeFactory.isEmpty()){
 			_ageFactory = _getAgeFactory.poll().getAgeFactory();
+		}
 		else
 			throw new Exception("ArmyFactory constructor need a queue with at least a value.");
 			
@@ -34,7 +35,7 @@ public class ArmyFactory implements Cloneable{
 	}
 	
 	public Army getArmy(Canvas canvas,int nb_horseman, int nb_infantry, Team side, String name){
-		Army a = this.getArmy(canvas, nb_horseman, nb_infantry, name);
+		Army a = getArmy(canvas, nb_horseman, nb_infantry, name);
 		a.setTeam(side);
 		return a;
 	}
