@@ -60,8 +60,8 @@ public class CTFLevel1 extends AbstractLevelCTF{
 		//map[_width-3][_height/2] = 2;
 		
 		// -- buildings
-		map[0+4][_height/2] = 2;
-		map[_width-5][_height/2] = 2;
+		map[0+4][_height/2] = 3;
+		map[_width-5][_height/2] = 3;
 		
 		return map;
 	}
@@ -119,6 +119,8 @@ public class CTFLevel1 extends AbstractLevelCTF{
 				}
 			} 
 		}
+		
+		System.out.println(" >  > "+_teams.isEmpty());
 		createLevelButtons();
 	}
 	
