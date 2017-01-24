@@ -11,10 +11,13 @@ import java.util.Set;
 import javax.swing.JButton;
 
 import gameframework.core.Game;
+import gameframework.core.GameEntity;
 import gameframework.core.GameLevelDefaultImpl;
 import gameframework.core.GameMovableDriverDefaultImpl;
 import gameframework.moves_rules.MoveBlockerChecker;
+import gameframework.moves_rules.MoveStrategy;
 import gameframework.moves_rules.MoveStrategyKeyboard;
+import gameframework.moves_rules.MoveStrategyRandom;
 import notreJeu.ArmyFactory;
 import notreJeu.Team;
 import notreJeu.entities.Army;
@@ -89,7 +92,7 @@ public abstract class AbstractLevelCTF extends GameLevelDefaultImpl{
 				}
 				Team t = _teams_played.iterator().next();
 				ArmyFactory a =t.getArmyFactory();
-				addArmy(a.getArmy(_canvas, nb_horseman, nb_infantryman, t, "Player"+String.valueOf(t.getSide())), _canvas);
+				addArmy(a.getArmy(_canvas, nb_horseman, nb_infantryman, t, "Player"+String.valueOf(t.getSide())));
 			}
 		}
 	}
@@ -103,12 +106,12 @@ public abstract class AbstractLevelCTF extends GameLevelDefaultImpl{
 		return new ReleaseArmyButtonAction(list);
 	}
 	
-	public void addArmy(Army army, Canvas canvas){
+	public void addArmy(Army army){
 		GameMovableDriverDefaultImpl armyDriver = new GameMovableDriverDefaultImpl();
 		MoveStrategyKeyboard keyPlayer = new MoveStrategyKeyboard();
 		armyDriver.setStrategy(keyPlayer);
 		armyDriver.setmoveBlockerChecker(moveBlockerChecker);
-		canvas.addKeyListener(keyPlayer);
+		_canvas.addKeyListener(keyPlayer);
 		army.setDriver(armyDriver);
 		try{
 			army.setTeam(_teams_played.iterator().next());
@@ -119,6 +122,35 @@ public abstract class AbstractLevelCTF extends GameLevelDefaultImpl{
 		universe.addGameEntity(army);
 	}
 	
+	public void addArmy(Team t, MoveStrategy move_strat, int nb_horseman, int nb_infantryman, String name){
+		GameMovableDriverDefaultImpl armyDriver = new GameMovableDriverDefaultImpl();
+		armyDriver.setStrategy(move_strat);
+		armyDriver.setmoveBlockerChecker(moveBlockerChecker);
+		
+		Army army = t.getArmyFactory().getArmy(_canvas, nb_horseman, nb_infantryman, name);
+		army.setDriver(armyDriver);
+		try{
+			army.setTeam(_teams_ia.iterator().next());
+		}catch(Exception e){e.printStackTrace();}
+		Point pos = army.getTeam().getPosition();
+		pos.setLocation(pos.getX(), pos.getY());
+		army.setPosition(pos);
+		universe.addGameEntity(army);
+	}
+	
+	public Army getArmy(Team t){
+		Iterator<GameEntity> it = universe.gameEntities();
+		GameEntity ge;
+		while(it.hasNext()){
+			ge = it.next();
+			if(ge instanceof Army){
+				if(((Army)ge).getTeam().getSide() == t.getSide())
+					return (Army)ge;
+			}	
+		}
+		return null;
+	}
+		
 	public void setSpriteSize(int size){
 		SPRITE_SIZE = size;
 	}

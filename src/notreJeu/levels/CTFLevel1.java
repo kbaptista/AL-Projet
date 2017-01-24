@@ -11,7 +11,6 @@ import java.awt.Image;
 import java.awt.Point;
 import java.awt.event.ActionListener;
 import java.io.FileInputStream;
-import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -28,13 +27,14 @@ import notreJeu.GetAgeFactory;
 import notreJeu.Team;
 import notreJeu.coreextensions.GameCTFImpl;
 import notreJeu.coreextensions.GameUniverseViewPortCTFImpl;
+
 import notreJeu.entities.Barrack;
 import notreJeu.entities.Flag;
+import notreJeu.entities.IAEntity;
 import notreJeu.entities.IndestructibleWall;
 import notreJeu.rules.CTFMoveBlockers;
 import notreJeu.rules.CTFOverlapRules;
 import notreJeu.rules.CreationFlagRuleCenterImpl;
-import notreJeu.rules.CreationFlagRuleHorizontalAxisImpl;
 import notreJeu.rules.CreationFlagRules;
 
 public class CTFLevel1 extends AbstractLevelCTF{
@@ -114,10 +114,15 @@ public class CTFLevel1 extends AbstractLevelCTF{
 					Team t = new Team(team_id, p, equips[team_id], armyFactory, cfr);
 					universe.addGameEntity(new Barrack(_canvas, p));
 					universe.addGameEntity(new Flag(_canvas, flag_pos, t));
-					if(team_id == 0)
+					if(team_id == 0){
 						_teams_played.add(t);
-					else
+						System.out.println(t.getSide());
+					}
+					else{
 						_teams_ia.add(t);
+						//Les IA ont une instance Entity pour avoir droit a des effets temporels.
+						universe.addGameEntity(new IAEntity(this, t));
+					}
 					break;
 				case 0:
 				default:

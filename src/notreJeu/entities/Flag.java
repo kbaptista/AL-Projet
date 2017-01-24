@@ -10,7 +10,7 @@ import java.awt.Rectangle;
 import notreJeu.Team;
 
 public class Flag implements Entity {
-	protected DrawableImage image = null;
+	protected DrawableImage image = null, image_save;
 	protected Point _position;
 	protected boolean _catched;
 	protected Team _side;
@@ -18,6 +18,7 @@ public class Flag implements Entity {
 
 	public Flag(Canvas defaultCanvas, Point pos, Team side) {
 		image = new DrawableImage(side.getPicture(), defaultCanvas);
+		//image_save = new DrawableImage("images/ctf_flag_empty.png", defaultCanvas);
 		_position = pos;
 		_catched = false;
 		_side=side;
@@ -44,10 +45,14 @@ public class Flag implements Entity {
 	}
 	
 	public void draw(Graphics g) {
-		if(!_catched)
-			g.drawImage(image.getImage(), (int) getPosition().getX(),
-				(int) getPosition().getY(), RENDERING_SIZE, RENDERING_SIZE,
+		//if(!_catched)
+			g.drawImage(image.getImage(), getPosition().x, getPosition().y, RENDERING_SIZE, RENDERING_SIZE,
 				null);
+		/*else{
+			DrawableImage tmp = image;
+			image = image_save;
+			image_save = tmp;
+		}*/
 	}
 
 	public Rectangle getBoundingBox() {

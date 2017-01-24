@@ -6,9 +6,7 @@ import java.util.Queue;
 
 import notreJeu.entities.Army;
 import soldier.core.AgeAbstractFactory;
-import soldier.core.Unit;
 import soldier.core.UnitGroup;
-import soldier.core.Weapon;
 
 public class ArmyFactory implements Cloneable{
 	

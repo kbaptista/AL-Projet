@@ -51,7 +51,6 @@ public class GameCTFImpl implements Game, Observer {
 	protected CanvasDefaultImpl defaultCanvas = null;
 	protected ObservableValue<Integer> score[] = new ObservableValue[MAX_NUMBER_OF_PLAYER];
 	protected ObservableValue<Integer> life[] = new ObservableValue[MAX_NUMBER_OF_PLAYER];
-
 	// initialized before each level
 	protected ObservableValue<Boolean> endOfGame = null;
 
@@ -282,10 +281,7 @@ public class GameCTFImpl implements Game, Observer {
 			}
 			for (ObservableValue<Integer> scoreObservable : score) {
 				if (o == scoreObservable) {
-					scoreValue
-							.setText(Integer
-									.toString(((ObservableValue<Integer>) o)
-											.getValue()));
+					scoreValue.setText(Integer.toString(((ObservableValue<Integer>) o).getValue()));
 				}
 			}
 		}
