@@ -33,6 +33,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
 
 import notreJeu.levels.CTFLevel1;
 import notreJeu.levels.AbstractLevelCTF;
@@ -55,7 +56,8 @@ public class GameCTFImpl implements Game, Observer {
 	protected ObservableValue<Boolean> endOfGame = null;
 
 	private Frame f;
-
+	private Panel buttonsPanel;
+	
 	protected int levelNumber;
 	protected ArrayList<AbstractLevelCTF> gameLevels;
 	private AbstractLevelCTF currentPlayedLevel = null;
@@ -91,7 +93,7 @@ public class GameCTFImpl implements Game, Observer {
 
 		createMenuBar();
 		Container c = createStatusBar();
-		Panel buttonsPanel = createButtonsPanel();
+		buttonsPanel = createButtonsPanel();
 
 		defaultCanvas = new CanvasDefaultImpl();
 		defaultCanvas.setSize(SPRITE_SIZE * NB_COLUMNS, SPRITE_SIZE * NB_ROWS);
@@ -108,7 +110,7 @@ public class GameCTFImpl implements Game, Observer {
 			}
 		});
 	}
-
+	
 	private void createMenuBar() {
 		MenuBar menuBar = new MenuBar();
 		Menu file = new Menu("file");
@@ -180,41 +182,17 @@ public class GameCTFImpl implements Game, Observer {
 		return c;
 	}
 	
-	private JButton createButton(String name){
-		JButton res = new JButton();
-		try {
-			Image img = ImageIO.read(new FileInputStream("images/"+name+"_icon.png"));
-			res.setIcon(new ImageIcon(img));
-		} catch (Exception ex) {System.out.println(ex);}
-		res.setVerticalTextPosition(SwingConstants.BOTTOM);
-		res.setHorizontalTextPosition(SwingConstants.RIGHT);
-		
-		return res;
-	}
-	
 	private Panel createButtonsPanel(){
 		Panel res = new Panel();
 		
-		final JButton infantryman_button = createButton("infantryman");
-		final JButton horseman_button = createButton("horseman");
-		final JButton release_button = createButton("release");
-		
-		ActionListener infantryman_button_action = currentPlayedLevel.getAddSoldierButtonAction(infantryman_button, "infantryman");
-		ActionListener horseman_button_action = currentPlayedLevel.getAddSoldierButtonAction(horseman_button, "horseman");
-		ActionListener[] tmp = {infantryman_button_action,horseman_button_action};
-		ActionListener release_button_action = currentPlayedLevel.getReleaseArmyButtonAction(tmp);
-
-		infantryman_button.addActionListener(infantryman_button_action);
-		horseman_button.addActionListener(horseman_button_action);
-		release_button.addActionListener(release_button_action);
-		
-		res.add(infantryman_button);
-		res.add(horseman_button);
-		res.add(release_button);
-		
 		return res ;
 	}
-
+	
+	public void addJButton(JButton butt){
+		buttonsPanel.add(butt);
+		SwingUtilities.updateComponentTreeUI(f);
+	}
+	
 	public Canvas getCanvas() {
 		return defaultCanvas;
 	}
@@ -279,7 +257,6 @@ public class GameCTFImpl implements Game, Observer {
 	public void setLevels(ArrayList<AbstractLevelCTF> levels) {
 		System.out.println(levels.toString());
 		gameLevels = levels;
-		start();
 	}
 
 	public void update(Observable o, Object arg) {

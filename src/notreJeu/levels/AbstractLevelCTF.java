@@ -40,33 +40,7 @@ public abstract class AbstractLevelCTF extends GameLevelDefaultImpl{
 		_teams = new HashSet<Team>(); 
 	}
 
-	private int[][] generateMap(){
-		int[][] map = new int[_width][_height];
-		// -- empty spaces 
-		for (int i = 1; i < _height-1; i++) {
-			for (int j = 1; j < _width-1; j++) {
-				map[j][i]=0; 
-			}
-		}
-		// -- frame
-		for (int i = 0; i < _height; i++) {
-			map[0][i]=1;
-			map[_width-1][i]=1;
-		}
-		for (int j = 0; j < _width; j++) {
-			map[j][0]=1;
-			map[j][_height-1]=1;
-		}
-		// -- flags
-		//map[0+2][_height/2] = 2;
-		//map[_width-3][_height/2] = 2;
-		
-		// -- buildings
-		map[0+4][_height/2] = 2;
-		map[_width-5][_height/2] = 2;
-		
-		return map;
-	}
+	protected abstract int[][] generateMap();
 	
 	class AddSoldierButtonAction implements ActionListener{
 		private int nb_soldier = 0;
@@ -113,8 +87,8 @@ public abstract class AbstractLevelCTF extends GameLevelDefaultImpl{
 					if(action.getType().matches("infantryman")){nb_infantryman = action.getValue();}
 					action.setValue(0);
 				}
-				Team t = _teams.iterator().next();
-				ArmyFactory a =t.getArmyFactory();
+				Team t = _teams.iterator().next(); //first team is the player
+				ArmyFactory a = t.getArmyFactory();
 				addArmy(a.getArmy(_canvas, nb_horseman, nb_infantryman, t, "Player"+String.valueOf(t.getSide())), _canvas);
 			}
 		}
