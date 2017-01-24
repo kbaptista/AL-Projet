@@ -55,9 +55,6 @@ public class CTFLevel1 extends AbstractLevelCTF{
 			map[j][0]=1;
 			map[j][_height-1]=1;
 		}
-		// -- flags
-		//map[0+2][_height/2] = 2;
-		//map[_width-3][_height/2] = 2;
 		
 		// -- buildings
 		map[0+4][_height/2] = 3;
@@ -108,9 +105,12 @@ public class CTFLevel1 extends AbstractLevelCTF{
 					catch(Exception e){e.printStackTrace();}
 					
 					Team t =new Team(_teams.size(),new Point(i,j), equips[_teams.size()], armyFactory,cfr);
-					Point p = new Point(j * SPRITE_SIZE, i * SPRITE_SIZE);
-					universe.addGameEntity(new Barrack(_canvas, p.x, p.y));
-					universe.addGameEntity(new Flag(_canvas, cfr.getFlagPosition(p, new Point(_width*SPRITE_SIZE/2,SPRITE_SIZE*_height/2)), t));
+					Point p = new Point(j,i);
+					Point flag_pos = cfr.getFlagPosition(p, new Point(_width/2,_height/2));
+					flag_pos.setLocation(flag_pos.getX()*SPRITE_SIZE, flag_pos.getY()*SPRITE_SIZE);
+					
+					universe.addGameEntity(new Barrack(_canvas, p.x* SPRITE_SIZE, p.y* SPRITE_SIZE));
+					universe.addGameEntity(new Flag(_canvas, flag_pos, t));
 					_teams.add(t);
 					break;
 				case 0:
@@ -119,8 +119,6 @@ public class CTFLevel1 extends AbstractLevelCTF{
 				}
 			} 
 		}
-		
-		System.out.println(" >  > "+_teams.isEmpty());
 		createLevelButtons();
 	}
 	
