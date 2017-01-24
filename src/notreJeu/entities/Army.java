@@ -25,9 +25,8 @@ public class Army extends EntityMovable {
 		_movable = true;
 		_hasTheFlag = false;
 		_spriteManager = new SpriteManagerDefaultImpl("images/ctf_horseman.gif",canvas, RENDERING_SIZE, 6);
-		_spriteManager.setTypes(
-				"right", "left", "up",
-				"down");
+		_spriteManager.setTypes("right", "left", "up","down");
+		System.out.println("  >  "+getPosition()); //TMP
 	}
 	
 	public void captureTheFlag(){

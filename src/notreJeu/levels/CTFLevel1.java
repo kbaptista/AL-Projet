@@ -105,7 +105,7 @@ public class CTFLevel1 extends AbstractLevelCTF{
 					}
 					catch(Exception e){e.printStackTrace();}
 					Team t =new Team(_teams.size(),new Point(i,j), equips[_teams.size()], armyFactory,cfr);
-					Point p = new Point(j,i);
+					Point p = new Point(i,j);
 					Point flag_pos = cfr.getFlagPosition(p, new Point(_width/2,_height/2));
 					flag_pos.setLocation(flag_pos.getX()*SPRITE_SIZE, flag_pos.getY()*SPRITE_SIZE);
 					

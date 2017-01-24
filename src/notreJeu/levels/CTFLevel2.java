@@ -11,6 +11,7 @@ import gameframework.moves_rules.OverlapProcessorDefaultImpl;
 import java.awt.Canvas;
 import java.awt.Point;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -32,44 +33,32 @@ import notreJeu.rules.CreationFlagRules;
 
 public class CTFLevel2 extends AbstractLevelCTF{
 
-	Canvas _canvas;
-
-	//our specific Environment
-	public String _background = "images/ctf_grass.png";
-	public int _width = 31;
-	public int _height = 31;
-	public MoveBlockerChecker moveBlockerChecker;
-	public List<Team> _teams;
-	
-	public static final int SPRITE_SIZE = 32;
-	
 	protected int[][] generateMap(){
-		int[][] tab = new int[_width][_height];
+		int[][] map = new int[_width][_height];
 		// -- empty spaces 
 		for (int i = 1; i < _height-1; i++) {
 			for (int j = 1; j < _width-1; j++) {
 				if(j < (_width/2)- 4 || j > (_width/2)+ 4)
-					tab[j][i]=1;
+					map[j][i]=1;
 				else
-					tab[j][i]=0; 
+					map[j][i]=0; 
 			}
 		}
 		// -- frame
 		for (int i = 0; i < _height; i++) {
-			tab[0][i]=1;
-			tab[_width-1][i]=1;
+			map[0][i]=1;
+			map[_width-1][i]=1;
 		}
 		for (int j = 0; j < _width; j++) {
-			tab[j][0]=1;
-			tab[j][_height-1]=1;
+			map[j][0]=1;
+			map[j][_height-1]=1;
 
 		}
 
 		// -- buildings
-		tab[0+4][_height/3] = 2;
-		tab[_width-5][_height-(_height/3)] = 2;
-
-		return tab;
+		map[4][_height/3] = 3;
+		map[_width-5][_height-(_height/3)] = 3;
+		return map;
 	}
 
 	@Override
@@ -88,11 +77,11 @@ public class CTFLevel2 extends AbstractLevelCTF{
 		overlapRules.setUniverse(universe);
 
 		gameBoard = new GameUniverseViewPortCTFImpl(_canvas, universe, SPRITE_SIZE, _width);
-		((GameUniverseViewPortCTFImpl)gameBoard).setBackground(_background, SPRITE_SIZE, _width);
+		((GameUniverseViewPortCTFImpl)gameBoard).setBackground(_background_path, SPRITE_SIZE, _width);
 
 		((CanvasDefaultImpl) _canvas).setDrawingGameBoard(gameBoard);
 
-		_teams = new ArrayList<Team>();
+		_teams = new HashSet<Team>();
 		
 		Equip[] equips = Equip.values();
 		// Filling up the universe with basic non movable entities and inclusion in the universe
