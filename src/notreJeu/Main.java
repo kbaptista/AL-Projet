@@ -16,7 +16,7 @@ public class Main {
 		GameCTFImpl g = new GameCTFImpl(size,size);
 		ArrayList<AbstractLevelCTF> levels = new ArrayList<>();
 		
-		levels.add(new CTFLevel1(g, size));
+		levels.add(new CTFLevel1(g, size)); //TMP
 		levels.add(new CTFLevel2(g, size));
 		g.setLevels(levels);
 		g.start();

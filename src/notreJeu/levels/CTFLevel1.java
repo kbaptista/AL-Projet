@@ -4,6 +4,7 @@ import gameframework.core.CanvasDefaultImpl;
 import gameframework.core.Game;
 import gameframework.core.GameUniverseDefaultImpl;
 import gameframework.moves_rules.MoveBlockerCheckerDefaultImpl;
+import gameframework.moves_rules.MoveStrategyRandom;
 import gameframework.moves_rules.OverlapProcessor;
 import gameframework.moves_rules.OverlapProcessorDefaultImpl;
 
@@ -27,7 +28,6 @@ import notreJeu.GetAgeFactory;
 import notreJeu.Team;
 import notreJeu.coreextensions.GameCTFImpl;
 import notreJeu.coreextensions.GameUniverseViewPortCTFImpl;
-
 import notreJeu.entities.Barrack;
 import notreJeu.entities.Flag;
 import notreJeu.entities.IAEntity;
@@ -67,7 +67,7 @@ public class CTFLevel1 extends AbstractLevelCTF{
 	
 	@Override
 	protected void init() {
-		CreationFlagRules cfr = new CreationFlagRuleCenterImpl();
+		CreationFlagRules cfr = new CreationFlagRuleCenterImpl(new Point((_width)/2,(_height)/2));
 		
 		OverlapProcessor overlapProcessor = new OverlapProcessorDefaultImpl();
 
@@ -79,6 +79,7 @@ public class CTFLevel1 extends AbstractLevelCTF{
 
 		universe = new GameUniverseDefaultImpl(moveBlockerChecker, overlapProcessor);
 		overlapRules.setUniverse(universe);
+		overlapRules.setCanvas(_canvas);
 
 		gameBoard = new GameUniverseViewPortCTFImpl(_canvas, universe, SPRITE_SIZE, _width);
 		((GameUniverseViewPortCTFImpl)gameBoard).setBackground(_background_path, SPRITE_SIZE, _width);
@@ -105,7 +106,7 @@ public class CTFLevel1 extends AbstractLevelCTF{
 					catch(Exception e){e.printStackTrace();}
 					
 					Point p = new Point(i,j);
-					Point flag_pos = cfr.getFlagPosition(p, new Point((_width)/2,(_height)/2));
+					Point flag_pos = cfr.getFlagPosition(p);
 			
 					p.setLocation(p.x* SPRITE_SIZE, p.y* SPRITE_SIZE);
 					flag_pos.setLocation(flag_pos.x* SPRITE_SIZE, flag_pos.y* SPRITE_SIZE);
@@ -120,7 +121,7 @@ public class CTFLevel1 extends AbstractLevelCTF{
 					else{
 						_teams_ia.add(t);
 						//Les IA ont une instance Entity pour avoir droit a des effets temporels.
-						universe.addGameEntity(new IAEntity(this, t));
+						universe.addGameEntity(new IAEntity(this, t, new MoveStrategyRandom()));
 					}
 					break;
 				case 0:
@@ -162,7 +163,7 @@ public class CTFLevel1 extends AbstractLevelCTF{
 		((GameCTFImpl)g).addJButton(horseman_button);
 		((GameCTFImpl)g).addJButton(release_button);
 	}
-	
+		
 	public CTFLevel1(Game g, int size) {
 		super(g);
 		_width = size;
