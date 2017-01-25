@@ -13,10 +13,12 @@ import gameframework.core.Game;
 import gameframework.core.GameLevelDefaultImpl;
 import gameframework.core.GameMovableDriverDefaultImpl;
 import gameframework.moves_rules.MoveBlockerChecker;
+import gameframework.moves_rules.MoveStrategy;
 import gameframework.moves_rules.MoveStrategyKeyboard;
 import notreJeu.ArmyFactory;
 import notreJeu.Team;
 import notreJeu.entities.Army;
+import notreJeu.rules.MoveStrategyOnClickStraightLine;
 
 public abstract class AbstractLevelCTF extends GameLevelDefaultImpl{
 
@@ -87,7 +89,8 @@ public abstract class AbstractLevelCTF extends GameLevelDefaultImpl{
 				}
 				Team t = _teams.iterator().next();
 				ArmyFactory a =t.getArmyFactory();
-				addArmy(a.getArmy(_canvas, nb_horseman, nb_infantryman, t, "Player"+String.valueOf(t.getSide())), _canvas);
+				addArmy(a.getArmy(_canvas, nb_horseman, nb_infantryman, t, "Player"+String.valueOf(t.getSide())), _canvas/*, 
+						new MoveStrategyOnClickStraightLine(t.getPosition(), t.getPosition())*/);
 			}
 		}
 	}
@@ -103,10 +106,23 @@ public abstract class AbstractLevelCTF extends GameLevelDefaultImpl{
 	
 	public void addArmy(Army army, Canvas canvas){
 		GameMovableDriverDefaultImpl armyDriver = new GameMovableDriverDefaultImpl();
-		MoveStrategyKeyboard keyPlayer = new MoveStrategyKeyboard();
-		armyDriver.setStrategy(keyPlayer);
+		MoveStrategyKeyboard move = new MoveStrategyKeyboard();
+		armyDriver.setStrategy(move);
 		armyDriver.setmoveBlockerChecker(moveBlockerChecker);
-		canvas.addKeyListener(keyPlayer);
+		canvas.addKeyListener(move);
+		army.setDriver(armyDriver);
+		army.setTeam(_teams.iterator().next()); // get(0) parce que la première équipe intégrée est le joueur.
+		Point pos = army.getTeam().getPosition();
+		pos.setLocation(pos.getX()*SPRITE_SIZE, pos.getY()*SPRITE_SIZE);
+		army.setPosition(pos);
+		universe.addGameEntity(army);
+	}
+	
+	public void addArmy(Army army, Canvas canvas, MoveStrategyOnClickStraightLine move){
+		GameMovableDriverDefaultImpl armyDriver = new GameMovableDriverDefaultImpl();
+		armyDriver.setStrategy(move);
+		armyDriver.setmoveBlockerChecker(moveBlockerChecker);
+		canvas.addMouseListener(move);
 		army.setDriver(armyDriver);
 		army.setTeam(_teams.iterator().next()); // get(0) parce que la première équipe intégrée est le joueur.
 		Point pos = army.getTeam().getPosition();

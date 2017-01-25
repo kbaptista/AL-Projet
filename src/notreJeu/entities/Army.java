@@ -45,6 +45,7 @@ public class Army extends EntityMovable {
 		_side = t;
 	}
 	
+	//TODO : retirer accès à Unit et ajouter Army.parry et Army.strike
 	public Unit getSoldiers(){
 		return _unit;
 	}

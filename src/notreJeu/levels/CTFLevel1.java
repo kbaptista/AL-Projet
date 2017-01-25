@@ -12,6 +12,7 @@ import java.awt.Point;
 import java.awt.event.ActionListener;
 import java.io.FileInputStream;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -119,6 +120,9 @@ public class CTFLevel1 extends AbstractLevelCTF{
 				}
 			} 
 		}
+		Iterator<Team> it = _teams.iterator();
+		((GameCTFImpl)g).setGold1(it.next().get_gold());
+		((GameCTFImpl)g).setGold2(it.next().get_gold());
 		createLevelButtons();
 	}
 	
