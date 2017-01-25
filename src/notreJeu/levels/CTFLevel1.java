@@ -116,7 +116,6 @@ public class CTFLevel1 extends AbstractLevelCTF{
 					universe.addGameEntity(new Flag(_canvas, flag_pos, t));
 					if(team_id == 0){
 						_teams_played.add(t);
-						System.out.println(t.getSide());
 					}
 					else{
 						_teams_ia.add(t);

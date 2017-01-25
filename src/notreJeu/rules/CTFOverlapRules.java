@@ -58,9 +58,7 @@ public class CTFOverlapRules extends OverlapRulesApplierDefaultImpl {
 			
 			u2.parry(u1.strike());
 			u1.parry(u2.strike());
-			
-			System.out.println("u1 :"+u1.alive()+" u2 "+u2.alive());//TMP
-			
+
 			if(!u1.alive())
 				universe.removeGameEntity(getArmyFromUniverse(a));
 			if(!u2.alive())
@@ -76,7 +74,6 @@ public class CTFOverlapRules extends OverlapRulesApplierDefaultImpl {
 		//si c'est une armée d'un camps qui rencontre le drapeau d'un autre camps
 		if(f.getTeam().getSide() != a.getTeam().getSide()){
 			if ((!f.isCatched()) && !a.haveAFlag()){
-				System.out.println("CATCHED");
 				a.captureTheFlag();
 			}
 		}
