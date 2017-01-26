@@ -17,34 +17,44 @@ public class Army extends EntityMovable {
 	public static final int RENDERING_SIZE = 32;
 	private SpriteManagerDefaultImpl _spriteManager;
 	
-	private List<Flag> _flags;
+	
+	private List<Flag> _captured_flags;
 	private Unit _unit;
 	private Team _side;
 	
-	public Army(Canvas canvas, Unit unit, Team side) {
+	public Army(Canvas canvas, Unit unit, Team side, int nb_rider, int nb_infantry) {
 		_side = side;
 		_unit = unit;
-		_flags = new ArrayList<Flag>();
-		_spriteManager = new SpriteManagerDefaultImpl("images/ctf_horseman.gif",canvas, RENDERING_SIZE, 6);
+		_captured_flags = new ArrayList<Flag>();
+		StringBuffer picture_path = new StringBuffer();
+		if (nb_infantry<nb_rider) {
+			picture_path.append("images/ctf_rider");
+		}else if(nb_infantry>=nb_rider){
+			picture_path.append("images/ctf_infantry");
+		}
+
+		//picture_path.append(side.getAge());
+		picture_path.append(".gif");
+		_spriteManager = new SpriteManagerDefaultImpl(picture_path.toString(), canvas, RENDERING_SIZE, 6);
 		_spriteManager.setTypes("right", "left", "up","down");
 	}
 	
 	public void captureTheFlag(Flag f){
-		_flags.add(f);
+		_captured_flags.add(f);
 	}
 	
 	public boolean haveAFlag(){
-		return !_flags.isEmpty();
+		return !_captured_flags.isEmpty();
 	}
 	
-	public List<Flag> getFlags(){
-		List<Flag> res = new ArrayList<Flag>(_flags.size());
-		res.addAll(_flags);
+	public List<Flag> getCapturedFlags(){
+		List<Flag> res = new ArrayList<Flag>(_captured_flags.size());
+		res.addAll(_captured_flags);
 		return res;
 	}
 	
 	public boolean putATeamFlag(Team t){
-		Iterator<Flag> it = _flags.iterator();
+		Iterator<Flag> it = _captured_flags.iterator();
 		boolean res=false;
 		Flag f=null;
 		while(it.hasNext()){
@@ -55,7 +65,7 @@ public class Army extends EntityMovable {
 			}
 		}
 		if(res)
-			_flags.remove(f);
+			_captured_flags.remove(f);
 		return res;
 		
 	}

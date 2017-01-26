@@ -63,7 +63,6 @@ public class CTFLevel1 extends AbstractLevelCTF{
 		map[0+4][_height/2] = 3;
 		map[_width-5][_height/2] = 3;
 
-		
 		return map;
 	}
 	

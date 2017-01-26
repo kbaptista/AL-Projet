@@ -51,9 +51,10 @@ public class Team {
 			public void run() {
 				// TODO Auto-generated method stub
 				_gold.setValue(_gold.getValue()+10);
+				System.out.println("Team"+_side+" : Gold = "+_gold.getValue());
 			}
 		};
-		t.scheduleAtFixedRate(increaseGold, 0, 10*1000);
+		t.scheduleAtFixedRate(increaseGold, 0, 5*1000);
 	}
 	
 	public void setPosition(Point p) {
@@ -86,6 +87,12 @@ public class Team {
 	
 	public CreationFlagRules getCreationFlagRule(){
 		return _rule;
+	}
+	
+	public String getAge(){
+		String s = _army_factory._ageFactory.getClass().getName();
+		System.out.println(s);
+		return s;
 	}
 	
 	public ObservableValue<Integer> get_gold() {

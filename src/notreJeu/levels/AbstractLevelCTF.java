@@ -90,6 +90,11 @@ public abstract class AbstractLevelCTF extends GameLevelDefaultImpl{
 					if(action.getType().matches("horseman")){nb_horseman = action.getValue();}
 					if(action.getType().matches("infantryman")){nb_infantryman = action.getValue();}
 					action.setValue(0);
+
+					System.out.println(((AddSoldierButtonAction) action).type + " " +
+							String.valueOf(nb_infantryman) + " | " +
+							String.valueOf(nb_horseman)
+					);
 				}
 				Team t = _teams_played.iterator().next();
 				ArmyFactory a =t.getArmyFactory();
@@ -117,7 +122,7 @@ public abstract class AbstractLevelCTF extends GameLevelDefaultImpl{
 		army.setDriver(armyDriver);
 		army.setTeam(_teams_played.iterator().next()); // get(0) parce que la première équipe intégrée est le joueur.
 		Point pos = army.getTeam().getPosition();
-		pos.setLocation(pos.getX()*SPRITE_SIZE, pos.getY()*SPRITE_SIZE);
+		pos.setLocation(pos.getX(), pos.getY());
 		army.setPosition(pos);
 		universe.addGameEntity(army);
 	}

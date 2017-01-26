@@ -221,6 +221,7 @@ public class GameCTFImpl implements Game, Observer {
 			score[i].setValue(0);
 			life[i].setValue(0);
 		}
+		
 		levelNumber = 0;
 		for (GameLevel level : gameLevels) {
 			endOfGame = new ObservableValue<Boolean>(false);

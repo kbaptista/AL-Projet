@@ -62,7 +62,7 @@ public class CTFOverlapRules extends OverlapRulesApplierDefaultImpl {
 	
 	private void rebuildFlag(Army killed_army, Army victorious_army){
 		if(killed_army.haveAFlag()){
-			List<Flag> tmp = killed_army.getFlags();
+			List<Flag> tmp = killed_army.getCapturedFlags();
 			for(Flag f : tmp)
 				if(f.getTeam().equals(victorious_army.getTeam())){
 					Point p = victorious_army.getTeam().getCreationFlagRule().getFlagPosition(victorious_army.getTeam().getPosition());

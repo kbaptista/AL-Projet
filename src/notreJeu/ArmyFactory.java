@@ -24,18 +24,23 @@ public class ArmyFactory implements Cloneable{
 	}
 	
 	public Army getArmy(Canvas canvas,int nb_horseman, int nb_infantry, String name){
+		//TODO : retablir encapsulation 
+		UnitGroup group = initArmy(canvas, nb_horseman, nb_infantry, name);
+		return new Army(canvas, group , null, nb_horseman, nb_infantry);
+	}
+	
+	public Army getArmy(Canvas canvas,int nb_horseman, int nb_infantry, Team side, String name){
+		UnitGroup group = initArmy(canvas, nb_horseman, nb_infantry, name);
+		return new Army(canvas, group, side, nb_horseman, nb_infantry);
+	}
+	
+	private UnitGroup initArmy(Canvas canvas,int nb_horseman, int nb_infantry, String name){
 		UnitGroup group = new UnitGroup(name);
 		for (int i = 0; i < nb_horseman; i++)
 			group.addUnit(_ageFactory.riderUnit("horse"+i));
 		for (int i = 0; i < nb_infantry; i++)
 			group.addUnit(_ageFactory.infantryUnit("infantry"+i));
-		return new Army(canvas, group , null);
-	}
-	
-	public Army getArmy(Canvas canvas,int nb_horseman, int nb_infantry, Team side, String name){
-		Army a = getArmy(canvas, nb_horseman, nb_infantry, name);
-		a.setTeam(side);
-		return a;
+		return group;
 	}
 
 	public void evolveAge(){
