@@ -9,8 +9,8 @@ import gameframework.moves_rules.MoveStrategy;
 public class IAEntityUnitsVariable extends IAEntitySimple{
 	protected int _ecart;
 	
-	public IAEntityUnitsVariable(AbstractLevelCTF level, Team t, MoveStrategy movestrategy, int nb_horseman, int nb_infantryman, int ecart) {
-		super(level,t,movestrategy, nb_horseman, nb_infantryman);
+	public IAEntityUnitsVariable(AbstractLevelCTF level, Team t, MoveStrategy movestrategy, int nb_riders, int nb_infantryman, int ecart) {
+		super(level,t,movestrategy, nb_riders, nb_infantryman);
 		_ecart = ecart;
 	}
 
@@ -24,7 +24,7 @@ public class IAEntityUnitsVariable extends IAEntitySimple{
 	public void oneStepMoveAddedBehavior() {
 		_timer++;
 		if(_timer%50 == 0 && _level.getArmy(_team)== null){
-			_level.addArmy(_team, _movestrategy, getRandom(_nb_horse), getRandom(_nb_infant),"IA");
+			_level.addArmy(_team, _movestrategy, getRandom(_nb_riders), getRandom(_nb_infantryman),"IA");
 		}
 	}
 }

@@ -22,21 +22,21 @@ public class ArmyFactory implements Cloneable{
 			throw new Exception("ArmyFactory constructor need a queue with at least a value.");
 	}
 	
-	public Army getArmy(Canvas canvas,int nb_horseman, int nb_infantry, String name){
+	public Army getArmy(Canvas canvas,int nb_riders, int nb_infantry, String name){
 		//TODO : retablir encapsulation 
-		UnitGroup group = initArmy(canvas, nb_horseman, nb_infantry, name);
-		return new Army(canvas, group , null, nb_horseman, nb_infantry);
+		UnitGroup group = initArmy(canvas, nb_riders, nb_infantry, name);
+		return new Army(canvas, group , null, nb_riders, nb_infantry);
 	}
 	
-	public Army getArmy(Canvas canvas,int nb_horseman, int nb_infantry, Team side, String name){
-		UnitGroup group = initArmy(canvas, nb_horseman, nb_infantry, name);
-		return new Army(canvas, group, side, nb_horseman, nb_infantry);
+	public Army getArmy(Canvas canvas,int nb_riders, int nb_infantry, Team side, String name){
+		UnitGroup group = initArmy(canvas, nb_riders, nb_infantry, name);
+		return new Army(canvas, group, side, nb_riders, nb_infantry);
 	}
 	
-	private UnitGroup initArmy(Canvas canvas,int nb_horseman, int nb_infantry, String name){
+	private UnitGroup initArmy(Canvas canvas,int nb_riders, int nb_infantry, String name){
 		UnitGroup group = new UnitGroup(name);
-		for (int i = 0; i < nb_horseman; i++)
-			group.addUnit(_ageFactory.riderUnit("horse"+i));
+		for (int i = 0; i < nb_riders; i++)
+			group.addUnit(_ageFactory.riderUnit("rider"+i));
 		for (int i = 0; i < nb_infantry; i++)
 			group.addUnit(_ageFactory.infantryUnit("infantry"+i));
 		return group;

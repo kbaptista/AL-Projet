@@ -85,20 +85,20 @@ public abstract class AbstractLevelCTF extends GameLevelDefaultImpl{
 			if(true){//TODO : vérifier si le joueur possède une équipe
 
 				int nb_infantryman = 0 ;
-				int nb_horseman = 0 ;
+				int nb_riders = 0 ;
 				for(AddSoldierButtonAction action : instanciateActions){
-					if(action.getType().matches("horseman")){nb_horseman = action.getValue();}
+					if(action.getType().matches("riders")){nb_riders = action.getValue();}
 					if(action.getType().matches("infantryman")){nb_infantryman = action.getValue();}
 					action.setValue(0);
 
 					System.out.println(((AddSoldierButtonAction) action).type + " " +
 							String.valueOf(nb_infantryman) + " | " +
-							String.valueOf(nb_horseman)
+							String.valueOf(nb_riders)
 					);
 				}
 				Team t = _teams_played.iterator().next();
 				ArmyFactory a =t.getArmyFactory();
-				addArmy(a.getArmy(_canvas, nb_horseman, nb_infantryman, t, "Player"+String.valueOf(t.getSide()))/*, 
+				addArmy(a.getArmy(_canvas, nb_riders, nb_infantryman, t, "Player"+String.valueOf(t.getSide()))/*, 
 						new MoveStrategyOnClickStraightLine(t.getPosition(), t.getPosition())*/);
 			}
 		}
@@ -142,12 +142,12 @@ public abstract class AbstractLevelCTF extends GameLevelDefaultImpl{
 		universe.addGameEntity(army);
 	}
 	
-	public void addArmy(Team t, MoveStrategy move_strat, int nb_horseman, int nb_infantryman, String name){
+	public void addArmy(Team t, MoveStrategy move_strat, int nb_riders, int nb_infantryman, String name){
 		GameMovableDriverDefaultImpl armyDriver = new GameMovableDriverDefaultImpl();
 		armyDriver.setStrategy(move_strat);
 		armyDriver.setmoveBlockerChecker(moveBlockerChecker);
 		
-		Army army = t.getArmyFactory().getArmy(_canvas, nb_horseman, nb_infantryman, name);
+		Army army = t.getArmyFactory().getArmy(_canvas, nb_riders, nb_infantryman, name);
 		army.setDriver(armyDriver);
 		try{
 			army.setTeam(_teams_ia.iterator().next());

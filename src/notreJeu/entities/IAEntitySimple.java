@@ -14,16 +14,16 @@ public class IAEntitySimple extends GameMovable implements GameEntity{
 	protected AbstractLevelCTF _level;
 	protected Team _team;
 	protected MoveStrategy _movestrategy;
-	protected int _nb_horse, _nb_infant;
+	protected int _nb_riders, _nb_infantryman;
 	public static final int RENDERING_SIZE = 32;
 	
-	public IAEntitySimple(AbstractLevelCTF level, Team t, MoveStrategy movestrategy, int nb_horseman, int nb_infantryman) {
+	public IAEntitySimple(AbstractLevelCTF level, Team t, MoveStrategy movestrategy, int nb_rider, int nb_infantryman) {
 		_timer = 0;
 		_level = level;
 		_team = t;
 		_movestrategy = movestrategy;
-		_nb_horse = nb_horseman;
-		_nb_infant = nb_infantryman;
+		_nb_riders = nb_rider;
+		_nb_infantryman = nb_infantryman;
 	}
 	
 	@Override
@@ -33,7 +33,7 @@ public class IAEntitySimple extends GameMovable implements GameEntity{
 	public void oneStepMoveAddedBehavior() {
 		_timer++;
 		if(_timer%50 == 0 && _level.getArmy(_team)== null){
-			_level.addArmy(_team, _movestrategy, _nb_horse, _nb_infant,"IA");
+			_level.addArmy(_team, _movestrategy, _nb_riders, _nb_infantryman,"IA");
 		}
 	}
 }

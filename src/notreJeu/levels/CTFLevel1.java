@@ -150,20 +150,20 @@ public class CTFLevel1 extends AbstractLevelCTF{
 	
 	private void createLevelButtons(){
 		final JButton infantryman_button = createButton("infantryman");
-		final JButton horseman_button = createButton("horseman");
+		final JButton rider_button = createButton("rider");
 		final JButton release_button = createButton("release");
 		
 		ActionListener infantryman_button_action = getAddSoldierButtonAction(infantryman_button, "infantryman");
-		ActionListener horseman_button_action = getAddSoldierButtonAction(horseman_button, "horseman");
-		ActionListener[] tmp = {infantryman_button_action,horseman_button_action};
+		ActionListener rider_button_action = getAddSoldierButtonAction(rider_button, "rider");
+		ActionListener[] tmp = {infantryman_button_action,rider_button_action};
 		ActionListener release_button_action = getReleaseArmyButtonAction(tmp);
 
 		infantryman_button.addActionListener(infantryman_button_action);
-		horseman_button.addActionListener(horseman_button_action);
+		rider_button.addActionListener(rider_button_action);
 		release_button.addActionListener(release_button_action);
 		
 		((GameCTFImpl)g).addJButton(infantryman_button);
-		((GameCTFImpl)g).addJButton(horseman_button);
+		((GameCTFImpl)g).addJButton(rider_button);
 		((GameCTFImpl)g).addJButton(release_button);
 	}
 		
