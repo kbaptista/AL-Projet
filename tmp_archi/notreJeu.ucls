@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class-diagram version="1.1.13" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+<class-diagram version="1.1.12" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="notreJeu.levels.CTFLevel1" project="AL-Projet" 
     file="/AL-Projet/src/notreJeu/levels/CTFLevel1.java" binary="false" corner="BOTTOM_RIGHT">    
@@ -105,16 +105,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="13" language="java" name="notreJeu.levels.AbstractLevelCTF.ReleaseArmyButtonAction" project="AL-Projet" 
-    file="/AL-Projet/src/notreJeu/levels/AbstractLevelCTF.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="556" y="1567"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="14" language="java" name="notreJeu.entities.Water" project="AL-Projet" 
+  <class id="13" language="java" name="notreJeu.entities.Water" project="AL-Projet" 
     file="/AL-Projet/src/notreJeu/entities/Water.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="2275" y="923"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -123,7 +114,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="15" language="java" name="notreJeu.entities.Flag" project="AL-Projet" 
+  <class id="14" language="java" name="notreJeu.entities.Flag" project="AL-Projet" 
     file="/AL-Projet/src/notreJeu/entities/Flag.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1849" y="953"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -132,7 +123,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="16" language="java" name="notreJeu.rules.CreationFlagRuleHorizontalAxisImpl" project="AL-Projet" 
+  <class id="15" language="java" name="notreJeu.rules.CreationFlagRuleHorizontalAxisImpl" project="AL-Projet" 
     file="/AL-Projet/src/notreJeu/rules/CreationFlagRuleHorizontalAxisImpl.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="2171" y="1795"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -141,7 +132,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="17" language="java" name="notreJeu.coreextensions.BackgroundImageCTF" project="AL-Projet" 
+  <class id="16" language="java" name="notreJeu.coreextensions.BackgroundImageCTF" project="AL-Projet" 
     file="/AL-Projet/src/notreJeu/coreextensions/BackgroundImageCTF.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="569" y="351"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -150,7 +141,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="18" language="java" name="notreJeu.entities.Building" project="AL-Projet" 
+  <class id="17" language="java" name="notreJeu.entities.Building" project="AL-Projet" 
     file="/AL-Projet/src/notreJeu/entities/Building.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="2500" y="914"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -159,7 +150,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="19" language="java" name="notreJeu.levels.AbstractLevelCTF" project="AL-Projet" 
+  <class id="18" language="java" name="notreJeu.levels.AbstractLevelCTF" project="AL-Projet" 
     file="/AL-Projet/src/notreJeu/levels/AbstractLevelCTF.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="347" width="422" x="761" y="1253"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -168,7 +159,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="20" language="java" name="notreJeu.coreextensions.GameCTFImpl" project="AL-Projet" 
+  <class id="19" language="java" name="notreJeu.coreextensions.GameCTFImpl" project="AL-Projet" 
     file="/AL-Projet/src/notreJeu/coreextensions/GameCTFImpl.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="832" y="749"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -177,7 +168,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="21" language="java" name="notreJeu.rules.CreationFlagRules" project="AL-Projet" 
+  <interface id="20" language="java" name="notreJeu.rules.CreationFlagRules" project="AL-Projet" 
     file="/AL-Projet/src/notreJeu/rules/CreationFlagRules.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="2254" y="1498"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -186,12 +177,12 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <package id="22" language="java" name="notreJeu.rules" project="AL-Projet" file="/AL-Projet/src/notreJeu/rules" 
+  <package id="21" language="java" name="notreJeu.rules" project="AL-Projet" file="/AL-Projet/src/notreJeu/rules" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="46" width="107" x="1334" y="-25"/>    
     <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
   </package>  
-  <class id="23" language="java" name="notreJeu.coreextensions.GameUniverseViewPortCTFImpl" project="AL-Projet" 
+  <class id="22" language="java" name="notreJeu.coreextensions.GameUniverseViewPortCTFImpl" project="AL-Projet" 
     file="/AL-Projet/src/notreJeu/coreextensions/GameUniverseViewPortCTFImpl.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="221" width="326" x="411" y="-25"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -200,7 +191,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="24" language="java" name="notreJeu.Team" project="AL-Projet" file="/AL-Projet/src/notreJeu/Team.java" 
+  <class id="23" language="java" name="notreJeu.Team" project="AL-Projet" file="/AL-Projet/src/notreJeu/Team.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1652" y="1787"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -209,7 +200,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="25" language="java" name="notreJeu.entities.EntityMovable" project="AL-Projet" 
+  <class id="24" language="java" name="notreJeu.entities.EntityMovable" project="AL-Projet" 
     file="/AL-Projet/src/notreJeu/entities/EntityMovable.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1631" y="700"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -218,7 +209,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="26" language="java" name="notreJeu.entities.IAEntitySimple" project="AL-Projet" 
+  <class id="25" language="java" name="notreJeu.entities.IAEntitySimple" project="AL-Projet" 
     file="/AL-Projet/src/notreJeu/entities/IAEntitySimple.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1226" y="446"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -227,12 +218,12 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <package id="27" language="java" name="notreJeu.coreextensions" project="AL-Projet" 
+  <package id="26" language="java" name="notreJeu.coreextensions" project="AL-Projet" 
     file="/AL-Projet/src/notreJeu/coreextensions" binary="false" corner="BOTTOM_RIGHT">    
     <position height="46" width="167" x="1481" y="-25"/>    
     <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
   </package>  
-  <class id="28" language="java" name="notreJeu.entities.Barrack" project="AL-Projet" 
+  <class id="27" language="java" name="notreJeu.entities.Barrack" project="AL-Projet" 
     file="/AL-Projet/src/notreJeu/entities/Barrack.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="2509" y="1133"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -241,12 +232,12 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <package id="29" language="java" name="notreJeu.entities" project="AL-Projet" file="/AL-Projet/src/notreJeu/entities" 
+  <package id="28" language="java" name="notreJeu.entities" project="AL-Projet" file="/AL-Projet/src/notreJeu/entities" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="46" width="120" x="1688" y="-25"/>    
     <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
   </package>  
-  <class id="30" language="java" name="notreJeu.Main" project="AL-Projet" file="/AL-Projet/src/notreJeu/Main.java" 
+  <class id="29" language="java" name="notreJeu.Main" project="AL-Projet" file="/AL-Projet/src/notreJeu/Main.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="95" width="113" x="1848" y="-25"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -255,16 +246,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="31" language="java" name="notreJeu.levels.AbstractLevelCTF.AddSoldierButtonAction" project="AL-Projet" 
-    file="/AL-Projet/src/notreJeu/levels/AbstractLevelCTF.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="248" y="1694"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="32" language="java" name="notreJeu.rules.CreationFlagRuleCenterImpl" project="AL-Projet" 
+  <class id="30" language="java" name="notreJeu.rules.CreationFlagRuleCenterImpl" project="AL-Projet" 
     file="/AL-Projet/src/notreJeu/rules/CreationFlagRuleCenterImpl.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="2396" y="1792"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -273,7 +255,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="33" language="java" name="notreJeu.rules.CTFMoveBlockers" project="AL-Projet" 
+  <class id="31" language="java" name="notreJeu.rules.CTFMoveBlockers" project="AL-Projet" 
     file="/AL-Projet/src/notreJeu/rules/CTFMoveBlockers.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="95" width="253" x="2001" y="-25"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -282,200 +264,265 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <nesting id="34">    
-    <end type="SOURCE" refId="19"/>    
-    <end type="TARGET" refId="13"/>  
-  </nesting>  
-  <generalization id="35">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="15"/>  
-  </generalization>  
-  <association id="36">    
-    <end type="SOURCE" refId="13" navigable="false">      
-      <attribute id="37" name="instanciateActions"/>      
-      <multiplicity id="38" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="31" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="39">    
+  <class id="32" language="java" name="notreJeu.buttons.ActionRecruitSoldiers" project="AL-Projet" 
+    file="/AL-Projet/src/notreJeu/buttons/ActionRecruitSoldiers.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="173" y="1383"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="33" language="java" name="notreJeu.buttons.ActionReleaseArmy" project="AL-Projet" 
+    file="/AL-Projet/src/notreJeu/buttons/ActionReleaseArmy.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="551" y="1379"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="34">    
     <bendpoint x="1010" y="453"/>    
     <bendpoint x="1020" y="839"/>    
     <bendpoint x="1017" y="1249"/>    
-    <end type="SOURCE" refId="26" navigable="false">      
-      <attribute id="40" name="_level"/>      
-      <multiplicity id="41" minimum="0" maximum="1"/>    
+    <end type="SOURCE" refId="25" navigable="false">      
+      <attribute id="35" name="_level">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="36" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="19" navigable="true"/>    
+    <end type="TARGET" refId="18" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <nesting id="42">    
-    <bendpoint x="770" y="1640"/>    
-    <end type="SOURCE" refId="19"/>    
-    <end type="TARGET" refId="31"/>  
-  </nesting>  
-  <association id="43">    
-    <end type="SOURCE" refId="24" navigable="false">      
-      <attribute id="44" name="_rule"/>      
-      <multiplicity id="45" minimum="0" maximum="1"/>    
+  <association id="37">    
+    <bendpoint x="1343" y="1580"/>    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="38" name="_teams_ia">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="39" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="21" navigable="true"/>    
+    <end type="TARGET" refId="23" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="46">    
-    <bendpoint x="1698" y="584"/>    
-    <end type="SOURCE" refId="25"/>    
+  <generalization id="40">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="14"/>  
+  </generalization>  
+  <association id="41">    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="42" name="_rule">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="43" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="44">    
+    <end type="SOURCE" refId="13"/>    
     <end type="TARGET" refId="9"/>  
   </realization>  
-  <realization id="47">    
-    <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="21"/>  
-  </realization>  
-  <association id="48">    
-    <bendpoint x="1651" y="1403"/>    
-    <end type="SOURCE" refId="15" navigable="false">      
-      <attribute id="49" name="_side"/>      
-      <multiplicity id="50" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="24" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="51">    
-    <bendpoint x="1442" y="449"/>    
-    <bendpoint x="1440" y="1116"/>    
-    <bendpoint x="1444" y="1395"/>    
-    <bendpoint x="1448" y="1585"/>    
-    <end type="SOURCE" refId="26" navigable="false">      
-      <attribute id="52" name="_team"/>      
-      <multiplicity id="53" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="24" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="54">    
-    <bendpoint x="1574" y="1556"/>    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="55" name="_side"/>      
-      <multiplicity id="56" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="24" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="57">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="58" name="_captured_flags"/>      
-      <multiplicity id="59" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="15" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="60">    
-    <end type="SOURCE" refId="20" navigable="false">      
-      <attribute id="61" name="currentPlayedLevel"/>      
-      <multiplicity id="62" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="19" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="63">    
-    <end type="SOURCE" refId="24" navigable="false">      
-      <attribute id="64" name="_army_factory"/>      
-      <multiplicity id="65" minimum="0" maximum="1"/>    
+  <association id="45">    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="46" name="_army_factory">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="47" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="66">    
-    <bendpoint x="764" y="1227"/>    
-    <end type="SOURCE" refId="20" navigable="false">      
-      <attribute id="67" name="gameLevels"/>      
-      <multiplicity id="68" minimum="0" maximum="2147483647"/>    
+  <association id="48">    
+    <end type="SOURCE" refId="33" navigable="false">      
+      <attribute id="49" name="instanciateActions"/>      
+      <multiplicity id="50" minimum="0" maximum="2147483647"/>    
     </end>    
-    <end type="TARGET" refId="19" navigable="true"/>    
+    <end type="TARGET" refId="32" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="69">    
-    <end type="SOURCE" refId="32"/>    
-    <end type="TARGET" refId="21"/>  
-  </realization>  
-  <generalization id="70">    
-    <end type="SOURCE" refId="28"/>    
-    <end type="TARGET" refId="18"/>  
-  </generalization>  
-  <association id="71">    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="72" name="_getAgeFactory"/>      
-      <multiplicity id="73" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="74">    
-    <bendpoint x="1079" y="1623"/>    
-    <end type="SOURCE" refId="19" navigable="false">      
-      <attribute id="75" name="_teams_played"/>      
-      <multiplicity id="76" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="24" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="77">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="25"/>  
-  </generalization>  
-  <realization id="78">    
-    <end type="SOURCE" refId="18"/>    
-    <end type="TARGET" refId="9"/>  
-  </realization>  
-  <realization id="79">    
-    <end type="SOURCE" refId="15"/>    
-    <end type="TARGET" refId="9"/>  
-  </realization>  
-  <realization id="80">    
+  <realization id="51">    
     <end type="SOURCE" refId="12"/>    
     <end type="TARGET" refId="9"/>  
   </realization>  
-  <association id="81">    
-    <end type="SOURCE" refId="23" navigable="false">      
-      <attribute id="82" name="background"/>      
-      <multiplicity id="83" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="17" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="84">    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="19"/>  
-  </generalization>  
-  <generalization id="85">    
+  <generalization id="52">    
     <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="26"/>  
+    <end type="TARGET" refId="25"/>  
   </generalization>  
-  <generalization id="86">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="19"/>  
+  <realization id="53">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="20"/>  
+  </realization>  
+  <generalization id="54">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="18"/>  
   </generalization>  
-  <realization id="87">    
-    <end type="SOURCE" refId="14"/>    
+  <realization id="55">    
+    <end type="SOURCE" refId="17"/>    
     <end type="TARGET" refId="9"/>  
   </realization>  
-  <association id="88">    
-    <end type="SOURCE" refId="24" navigable="false">      
-      <attribute id="89" name="_side"/>      
-      <multiplicity id="90" minimum="0" maximum="1"/>    
+  <generalization id="56">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="18"/>  
+  </generalization>  
+  <association id="57">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="58" name="_captured_flags">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="59" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="60">    
+    <bendpoint x="1651" y="1403"/>    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="61" name="_side">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="62" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="23" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="63">    
+    <bendpoint x="1574" y="1556"/>    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="64" name="_side">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="65" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="23" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="66">    
+    <bendpoint x="1698" y="584"/>    
+    <end type="SOURCE" refId="24"/>    
+    <end type="TARGET" refId="9"/>  
+  </realization>  
+  <association id="67">    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="68" name="_side">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="69" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="8" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="91">    
-    <bendpoint x="1343" y="1580"/>    
+  <association id="70">    
+    <bendpoint x="764" y="1227"/>    
     <end type="SOURCE" refId="19" navigable="false">      
-      <attribute id="92" name="_teams_ia"/>      
-      <multiplicity id="93" minimum="0" maximum="2147483647"/>    
+      <attribute id="71" name="gameLevels">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="72" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="24" navigable="true"/>    
+    <end type="TARGET" refId="18" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
+  <association id="73">    
+    <end type="SOURCE" refId="22" navigable="false">      
+      <attribute id="74" name="background">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="75" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="76">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="77" name="_getAgeFactory">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="78" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="79">    
+    <end type="SOURCE" refId="27"/>    
+    <end type="TARGET" refId="17"/>  
+  </generalization>  
+  <realization id="80">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="9"/>  
+  </realization>  
+  <association id="81">    
+    <bendpoint x="1079" y="1623"/>    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="82" name="_teams_played">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="83" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="23" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="84">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="24"/>  
+  </generalization>  
+  <association id="85">    
+    <bendpoint x="1442" y="449"/>    
+    <bendpoint x="1440" y="1116"/>    
+    <bendpoint x="1444" y="1395"/>    
+    <bendpoint x="1448" y="1585"/>    
+    <end type="SOURCE" refId="25" navigable="false">      
+      <attribute id="86" name="_team">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="87" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="23" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="88">    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="89" name="currentPlayedLevel">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="90" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="18" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="91">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="20"/>  
+  </realization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    

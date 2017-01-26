@@ -4,6 +4,9 @@ import java.awt.Canvas;
 import java.util.LinkedList;
 import java.util.Queue;
 
+import gameframework.moves_rules.MoveBlockerChecker;
+import gameframework.moves_rules.MoveStrategy;
+import gameframework.moves_rules.MoveStrategyKeyboard;
 import notreJeu.entities.Army;
 import soldier.core.AgeAbstractFactory;
 import soldier.core.UnitGroup;
@@ -12,8 +15,10 @@ public class ArmyFactory implements Cloneable{
 	
 	public AgeAbstractFactory _ageFactory=null;
 	public Queue<GetAgeFactory> _getAgeFactory=null;
+	private Canvas _canvas;
 	
-	public ArmyFactory(Queue<GetAgeFactory> queueAgeFactory) throws Exception {
+	public ArmyFactory(Queue<GetAgeFactory> queueAgeFactory, Canvas canvas) throws Exception {
+		_canvas = canvas;
 		_getAgeFactory = queueAgeFactory;
 		if(!_getAgeFactory.isEmpty()){
 			_ageFactory = _getAgeFactory.poll().getAgeFactory();
@@ -22,19 +27,19 @@ public class ArmyFactory implements Cloneable{
 			throw new Exception("ArmyFactory constructor need a queue with at least a value.");
 	}
 	
-	public Army getArmy(Canvas canvas,int nb_riders, int nb_infantry, String name){
+	public Army getArmy(int nb_riders, int nb_infantry, String name){
 		//TODO : retablir encapsulation 
-		UnitGroup group = initArmy(canvas, nb_riders, nb_infantry, name);
-		return new Army(canvas, group , null, nb_riders, nb_infantry);
+		UnitGroup group = initArmy(nb_riders, nb_infantry, name);
+		return new Army(_canvas, group , null, nb_riders, nb_infantry);
 	}
 	
-	public Army getArmy(Canvas canvas,int nb_riders, int nb_infantry, Team side, String name){
-		UnitGroup group = initArmy(canvas, nb_riders, nb_infantry, name);
-		side.use_gold(nb_infantry*5+nb_riders*7);
-		return new Army(canvas, group, side, nb_riders, nb_infantry);
+	public Army getArmy(int nb_riders, int nb_infantry, Team side, String name, MoveStrategyKeyboard move){
+		UnitGroup group = initArmy(nb_riders, nb_infantry, name);
+		_canvas.addKeyListener(move);
+		return new Army(_canvas, group, side, nb_riders, nb_infantry);
 	}
 	
-	private UnitGroup initArmy(Canvas canvas,int nb_riders, int nb_infantry, String name){
+	private UnitGroup initArmy(int nb_riders, int nb_infantry, String name){
 		UnitGroup group = new UnitGroup(name);
 		for (int i = 0; i < nb_riders; i++)
 			group.addUnit(_ageFactory.riderUnit("rider"+i));
@@ -55,7 +60,7 @@ public class ArmyFactory implements Cloneable{
 		//Pas gênant dans notre usage ici, au contraire, plus léger.
 		getAgeFactory.addAll(_getAgeFactory);
 		try{
-			return new ArmyFactory(getAgeFactory);
+			return new ArmyFactory(getAgeFactory, _canvas);
 		}catch(Exception e){
 			e.printStackTrace();
 			return null;

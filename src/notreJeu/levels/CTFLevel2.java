@@ -59,7 +59,6 @@ public class CTFLevel2 extends AbstractLevelCTF{
 		for (int j = 0; j < _width; j++) {
 			map[j][0]=1;
 			map[j][_height-1]=1;
-
 		}
 
 		// -- buildings

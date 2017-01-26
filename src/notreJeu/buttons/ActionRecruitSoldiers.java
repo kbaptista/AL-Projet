@@ -5,13 +5,13 @@ import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
 
-public class AddSoldierButtonAction implements MouseListener{
+public class ActionRecruitSoldiers implements MouseListener{
 	private int nb_soldier = 0;
 	private int cost ;
 	private JButton button;
 	private String type ;
 	
-	public AddSoldierButtonAction(JButton but, String type, int cost) {
+	public ActionRecruitSoldiers(JButton but, String type, int cost) {
 		button = but;
 		this.type = type;
 		this.cost = cost;
