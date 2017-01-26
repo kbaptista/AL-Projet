@@ -43,6 +43,10 @@ public class GameCTFImpl implements Game, Observer {
 	protected CanvasDefaultImpl defaultCanvas = null;
 	protected ObservableValue<Integer> score[] = new ObservableValue[MAX_NUMBER_OF_PLAYER];
 	protected ObservableValue<Integer> life[] = new ObservableValue[MAX_NUMBER_OF_PLAYER];
+
+	protected ObservableValue<Integer> gold1 ;
+	protected ObservableValue<Integer> gold2 ;
+	
 	// initialized before each level
 	protected ObservableValue<Boolean> endOfGame = null;
 
@@ -52,10 +56,12 @@ public class GameCTFImpl implements Game, Observer {
 	protected int levelNumber;
 	protected ArrayList<AbstractLevelCTF> gameLevels;
 	private AbstractLevelCTF currentPlayedLevel = null;
-	
+
 	protected Label lifeText, scoreText;
+	protected Label team1Gold, team2Gold;
 	protected Label information;
 	protected Label informationValue;
+	protected Label team1GoldValue, team2GoldValue;
 	protected Label lifeValue, scoreValue;
 	protected Label currentLevel;
 	protected Label currentLevelValue;
@@ -70,6 +76,12 @@ public class GameCTFImpl implements Game, Observer {
 			life[i] = new ObservableValue<Integer>(0);
 		}
 		
+		gold1 = new ObservableValue<Integer>(0);
+		gold2 = new ObservableValue<Integer>(0);
+		
+		team1Gold = new Label("Gold Team 1 : ");
+		team2Gold = new Label("Gold Team 2 : ");
+
 		lifeText = new Label("Lives:");
 		scoreText = new Label("Score:");
 		information = new Label("State:");
@@ -161,6 +173,8 @@ public class GameCTFImpl implements Game, Observer {
 		JPanel c = new JPanel();
 		GridBagLayout layout = new GridBagLayout();
 		c.setLayout(layout);
+		team1GoldValue = new Label(Integer.toString(life[0].getValue()));
+		team2GoldValue = new Label(Integer.toString(score[0].getValue()));
 		lifeValue = new Label(Integer.toString(life[0].getValue()));
 		scoreValue = new Label(Integer.toString(score[0].getValue()));
 		currentLevelValue = new Label(Integer.toString(levelNumber));
@@ -168,6 +182,10 @@ public class GameCTFImpl implements Game, Observer {
 		c.add(lifeValue);
 		c.add(scoreText);
 		c.add(scoreValue);
+		c.add(team1Gold);
+		c.add(team1GoldValue);
+		c.add(team2Gold);
+		c.add(team2GoldValue);
 		c.add(currentLevel);
 		c.add(currentLevelValue);
 		c.add(information);
@@ -193,9 +211,10 @@ public class GameCTFImpl implements Game, Observer {
 		for (int i = 0; i < MAX_NUMBER_OF_PLAYER; ++i) {
 			score[i].addObserver(this);
 			life[i].addObserver(this);
-			life[i].setValue(NUMBER_OF_LIVES);
 			score[i].setValue(0);
+			life[i].setValue(0);
 		}
+		
 		levelNumber = 0;
 		for (GameLevel level : gameLevels) {
 			endOfGame = new ObservableValue<Boolean>(false);
@@ -251,7 +270,17 @@ public class GameCTFImpl implements Game, Observer {
 		gameLevels = levels;
 	}
 
+	public void setGold1(ObservableValue<Integer> gold1) {
+		this.gold1 = gold1;
+	}
+	
+	public void setGold2(ObservableValue<Integer> gold2) {
+		this.gold2 = gold2;
+	}
+	
 	public void update(Observable o, Object arg) {
+
+		System.out.println("lol");
 		if (o == endOfGame) {
 			if (endOfGame.getValue()) {
 				informationValue.setText("You win");
@@ -259,6 +288,7 @@ public class GameCTFImpl implements Game, Observer {
 				currentPlayedLevel.end();
 			}
 		} else {
+			
 			for (ObservableValue<Integer> lifeObservable : life) {
 				if (o == lifeObservable) {
 					int lives = ((ObservableValue<Integer>) o).getValue();
@@ -275,6 +305,8 @@ public class GameCTFImpl implements Game, Observer {
 					scoreValue.setText(Integer.toString(((ObservableValue<Integer>) o).getValue()));
 				}
 			}
+			team1GoldValue.setText(Integer.toString(gold1.getValue()));
+			team2GoldValue.setText(Integer.toString(gold2.getValue()));
 		}
 	}
 }

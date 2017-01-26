@@ -11,6 +11,7 @@ import gameframework.moves_rules.OverlapProcessorDefaultImpl;
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
 import java.io.FileInputStream;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -39,6 +40,9 @@ import notreJeu.rules.CreationFlagRules;
 
 public class CTFLevel1 extends AbstractLevelCTF{
 
+	private static final int INFANTRY_MAN_COST = 5;
+	private static final int RIDER_COST = 5;
+	
 	protected int[][] generateMap(){
 		int[][] map = new int[_width][_height];
 		// -- empty spaces 
@@ -60,7 +64,7 @@ public class CTFLevel1 extends AbstractLevelCTF{
 		// -- buildings
 		map[0+4][_height/2] = 3;
 		map[_width-5][_height/2] = 3;
-		
+
 		return map;
 	}
 	
@@ -130,6 +134,8 @@ public class CTFLevel1 extends AbstractLevelCTF{
 				}
 			} 
 		}
+		((GameCTFImpl)g).setGold1(_teams_played.iterator().next().get_gold());
+		((GameCTFImpl)g).setGold2(_teams_played.iterator().next().get_gold());
 		createLevelButtons();
 	}
 	
@@ -147,20 +153,20 @@ public class CTFLevel1 extends AbstractLevelCTF{
 	
 	private void createLevelButtons(){
 		final JButton infantryman_button = createButton("infantryman");
-		final JButton horseman_button = createButton("horseman");
+		final JButton rider_button = createButton("rider");
 		final JButton release_button = createButton("release");
 		
-		ActionListener infantryman_button_action = getAddSoldierButtonAction(infantryman_button, "infantryman");
-		ActionListener horseman_button_action = getAddSoldierButtonAction(horseman_button, "horseman");
-		ActionListener[] tmp = {infantryman_button_action,horseman_button_action};
-		ActionListener release_button_action = getReleaseArmyButtonAction(tmp);
+		MouseListener infantryman_button_action = getAddSoldierButtonAction(infantryman_button, "infantryman", INFANTRY_MAN_COST);
+		MouseListener rider_button_action = getAddSoldierButtonAction(rider_button, "rider", RIDER_COST);
+		MouseListener[] tmp = {infantryman_button_action,rider_button_action};
+		ActionListener release_button_action = getReleaseArmyButtonAction(tmp, release_button);
 
-		infantryman_button.addActionListener(infantryman_button_action);
-		horseman_button.addActionListener(horseman_button_action);
+		infantryman_button.addMouseListener(infantryman_button_action);
+		rider_button.addMouseListener(rider_button_action);
 		release_button.addActionListener(release_button_action);
 		
 		((GameCTFImpl)g).addJButton(infantryman_button);
-		((GameCTFImpl)g).addJButton(horseman_button);
+		((GameCTFImpl)g).addJButton(rider_button);
 		((GameCTFImpl)g).addJButton(release_button);
 	}
 		

@@ -62,7 +62,7 @@ public class CTFOverlapRules extends OverlapRulesApplierDefaultImpl {
 	
 	private void rebuildFlags(Army killed_army, Army victorious_army){
 		if(killed_army.haveAFlag()){
-			List<Flag> tmp = killed_army.getFlags();
+			List<Flag> tmp = killed_army.getCapturedFlags();
 			for(Flag f : tmp)
 				if(f.getTeam().equals(victorious_army.getTeam())){
 					//ramène la position de la team à sa version sans sprite_size (matrice initiale)
@@ -111,6 +111,7 @@ public class CTFOverlapRules extends OverlapRulesApplierDefaultImpl {
 				universe.removeGameEntity(f);
 			}
 		}
+		
 		//si une armée arrive à son propre drapeau
 		else{
 			if(a.haveAFlag()){
