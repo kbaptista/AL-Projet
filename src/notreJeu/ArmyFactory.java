@@ -30,6 +30,7 @@ public class ArmyFactory implements Cloneable{
 	
 	public Army getArmy(Canvas canvas,int nb_riders, int nb_infantry, Team side, String name){
 		UnitGroup group = initArmy(canvas, nb_riders, nb_infantry, name);
+		side.use_gold(nb_infantry*5+nb_riders*7);
 		return new Army(canvas, group, side, nb_riders, nb_infantry);
 	}
 	

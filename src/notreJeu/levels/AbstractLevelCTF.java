@@ -4,6 +4,8 @@ import java.awt.Canvas;
 import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
@@ -24,7 +26,7 @@ import notreJeu.entities.Army;
 import notreJeu.rules.MoveStrategyOnClickStraightLine;
 
 public abstract class AbstractLevelCTF extends GameLevelDefaultImpl{
-
+	
 	Canvas _canvas;
 	public String _background_path = "images/ctf_grass.png";
 
@@ -46,71 +48,129 @@ public abstract class AbstractLevelCTF extends GameLevelDefaultImpl{
 	
 	protected abstract int[][] generateMap();
 	
-	class AddSoldierButtonAction implements ActionListener{
+	class AddSoldierButtonAction implements MouseListener{
 		private int nb_soldier = 0;
+		private int cost ;
 		private JButton button;
 		private String type ;
 		
-		public AddSoldierButtonAction(JButton but, String type) {
+		public AddSoldierButtonAction(JButton but, String type, int cost) {
 			button = but;
 			this.type = type;
+			this.cost = cost;
+			button.setText(String.valueOf(nb_soldier));
 		}
 		
+		public int getCost(){return cost;}
 		public String getType(){return type;}
 		public int getValue(){return nb_soldier;}
+		
 		public void setValue(int i){
 			nb_soldier=i;
 			button.setText(String.valueOf(nb_soldier));
 		}
-		
-		@Override
-		public void actionPerformed(ActionEvent e) {
+
+		private void decrease(){
+			nb_soldier--;
+			button.setText(String.valueOf(nb_soldier));
+		}
+		private void increase(){
 			nb_soldier++;
 			button.setText(String.valueOf(nb_soldier));
+		}
+
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			// TODO Auto-generated method stub
+			if (e.isShiftDown()){
+				decrease();
+			}else{
+				increase();
+			}
+		}
+
+		@Override
+		public void mousePressed(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseReleased(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseEntered(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseExited(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
 		}
 	}
 	class ReleaseArmyButtonAction implements ActionListener{
 		
 		private Set<AddSoldierButtonAction> instanciateActions;
+		private JButton button;
 		
-		public ReleaseArmyButtonAction(ActionListener[] list) {
+		public ReleaseArmyButtonAction(MouseListener[] list, JButton button) {
+			this.button=button;
 			instanciateActions = new HashSet<AddSoldierButtonAction>();
-			for (ActionListener act : list) {
+			for (MouseListener act : list) {
 				instanciateActions.add((AddSoldierButtonAction)act);
 			}
 		}
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {
+
+			int nb_infantryman = 0 ;
+			int nb_riders = 0 ;
 			if(true){//TODO : vérifier si le joueur possède une équipe
 
-				int nb_infantryman = 0 ;
-				int nb_riders = 0 ;
+				int army_cost = 0;
 				for(AddSoldierButtonAction action : instanciateActions){
-					if(action.getType().matches("riders")){nb_riders = action.getValue();}
-					if(action.getType().matches("infantryman")){nb_infantryman = action.getValue();}
+					if(action.getType().matches("rider")){
+						nb_riders = action.getValue();
+						army_cost+= nb_riders*action.getCost();
+					}
+					if(action.getType().matches("infantryman")){
+						nb_infantryman = action.getValue();
+						army_cost+= nb_infantryman*action.getCost();
+					}
 					action.setValue(0);
-
-					System.out.println(((AddSoldierButtonAction) action).type + " " +
-							String.valueOf(nb_infantryman) + " | " +
-							String.valueOf(nb_riders)
-					);
 				}
 				Team t = _teams_played.iterator().next();
-				ArmyFactory a =t.getArmyFactory();
-				addArmy(a.getArmy(_canvas, nb_riders, nb_infantryman, t, "Player"+String.valueOf(t.getSide()))/*, 
-						new MoveStrategyOnClickStraightLine(t.getPosition(), t.getPosition())*/);
+				System.out.println("Army_cost = " + army_cost);
+				if (army_cost<=t.get_gold().getValue()){
+					ArmyFactory a =t.getArmyFactory();
+					addArmy(a.getArmy(_canvas, nb_riders, nb_infantryman, t, "Player"+String.valueOf(t.getSide()))/*, 
+							new MoveStrategyOnClickStraightLine(t.getPosition(), t.getPosition())*/);
+					button.setText("0");
+				}else {
+					//if the army is too expensive, it is not instanciate and the buttons are given back their values
+					for(AddSoldierButtonAction action : instanciateActions){
+						if(action.getType().matches("rider")){action.setValue(nb_riders);}
+						if(action.getType().matches("infantryman")){action.setValue(nb_infantryman);}
+					}
+					button.setText(String.valueOf(army_cost));
+				}
 			}
 		}
 	}
 	
-	public AddSoldierButtonAction getAddSoldierButtonAction(JButton but, String type){
-		return new AddSoldierButtonAction(but, type);
+	public AddSoldierButtonAction getAddSoldierButtonAction(JButton but, String type, int cost){
+		return new AddSoldierButtonAction(but, type, cost);
 	}
 	
-	public ReleaseArmyButtonAction getReleaseArmyButtonAction(ActionListener[] list){
+	public ReleaseArmyButtonAction getReleaseArmyButtonAction(MouseListener[] list, JButton button){
 		
-		return new ReleaseArmyButtonAction(list);
+		return new ReleaseArmyButtonAction(list, button);
 	}
 	
 	public void addArmy(Army army){

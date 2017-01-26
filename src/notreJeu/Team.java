@@ -91,11 +91,19 @@ public class Team {
 	
 	public String getAge(){
 		String s = _army_factory._ageFactory.getClass().getName();
-		System.out.println(s);
 		return s;
 	}
 	
 	public ObservableValue<Integer> get_gold() {
 		return _gold;
+	}
+	
+	public void use_gold(int amount){
+		int gold = _gold.getValue();
+		_gold.setValue(gold-amount);
+		System.out.println(
+				"Cost = " + amount + " | " +
+				"Gold Before = "+ gold + " | " +
+				"Gold After = " +_gold.getValue());
 	}
 }
