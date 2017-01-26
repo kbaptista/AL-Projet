@@ -180,8 +180,9 @@ public class GameCTFImpl implements Game, Observer {
 		SwingUtilities.updateComponentTreeUI(f);
 	}
 	
-	public void deleteJButtons(){
+	public void cleanLevel(){
 		buttonsPanel.removeAll();
+		currentPlayedLevel.cleanUniverse();
 	}
 	
 	public Canvas getCanvas() {
@@ -210,7 +211,7 @@ public class GameCTFImpl implements Game, Observer {
 				currentPlayedLevel.start();
 				currentPlayedLevel.join();
 			} catch (Exception e) {}
-			deleteJButtons();
+			cleanLevel();
 		}
 
 	}

@@ -23,7 +23,7 @@ public class IAEntityUnitsVariable extends IAEntitySimple{
 	@Override
 	public void oneStepMoveAddedBehavior() {
 		_timer++;
-		if(_timer%50 == 0 && _level.getArmy(_team)== null){
+		if(_timer%30 == 0 && _level.getArmy(_team)== null){
 			_level.addArmy(_team, _movestrategy, getRandom(_nb_horse), getRandom(_nb_infant),"IA");
 		}
 	}

@@ -27,9 +27,9 @@ public abstract class AbstractLevelCTF extends GameLevelDefaultImpl{
 	Canvas _canvas;
 	public String _background_path = "images/ctf_grass.png";
 
-	protected int _width = 31;
-	protected int _height = 31;
-	protected int[][] _map = generateMap(); 
+	protected int _width;
+	protected int _height;
+	protected int[][] _map;
 	
 	protected MoveBlockerChecker moveBlockerChecker;
 	protected Set<Team> _teams_played;
@@ -150,7 +150,16 @@ public abstract class AbstractLevelCTF extends GameLevelDefaultImpl{
 		}
 		return null;
 	}
-		
+	
+	public void cleanUniverse(){
+		Iterator<GameEntity> entities = universe.gameEntities();
+		while(entities.hasNext()){
+			entities.next();
+			entities.remove();
+		}
+	}
+	
+
 	public void setSpriteSize(int size){
 		SPRITE_SIZE = size;
 	}

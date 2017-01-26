@@ -60,13 +60,13 @@ public class CTFLevel1 extends AbstractLevelCTF{
 		// -- buildings
 		map[0+4][_height/2] = 3;
 		map[_width-5][_height/2] = 3;
-
 		
 		return map;
 	}
 	
 	@Override
 	protected void init() {
+		_map = generateMap();
 		CreationFlagRules cfr = new CreationFlagRuleCenterImpl(new Point((_width)/2,(_height)/2));
 		
 		OverlapProcessor overlapProcessor = new OverlapProcessorDefaultImpl();

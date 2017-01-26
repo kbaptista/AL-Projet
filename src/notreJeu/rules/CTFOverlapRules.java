@@ -107,7 +107,6 @@ public class CTFOverlapRules extends OverlapRulesApplierDefaultImpl {
 		if(f.getTeam().getSide() != a.getTeam().getSide()){
 			if ((!f.isCatched()) && !a.haveAFlag()){
 				a.captureTheFlag(f);
-				System.out.println(" overlapRule A F > "+f.getTeam()); // PROBLEME AVEC LA TEAM LORSQUE CREER FLAGEMPTY
 				universe.addGameEntity(new FlagEmpty(canvas,f.getPosition(),f.getTeam()));
 				universe.removeGameEntity(f);
 			}
@@ -115,6 +114,7 @@ public class CTFOverlapRules extends OverlapRulesApplierDefaultImpl {
 		//si une armée arrive à son propre drapeau
 		else{
 			if(a.haveAFlag()){
+				score.setValue(score.getValue()+1);
 				endOfGame.setValue(true);
 			}
 		}

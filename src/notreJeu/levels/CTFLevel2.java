@@ -5,7 +5,6 @@ import gameframework.core.Game;
 import gameframework.core.GameUniverseDefaultImpl;
 import gameframework.moves_rules.MoveBlockerCheckerDefaultImpl;
 import gameframework.moves_rules.MoveStrategyRandom;
-import gameframework.moves_rules.MoveStrategyStraightLine;
 import gameframework.moves_rules.OverlapProcessor;
 import gameframework.moves_rules.OverlapProcessorDefaultImpl;
 
@@ -31,7 +30,6 @@ import notreJeu.coreextensions.GameCTFImpl;
 import notreJeu.coreextensions.GameUniverseViewPortCTFImpl;
 import notreJeu.entities.Barrack;
 import notreJeu.entities.Flag;
-import notreJeu.entities.IAEntitySimple;
 import notreJeu.entities.IAEntityUnitsVariable;
 import notreJeu.entities.IndestructibleWall;
 import notreJeu.entities.Water;
@@ -69,12 +67,13 @@ public class CTFLevel2 extends AbstractLevelCTF{
 		map[_width-5][_height-(_height/3)] = 3;
 		
 		//blocker for IA
-		map[_width-7][(_height-(_height/3))+5] = 1;
+		map[_width-5][_height-(_height/3)+3] = 1;
 		return map;
 	}
 
 	@Override
 	protected void init() {
+		_map = generateMap();
 		CreationFlagRules cfr = new CreationFlagRuleHorizontalAxisImpl(_height/2);
 		
 		OverlapProcessor overlapProcessor = new OverlapProcessorDefaultImpl();
@@ -115,9 +114,11 @@ public class CTFLevel2 extends AbstractLevelCTF{
 						armyFactory = new ArmyFactory(getAgeFactory);
 					} catch (Exception e) {e.printStackTrace();}
 					
+					//position format de la matrice
 					Point p = new Point(i,j);
 					Point flag_pos = cfr.getFlagPosition(p, new Point((_width)/2,(_height)/2));
-			
+					
+					//position au format de la carte
 					p.setLocation(p.x* SPRITE_SIZE, p.y* SPRITE_SIZE);
 					flag_pos.setLocation(flag_pos.x* SPRITE_SIZE, flag_pos.y* SPRITE_SIZE);
 					
@@ -129,7 +130,6 @@ public class CTFLevel2 extends AbstractLevelCTF{
 						_teams_played.add(t);
 					else{
 						_teams_ia.add(t);
-						//universe.addGameEntity(new IAEntityUnitsVariable(this, t, new MoveStrategyStraightLine(p, flag_pos), 5, 5,2));
 						universe.addGameEntity(new IAEntityUnitsVariable(this, t, new MoveStrategyRandom(),5,5,2));
 					}
 					break;

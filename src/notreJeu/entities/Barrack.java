@@ -13,7 +13,6 @@ import notreJeu.Team;
 
 public class Barrack extends Building{
 	protected static DrawableImage image = null;
-	private Team _team;
 	
 	public Barrack(Canvas defaultCanvas, Point p) {
 		super(defaultCanvas,p);
