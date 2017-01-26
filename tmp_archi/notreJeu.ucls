@@ -21,7 +21,7 @@
   </class>  
   <class id="3" language="java" name="notreJeu.entities.Army" project="AL-Projet" 
     file="/AL-Projet/src/notreJeu/entities/Army.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="311" width="229" x="1682" y="344"/>    
+    <position height="-1" width="-1" x="1586" y="968"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -30,7 +30,7 @@
   </class>  
   <interface id="4" language="java" name="notreJeu.GetAgeFactory" project="AL-Projet" 
     file="/AL-Projet/src/notreJeu/GetAgeFactory.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="77" width="208" x="1031" y="2450"/>    
+    <position height="-1" width="-1" x="1189" y="1942"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -39,7 +39,7 @@
   </interface>  
   <class id="5" language="java" name="notreJeu.ArmyFactory" project="AL-Projet" 
     file="/AL-Projet/src/notreJeu/ArmyFactory.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="185" width="229" x="1031" y="2063"/>    
+    <position height="-1" width="-1" x="1180" y="1782"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -48,7 +48,7 @@
   </class>  
   <class id="6" language="java" name="notreJeu.entities.IAEntityUnitsVariable" project="AL-Projet" 
     file="/AL-Projet/src/notreJeu/entities/IAEntityUnitsVariable.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1378" y="773"/>    
+    <position height="-1" width="-1" x="1229" y="776"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -62,7 +62,7 @@
   </package>  
   <enumeration id="8" language="java" name="notreJeu.Equip" project="AL-Projet" 
     file="/AL-Projet/src/notreJeu/Equip.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="203" width="119" x="1300" y="2063"/>    
+    <position height="-1" width="-1" x="1978" y="1868"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -71,7 +71,7 @@
   </enumeration>  
   <interface id="9" language="java" name="notreJeu.entities.Entity" project="AL-Projet" 
     file="/AL-Projet/src/notreJeu/entities/Entity.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2173" y="971"/>    
+    <position height="-1" width="-1" x="2044" y="448"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -89,7 +89,7 @@
   </class>  
   <class id="11" language="java" name="notreJeu.entities.FlagEmpty" project="AL-Projet" 
     file="/AL-Projet/src/notreJeu/entities/FlagEmpty.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1760" y="1653"/>    
+    <position height="-1" width="-1" x="1844" y="1231"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -98,7 +98,7 @@
   </class>  
   <class id="12" language="java" name="notreJeu.entities.IndestructibleWall" project="AL-Projet" 
     file="/AL-Projet/src/notreJeu/entities/IndestructibleWall.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="203" width="183" x="1886" y="1253"/>    
+    <position height="-1" width="-1" x="2061" y="932"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -116,7 +116,7 @@
   </class>  
   <class id="14" language="java" name="notreJeu.entities.Water" project="AL-Projet" 
     file="/AL-Projet/src/notreJeu/entities/Water.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="185" width="164" x="2109" y="1253"/>    
+    <position height="-1" width="-1" x="2275" y="923"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -125,7 +125,7 @@
   </class>  
   <class id="15" language="java" name="notreJeu.entities.Flag" project="AL-Projet" 
     file="/AL-Projet/src/notreJeu/entities/Flag.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="257" width="164" x="1682" y="1253"/>    
+    <position height="-1" width="-1" x="1849" y="953"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -134,7 +134,7 @@
   </class>  
   <class id="16" language="java" name="notreJeu.rules.CreationFlagRuleHorizontalAxisImpl" project="AL-Projet" 
     file="/AL-Projet/src/notreJeu/rules/CreationFlagRuleHorizontalAxisImpl.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1634" y="2294"/>    
+    <position height="-1" width="-1" x="2171" y="1795"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -143,7 +143,7 @@
   </class>  
   <class id="17" language="java" name="notreJeu.coreextensions.BackgroundImageCTF" project="AL-Projet" 
     file="/AL-Projet/src/notreJeu/coreextensions/BackgroundImageCTF.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="131" width="235" x="411" y="344"/>    
+    <position height="-1" width="-1" x="569" y="351"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -152,7 +152,7 @@
   </class>  
   <class id="18" language="java" name="notreJeu.entities.Building" project="AL-Projet" 
     file="/AL-Projet/src/notreJeu/entities/Building.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="167" width="164" x="2334" y="1253"/>    
+    <position height="-1" width="-1" x="2500" y="914"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -179,7 +179,7 @@
   </class>  
   <interface id="21" language="java" name="notreJeu.rules.CreationFlagRules" project="AL-Projet" 
     file="/AL-Projet/src/notreJeu/rules/CreationFlagRules.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1758" y="1997"/>    
+    <position height="-1" width="-1" x="2254" y="1498"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -202,7 +202,7 @@
   </class>  
   <class id="24" language="java" name="notreJeu.Team" project="AL-Projet" file="/AL-Projet/src/notreJeu/Team.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="383" width="414" x="1073" y="1640"/>    
+    <position height="-1" width="-1" x="1652" y="1787"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -211,7 +211,7 @@
   </class>  
   <class id="25" language="java" name="notreJeu.entities.EntityMovable" project="AL-Projet" 
     file="/AL-Projet/src/notreJeu/entities/EntityMovable.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2226" y="254"/>    
+    <position height="-1" width="-1" x="1631" y="700"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -220,7 +220,7 @@
   </class>  
   <class id="26" language="java" name="notreJeu.entities.IAEntitySimple" project="AL-Projet" 
     file="/AL-Projet/src/notreJeu/entities/IAEntitySimple.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1375" y="443"/>    
+    <position height="-1" width="-1" x="1226" y="446"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -234,7 +234,7 @@
   </package>  
   <class id="28" language="java" name="notreJeu.entities.Barrack" project="AL-Projet" 
     file="/AL-Projet/src/notreJeu/entities/Barrack.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2425" y="1555"/>    
+    <position height="-1" width="-1" x="2509" y="1133"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -266,7 +266,7 @@
   </class>  
   <class id="32" language="java" name="notreJeu.rules.CreationFlagRuleCenterImpl" project="AL-Projet" 
     file="/AL-Projet/src/notreJeu/rules/CreationFlagRuleCenterImpl.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1900" y="2291"/>    
+    <position height="-1" width="-1" x="2396" y="1792"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -299,11 +299,9 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="39">    
-    <bendpoint x="1130" y="451"/>    
-    <bendpoint x="1094" y="827"/>    
-    <bendpoint x="1094" y="1048"/>    
-    <bendpoint x="1098" y="1167"/>    
-    <bendpoint x="1101" y="1227"/>    
+    <bendpoint x="1010" y="453"/>    
+    <bendpoint x="1020" y="839"/>    
+    <bendpoint x="1017" y="1249"/>    
     <end type="SOURCE" refId="26" navigable="false">      
       <attribute id="40" name="_level"/>      
       <multiplicity id="41" minimum="0" maximum="1"/>    
@@ -325,8 +323,7 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <realization id="46">    
-    <bendpoint x="2303" y="344"/>    
-    <bendpoint x="2303" y="1253"/>    
+    <bendpoint x="1698" y="584"/>    
     <end type="SOURCE" refId="25"/>    
     <end type="TARGET" refId="9"/>  
   </realization>  
@@ -335,6 +332,7 @@
     <end type="TARGET" refId="21"/>  
   </realization>  
   <association id="48">    
+    <bendpoint x="1651" y="1403"/>    
     <end type="SOURCE" refId="15" navigable="false">      
       <attribute id="49" name="_side"/>      
       <multiplicity id="50" minimum="0" maximum="1"/>    
@@ -343,9 +341,10 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="51">    
-    <bendpoint x="1598" y="558"/>    
-    <bendpoint x="1536" y="1165"/>    
-    <bendpoint x="1377" y="1455"/>    
+    <bendpoint x="1442" y="449"/>    
+    <bendpoint x="1440" y="1116"/>    
+    <bendpoint x="1444" y="1395"/>    
+    <bendpoint x="1448" y="1585"/>    
     <end type="SOURCE" refId="26" navigable="false">      
       <attribute id="52" name="_team"/>      
       <multiplicity id="53" minimum="0" maximum="1"/>    
@@ -354,7 +353,7 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="54">    
-    <bendpoint x="1636" y="1253"/>    
+    <bendpoint x="1574" y="1556"/>    
     <end type="SOURCE" refId="3" navigable="false">      
       <attribute id="55" name="_side"/>      
       <multiplicity id="56" minimum="0" maximum="1"/>    
@@ -469,7 +468,7 @@
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="91">    
-    <bendpoint x="1178" y="1621"/>    
+    <bendpoint x="1343" y="1580"/>    
     <end type="SOURCE" refId="19" navigable="false">      
       <attribute id="92" name="_teams_ia"/>      
       <multiplicity id="93" minimum="0" maximum="2147483647"/>    
