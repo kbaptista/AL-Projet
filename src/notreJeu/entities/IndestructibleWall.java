@@ -21,8 +21,7 @@ public class IndestructibleWall implements Entity, MoveBlocker {
 
 	@Override
 	public void draw(Graphics g) {
-		g.drawImage(image.getImage(), x, y, RENDERING_SIZE, RENDERING_SIZE,
-				null);
+		g.drawImage(image.getImage(), x, y, RENDERING_SIZE, RENDERING_SIZE, null);
 	}
 
 	@Override

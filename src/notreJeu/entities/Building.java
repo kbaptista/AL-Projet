@@ -7,23 +7,22 @@ import java.awt.Rectangle;
 
 public abstract class Building implements Entity {
 	public static final int RENDERING_SIZE = 32;
-	protected int x,y ;
+	protected Point _p;
 	
-	public Building(Canvas defaultCanvas, int xx, int yy){
-		x = xx;
-		y = yy;
+	public Building(Canvas defaultCanvas, Point p){
+		_p = (Point) p.clone();
 	}
 
 	public abstract void draw(Graphics g);
 
 	@Override
 	public Point getPosition() {
-		return (new Point(x, y));
+		return _p;
 	}
 
 	@Override
 	public Rectangle getBoundingBox() {
-		return (new Rectangle(x,y, 3*RENDERING_SIZE, 3*RENDERING_SIZE));
+		return (new Rectangle(_p.x,_p.y, RENDERING_SIZE, RENDERING_SIZE));
 	}
 
 

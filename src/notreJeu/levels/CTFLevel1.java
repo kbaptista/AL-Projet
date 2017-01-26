@@ -29,12 +29,14 @@ import notreJeu.GetAgeFactory;
 import notreJeu.Team;
 import notreJeu.coreextensions.GameCTFImpl;
 import notreJeu.coreextensions.GameUniverseViewPortCTFImpl;
+
 import notreJeu.entities.Barrack;
 import notreJeu.entities.Flag;
+import notreJeu.entities.IAEntity;
 import notreJeu.entities.IndestructibleWall;
 import notreJeu.rules.CTFMoveBlockers;
 import notreJeu.rules.CTFOverlapRules;
-import notreJeu.rules.CreationFlagRuleHorizontalAxisImpl;
+import notreJeu.rules.CreationFlagRuleCenterImpl;
 import notreJeu.rules.CreationFlagRules;
 
 public class CTFLevel1 extends AbstractLevelCTF{
@@ -60,13 +62,14 @@ public class CTFLevel1 extends AbstractLevelCTF{
 		// -- buildings
 		map[0+4][_height/2] = 3;
 		map[_width-5][_height/2] = 3;
+
 		
 		return map;
 	}
 	
 	@Override
 	protected void init() {
-		CreationFlagRules cfr = new CreationFlagRuleHorizontalAxisImpl();
+		CreationFlagRules cfr = new CreationFlagRuleCenterImpl();
 		
 		OverlapProcessor overlapProcessor = new OverlapProcessorDefaultImpl();
 
@@ -83,9 +86,6 @@ public class CTFLevel1 extends AbstractLevelCTF{
 		((GameUniverseViewPortCTFImpl)gameBoard).setBackground(_background_path, SPRITE_SIZE, _width);
 
 		((CanvasDefaultImpl) _canvas).setDrawingGameBoard(gameBoard);
-
-		_teams = new HashSet<Team>();
-		
 		
 		Equip[] equips = Equip.values();
 		// Filling up the universe with basic non movable entities and inclusion in the universe
@@ -93,7 +93,7 @@ public class CTFLevel1 extends AbstractLevelCTF{
 			for (int j = 0; j < _width; ++j) {
 				switch(_map[i][j]){
 				case 1:
-					universe.addGameEntity(new IndestructibleWall(_canvas, j * SPRITE_SIZE, i * SPRITE_SIZE));;
+					universe.addGameEntity(new IndestructibleWall(_canvas, i * SPRITE_SIZE, j * SPRITE_SIZE));;
 					break;
 				case 3:
 					//ArmyFactory initiate the first age factory
@@ -105,14 +105,25 @@ public class CTFLevel1 extends AbstractLevelCTF{
 						armyFactory = new ArmyFactory(getAgeFactory);
 					}
 					catch(Exception e){e.printStackTrace();}
-					Team t =new Team(_teams.size(),new Point(i,j), equips[_teams.size()], armyFactory,cfr);
-					Point p = new Point(i,j);
-					Point flag_pos = cfr.getFlagPosition(p, new Point(_width/2,_height/2));
-					flag_pos.setLocation(flag_pos.getX()*SPRITE_SIZE, flag_pos.getY()*SPRITE_SIZE);
 					
-					universe.addGameEntity(new Barrack(_canvas, p.x* SPRITE_SIZE, p.y* SPRITE_SIZE));
+					Point p = new Point(i,j);
+					Point flag_pos = cfr.getFlagPosition(p, new Point((_width)/2,(_height)/2));
+			
+					p.setLocation(p.x* SPRITE_SIZE, p.y* SPRITE_SIZE);
+					flag_pos.setLocation(flag_pos.x* SPRITE_SIZE, flag_pos.y* SPRITE_SIZE);
+					
+					int team_id = _teams_played.size()+_teams_ia.size();
+					Team t = new Team(team_id, p, equips[team_id], armyFactory, cfr);
+					universe.addGameEntity(new Barrack(_canvas, p));
 					universe.addGameEntity(new Flag(_canvas, flag_pos, t));
-					_teams.add(t);
+					if(team_id == 0){
+						_teams_played.add(t);
+					}
+					else{
+						_teams_ia.add(t);
+						//Les IA ont une instance Entity pour avoir droit a des effets temporels.
+						universe.addGameEntity(new IAEntity(this, t));
+					}
 					break;
 				case 0:
 				default:
@@ -120,9 +131,8 @@ public class CTFLevel1 extends AbstractLevelCTF{
 				}
 			} 
 		}
-		Iterator<Team> it = _teams.iterator();
-		((GameCTFImpl)g).setGold1(it.next().get_gold());
-		((GameCTFImpl)g).setGold2(it.next().get_gold());
+		((GameCTFImpl)g).setGold1(_teams_played.iterator().next().get_gold());
+		((GameCTFImpl)g).setGold2(_teams_played.iterator().next().get_gold());
 		createLevelButtons();
 	}
 	

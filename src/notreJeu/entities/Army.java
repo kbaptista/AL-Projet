@@ -15,18 +15,15 @@ public class Army extends EntityMovable {
 	private SpriteManagerDefaultImpl _spriteManager;
 	
 	private boolean _hasTheFlag;
-	private boolean _movable;
 	private Unit _unit;
 	private Team _side;
 	
 	public Army(Canvas canvas, Unit unit, Team side) {
 		_side = side;
 		_unit = unit;
-		_movable = true;
 		_hasTheFlag = false;
 		_spriteManager = new SpriteManagerDefaultImpl("images/ctf_horseman.gif",canvas, RENDERING_SIZE, 6);
 		_spriteManager.setTypes("right", "left", "up","down");
-		System.out.println("  >  "+getPosition()); //TMP
 	}
 	
 	public void captureTheFlag(){
@@ -54,7 +51,6 @@ public class Army extends EntityMovable {
 	public void draw(Graphics g) {
 		String spriteType = "";
 		Point tmp = getSpeedVector().getDirection();
-		_movable = true;
 
 		if (tmp.getX() == -1) {
 			spriteType += "left";
@@ -73,7 +69,7 @@ public class Army extends EntityMovable {
 
 	@Override
 	public Rectangle getBoundingBox() {
-		return (new Rectangle(0, 0, 3*RENDERING_SIZE, 3*RENDERING_SIZE));
+		return (new Rectangle(0, 0, RENDERING_SIZE, RENDERING_SIZE));
 	}
 
 	@Override
