@@ -3,21 +3,17 @@ package notreJeu.levels;
 import gameframework.core.CanvasDefaultImpl;
 import gameframework.core.Game;
 import gameframework.core.GameUniverseDefaultImpl;
-import gameframework.moves_rules.MoveBlockerChecker;
 import gameframework.moves_rules.MoveBlockerCheckerDefaultImpl;
+import gameframework.moves_rules.MoveStrategyRandom;
 import gameframework.moves_rules.MoveStrategyStraightLine;
 import gameframework.moves_rules.OverlapProcessor;
 import gameframework.moves_rules.OverlapProcessorDefaultImpl;
 
-import java.awt.Canvas;
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.event.ActionListener;
 import java.io.FileInputStream;
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 
 import javax.imageio.ImageIO;
@@ -35,7 +31,8 @@ import notreJeu.coreextensions.GameCTFImpl;
 import notreJeu.coreextensions.GameUniverseViewPortCTFImpl;
 import notreJeu.entities.Barrack;
 import notreJeu.entities.Flag;
-import notreJeu.entities.IAEntity;
+import notreJeu.entities.IAEntitySimple;
+import notreJeu.entities.IAEntityUnitsVariable;
 import notreJeu.entities.IndestructibleWall;
 import notreJeu.entities.Water;
 import notreJeu.rules.CTFMoveBlockers;
@@ -70,12 +67,15 @@ public class CTFLevel2 extends AbstractLevelCTF{
 		// -- buildings
 		map[4][_height/3] = 3;
 		map[_width-5][_height-(_height/3)] = 3;
+		
+		//blocker for IA
+		map[_width-7][(_height-(_height/3))+5] = 1;
 		return map;
 	}
 
 	@Override
 	protected void init() {
-		CreationFlagRules cfr = new CreationFlagRuleHorizontalAxisImpl();
+		CreationFlagRules cfr = new CreationFlagRuleHorizontalAxisImpl(_height/2);
 		
 		OverlapProcessor overlapProcessor = new OverlapProcessorDefaultImpl();
 
@@ -87,12 +87,13 @@ public class CTFLevel2 extends AbstractLevelCTF{
 
 		universe = new GameUniverseDefaultImpl(moveBlockerChecker, overlapProcessor);
 		overlapRules.setUniverse(universe);
+		overlapRules.setCanvas(_canvas);
 
 		gameBoard = new GameUniverseViewPortCTFImpl(_canvas, universe, SPRITE_SIZE, _width);
 		((GameUniverseViewPortCTFImpl)gameBoard).setBackground(_background_path, SPRITE_SIZE, _width);
 
 		((CanvasDefaultImpl) _canvas).setDrawingGameBoard(gameBoard);
-		
+
 		Equip[] equips = Equip.values();
 		// Filling up the universe with basic non movable entities and inclusion in the universe
 		for (int i = 0; i < _height; ++i) {
@@ -128,7 +129,8 @@ public class CTFLevel2 extends AbstractLevelCTF{
 						_teams_played.add(t);
 					else{
 						_teams_ia.add(t);
-						universe.addGameEntity(new IAEntity(this, t, new MoveStrategyStraightLine(p, flag_pos)));
+						//universe.addGameEntity(new IAEntityUnitsVariable(this, t, new MoveStrategyStraightLine(p, flag_pos), 5, 5,2));
+						universe.addGameEntity(new IAEntityUnitsVariable(this, t, new MoveStrategyRandom(),5,5,2));
 					}
 					break;
 				case 0:
@@ -171,10 +173,10 @@ public class CTFLevel2 extends AbstractLevelCTF{
 		((GameCTFImpl)g).addJButton(release_button);
 	}
 	
-	public CTFLevel2(Game g, int size) {
+	public CTFLevel2(Game g, int height, int width) {
 		super(g);
-		_width = size;
-		_height = size;
+		_width = width;
+		_height = height;
 		_canvas = g.getCanvas();
 	}
 }

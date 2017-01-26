@@ -8,19 +8,22 @@ import gameframework.core.GameEntity;
 import gameframework.core.GameMovable;
 import gameframework.moves_rules.MoveStrategy;
 
-public class IAEntity extends GameMovable implements GameEntity{
+public class IAEntitySimple extends GameMovable implements GameEntity{
 
-	private int _timer;
-	private AbstractLevelCTF _level;
-	private Team _team;
-	private MoveStrategy _movestrategy;
+	protected int _timer;
+	protected AbstractLevelCTF _level;
+	protected Team _team;
+	protected MoveStrategy _movestrategy;
+	protected int _nb_horse, _nb_infant;
 	public static final int RENDERING_SIZE = 32;
 	
-	public IAEntity(AbstractLevelCTF level, Team t, MoveStrategy movestrategy) {
+	public IAEntitySimple(AbstractLevelCTF level, Team t, MoveStrategy movestrategy, int nb_horseman, int nb_infantryman) {
 		_timer = 0;
 		_level = level;
 		_team = t;
 		_movestrategy = movestrategy;
+		_nb_horse = nb_horseman;
+		_nb_infant = nb_infantryman;
 	}
 	
 	@Override
@@ -30,7 +33,7 @@ public class IAEntity extends GameMovable implements GameEntity{
 	public void oneStepMoveAddedBehavior() {
 		_timer++;
 		if(_timer%50 == 0 && _level.getArmy(_team)== null){
-			_level.addArmy(_team, _movestrategy, 2, 2,"IA");
+			_level.addArmy(_team, _movestrategy, _nb_horse, _nb_infant,"IA");
 		}
 	}
 }

@@ -32,7 +32,7 @@ import notreJeu.coreextensions.GameCTFImpl;
 import notreJeu.coreextensions.GameUniverseViewPortCTFImpl;
 import notreJeu.entities.Barrack;
 import notreJeu.entities.Flag;
-import notreJeu.entities.IAEntity;
+import notreJeu.entities.IAEntitySimple;
 import notreJeu.entities.IndestructibleWall;
 import notreJeu.rules.CTFMoveBlockers;
 import notreJeu.rules.CTFOverlapRules;
@@ -122,7 +122,7 @@ public class CTFLevel1 extends AbstractLevelCTF{
 					else{
 						_teams_ia.add(t);
 						//Les IA ont une instance Entity pour avoir droit a des effets temporels.
-						universe.addGameEntity(new IAEntity(this, t, new MoveStrategyRandom()));
+						universe.addGameEntity(new IAEntitySimple(this, t, new MoveStrategyRandom(),2,2));
 					}
 					break;
 				case 0:
@@ -167,10 +167,10 @@ public class CTFLevel1 extends AbstractLevelCTF{
 		((GameCTFImpl)g).addJButton(release_button);
 	}
 		
-	public CTFLevel1(Game g, int size) {
+	public CTFLevel1(Game g, int height, int width) {
 		super(g);
-		_width = size;
-		_height = size;
+		_width = width;
+		_height = height;
 		_canvas = g.getCanvas();
 	}
 }

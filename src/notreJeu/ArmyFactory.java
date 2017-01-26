@@ -20,7 +20,6 @@ public class ArmyFactory implements Cloneable{
 		}
 		else
 			throw new Exception("ArmyFactory constructor need a queue with at least a value.");
-			
 	}
 	
 	public Army getArmy(Canvas canvas,int nb_horseman, int nb_infantry, String name){

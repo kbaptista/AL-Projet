@@ -1,6 +1,6 @@
 /**
  * D. Auber & P. Narbel
- * Solution TD Architecture Logicielle 2016 Université Bordeaux.
+ * Solution TD Architecture Logicielle 2016 Universitï¿½ Bordeaux.
  */
 package soldier.units;
 
@@ -11,7 +11,7 @@ import soldier.core.Weapon;
 public class UnitRobot extends UnitInfantry {
 
 	public UnitRobot(String soldierName) {
-		super(soldierName, new BehaviorSoldierHealthBased( 50, 100));
+		super(soldierName, new BehaviorSoldierHealthBased(100,50));
 	}
 	
 	/**
