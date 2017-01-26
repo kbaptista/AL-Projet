@@ -104,7 +104,7 @@ public class GameCTFImpl implements Game, Observer {
 
 		createMenuBar();
 		Container c = createStatusBar();
-		buttonsPanel = createButtonsPanel();
+		buttonsPanel = new Panel();
 		Panel accessor = new Panel(new BorderLayout());
 		accessor.add(c, BorderLayout.NORTH);
 		accessor.add(buttonsPanel, BorderLayout.SOUTH);
@@ -201,15 +201,13 @@ public class GameCTFImpl implements Game, Observer {
 		return c;
 	}
 	
-	private Panel createButtonsPanel(){
-		Panel res = new Panel();
-		
-		return res ;
-	}
-	
 	public void addJButton(JButton butt){
 		buttonsPanel.add(butt);
 		SwingUtilities.updateComponentTreeUI(f);
+	}
+	
+	public void deleteJButtons(){
+		buttonsPanel.removeAll();
 	}
 	
 	public Canvas getCanvas() {
@@ -232,13 +230,13 @@ public class GameCTFImpl implements Game, Observer {
 					currentPlayedLevel.interrupt();
 					currentPlayedLevel = null;
 				}
-				currentPlayedLevel = (CTFLevel1) level;
+				currentPlayedLevel = (AbstractLevelCTF) level;
 				levelNumber++;
 				currentLevelValue.setText(Integer.toString(levelNumber));
 				currentPlayedLevel.start();
 				currentPlayedLevel.join();
-			} catch (Exception e) {
-			}
+			} catch (Exception e) {}
+			deleteJButtons();
 		}
 
 	}

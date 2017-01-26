@@ -4,6 +4,9 @@ import java.awt.Canvas;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Rectangle;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 import notreJeu.Team;
 import gameframework.core.SpriteManagerDefaultImpl;
@@ -14,24 +17,47 @@ public class Army extends EntityMovable {
 	public static final int RENDERING_SIZE = 32;
 	private SpriteManagerDefaultImpl _spriteManager;
 	
-	private boolean _hasTheFlag;
+	private List<Flag> _flags;
 	private Unit _unit;
 	private Team _side;
 	
 	public Army(Canvas canvas, Unit unit, Team side) {
 		_side = side;
 		_unit = unit;
-		_hasTheFlag = false;
+		_flags = new ArrayList<Flag>();
 		_spriteManager = new SpriteManagerDefaultImpl("images/ctf_horseman.gif",canvas, RENDERING_SIZE, 6);
 		_spriteManager.setTypes("right", "left", "up","down");
 	}
 	
-	public void captureTheFlag(){
-		_hasTheFlag = true;
+	public void captureTheFlag(Flag f){
+		_flags.add(f);
 	}
 	
 	public boolean haveAFlag(){
-		return _hasTheFlag;
+		return !_flags.isEmpty();
+	}
+	
+	public List<Flag> getFlags(){
+		List<Flag> res = new ArrayList<Flag>(_flags.size());
+		res.addAll(_flags);
+		return res;
+	}
+	
+	public boolean putATeamFlag(Team t){
+		Iterator<Flag> it = _flags.iterator();
+		boolean res=false;
+		Flag f=null;
+		while(it.hasNext()){
+			f = it.next();
+			if(f.getTeam().equals(t)){
+				res = true;
+				break;
+			}
+		}
+		if(res)
+			_flags.remove(f);
+		return res;
+		
 	}
 	
 	public Team getTeam(){

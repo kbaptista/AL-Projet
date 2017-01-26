@@ -5,16 +5,25 @@ import gameframework.core.Game;
 import gameframework.core.GameUniverseDefaultImpl;
 import gameframework.moves_rules.MoveBlockerChecker;
 import gameframework.moves_rules.MoveBlockerCheckerDefaultImpl;
+import gameframework.moves_rules.MoveStrategyStraightLine;
 import gameframework.moves_rules.OverlapProcessor;
 import gameframework.moves_rules.OverlapProcessorDefaultImpl;
 
 import java.awt.Canvas;
+import java.awt.Image;
 import java.awt.Point;
+import java.awt.event.ActionListener;
+import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.SwingConstants;
 
 import soldier.ages.AgeFutureFactory;
 import soldier.ages.AgeMiddleFactory;
@@ -22,10 +31,13 @@ import notreJeu.ArmyFactory;
 import notreJeu.Equip;
 import notreJeu.GetAgeFactory;
 import notreJeu.Team;
+import notreJeu.coreextensions.GameCTFImpl;
 import notreJeu.coreextensions.GameUniverseViewPortCTFImpl;
 import notreJeu.entities.Barrack;
 import notreJeu.entities.Flag;
+import notreJeu.entities.IAEntity;
 import notreJeu.entities.IndestructibleWall;
+import notreJeu.entities.Water;
 import notreJeu.rules.CTFMoveBlockers;
 import notreJeu.rules.CTFOverlapRules;
 import notreJeu.rules.CreationFlagRuleHorizontalAxisImpl;
@@ -38,8 +50,8 @@ public class CTFLevel2 extends AbstractLevelCTF{
 		// -- empty spaces 
 		for (int i = 1; i < _height-1; i++) {
 			for (int j = 1; j < _width-1; j++) {
-				if(j < (_width/2)- 4 || j > (_width/2)+ 4)
-					map[j][i]=1;
+				if((j < (_width/2)- 2 || j > (_width/2)+ 2) && i == _height/2)
+					map[j][i]=2;
 				else
 					map[j][i]=0; 
 			}
@@ -89,6 +101,9 @@ public class CTFLevel2 extends AbstractLevelCTF{
 				case 1:
 					universe.addGameEntity(new IndestructibleWall(_canvas, j * SPRITE_SIZE, i * SPRITE_SIZE));;
 					break;
+				case 2:
+					universe.addGameEntity(new Water(_canvas, new Point(j * SPRITE_SIZE, i * SPRITE_SIZE)));
+					break;
 				case 3:
 					//ArmyFactory initiate the first age factory
 					Queue<GetAgeFactory> getAgeFactory = new LinkedList<GetAgeFactory>();
@@ -111,8 +126,10 @@ public class CTFLevel2 extends AbstractLevelCTF{
 					universe.addGameEntity(new Flag(_canvas, flag_pos, t));
 					if(team_id == 0)
 						_teams_played.add(t);
-					else
+					else{
 						_teams_ia.add(t);
+						universe.addGameEntity(new IAEntity(this, t, new MoveStrategyStraightLine(p, flag_pos)));
+					}
 					break;
 				case 0:
 				default:
@@ -120,8 +137,40 @@ public class CTFLevel2 extends AbstractLevelCTF{
 				}
 			} 
 		}
+		createLevelButtons();
 	}
+	
+	private JButton createButton(String name){
+		JButton res = new JButton();
+		try {
+			Image img = ImageIO.read(new FileInputStream("images/"+name+"_icon.png"));
+			res.setIcon(new ImageIcon(img));
+		} catch (Exception ex) {System.out.println(ex);}
+		res.setVerticalTextPosition(SwingConstants.BOTTOM);
+		res.setHorizontalTextPosition(SwingConstants.RIGHT);
+		
+		return res;
+	}
+	
+	private void createLevelButtons(){
+		final JButton infantryman_button = createButton("infantryman");
+		final JButton horseman_button = createButton("horseman");
+		final JButton release_button = createButton("release");
+		
+		ActionListener infantryman_button_action = getAddSoldierButtonAction(infantryman_button, "infantryman");
+		ActionListener horseman_button_action = getAddSoldierButtonAction(horseman_button, "horseman");
+		ActionListener[] tmp = {infantryman_button_action,horseman_button_action};
+		ActionListener release_button_action = getReleaseArmyButtonAction(tmp);
 
+		infantryman_button.addActionListener(infantryman_button_action);
+		horseman_button.addActionListener(horseman_button_action);
+		release_button.addActionListener(release_button_action);
+		
+		((GameCTFImpl)g).addJButton(infantryman_button);
+		((GameCTFImpl)g).addJButton(horseman_button);
+		((GameCTFImpl)g).addJButton(release_button);
+	}
+	
 	public CTFLevel2(Game g, int size) {
 		super(g);
 		_width = size;

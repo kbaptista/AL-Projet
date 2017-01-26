@@ -6,16 +6,21 @@ import gameframework.core.ObservableValue;
 import gameframework.moves_rules.Overlap;
 import gameframework.moves_rules.OverlapRulesApplierDefaultImpl;
 
+import java.awt.Canvas;
+import java.awt.Point;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Vector;
 
 import notreJeu.entities.Army;
 import notreJeu.entities.Barrack;
 import notreJeu.entities.Flag;
+import notreJeu.entities.FlagEmpty;
 import soldier.core.Unit;
 
 public class CTFOverlapRules extends OverlapRulesApplierDefaultImpl {
 	protected GameUniverse universe;
+	protected Canvas canvas;
 
 	private final ObservableValue<Integer> score;
 	private final ObservableValue<Integer> life;
@@ -31,6 +36,10 @@ public class CTFOverlapRules extends OverlapRulesApplierDefaultImpl {
 
 	public void setUniverse(GameUniverse universe) {
 		this.universe = universe;
+	}
+	
+	public void setCanvas(Canvas canvas){
+		this.canvas = canvas;
 	}
 
 	@Override
@@ -51,6 +60,17 @@ public class CTFOverlapRules extends OverlapRulesApplierDefaultImpl {
 		return null;
 	}
 	
+	private void rebuildFlag(Army killed_army, Army victorious_army){
+		if(killed_army.haveAFlag()){
+			List<Flag> tmp = killed_army.getFlags();
+			for(Flag f : tmp)
+				if(f.getTeam().equals(victorious_army.getTeam())){
+					Point p = victorious_army.getTeam().getCreationFlagRule().getFlagPosition(victorious_army.getTeam().getPosition());
+					universe.addGameEntity(new Flag(canvas,p,victorious_army.getTeam()));
+				}	
+		}
+	}
+	
 	public void overlapRule(Army a, Army a2) {
 		if(a.getTeam().getSide() != a2.getTeam().getSide()){
 			Unit u1 = a.getSoldiers();
@@ -59,12 +79,14 @@ public class CTFOverlapRules extends OverlapRulesApplierDefaultImpl {
 			u2.parry(u1.strike());
 			u1.parry(u2.strike());
 
-			if(!u1.alive())
+			if(!u1.alive()){
 				universe.removeGameEntity(getArmyFromUniverse(a));
-			if(!u2.alive())
+				rebuildFlag(a, a2);
+			}
+			if(!u2.alive()){
 				universe.removeGameEntity(getArmyFromUniverse(a2));
-			
-			//TODO :disparition des entities si nécessaires
+				rebuildFlag(a2, a);
+			}
 		}
 		
 			
@@ -74,7 +96,9 @@ public class CTFOverlapRules extends OverlapRulesApplierDefaultImpl {
 		//si c'est une armée d'un camps qui rencontre le drapeau d'un autre camps
 		if(f.getTeam().getSide() != a.getTeam().getSide()){
 			if ((!f.isCatched()) && !a.haveAFlag()){
-				a.captureTheFlag();
+				a.captureTheFlag(f);
+				universe.removeGameEntity(f);
+				universe.addGameEntity(new FlagEmpty(canvas,f.getPosition(),f.getTeam()));
 			}
 		}
 		
