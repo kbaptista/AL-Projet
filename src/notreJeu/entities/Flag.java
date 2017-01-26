@@ -18,7 +18,7 @@ public class Flag implements Entity {
 
 	public Flag(Canvas defaultCanvas, Point pos, Team side) {
 		_image = new DrawableImage(side.getPicture(), defaultCanvas);
-		//
+
 		_position = pos;
 		_catched = false;
 		_side=side;

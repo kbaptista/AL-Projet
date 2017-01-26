@@ -21,5 +21,4 @@ public enum Equip{
 			return "images/ctf_flag_white.png";
 		}
 	} 
-
 };
