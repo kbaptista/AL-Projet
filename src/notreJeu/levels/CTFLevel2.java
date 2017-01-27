@@ -40,11 +40,9 @@ import notreJeu.rules.CreationFlagRuleHorizontalAxisImpl;
 import notreJeu.rules.CreationFlagRules;
 
 public class CTFLevel2 extends AbstractLevelCTF{
-
-	private static final int INFANTRY_MAN_COST = 5;
-	private static final int RIDER_COST = 5;
 	
 	protected int[][] generateMap(){
+		
 		int[][] map = new int[_width][_height];
 		// -- empty spaces 
 		for (int i = 1; i < _height-1; i++) {
@@ -64,19 +62,20 @@ public class CTFLevel2 extends AbstractLevelCTF{
 			map[j][0]=1;
 			map[j][_height-1]=1;
 		}
-
 		// -- buildings
 		map[4][_height/3] = 3;
 		map[_width-5][_height-(_height/3)] = 3;
 		
 		//blocker for IA
 		map[_width-5][_height-(_height/3)+3] = 1;
+		
 		return map;
 	}
 
 	@Override
 	protected void init() {
 		_map = generateMap();
+		
 		CreationFlagRules cfr = new CreationFlagRuleHorizontalAxisImpl(_height/2);
 		
 		OverlapProcessor overlapProcessor = new OverlapProcessorDefaultImpl();
@@ -100,6 +99,7 @@ public class CTFLevel2 extends AbstractLevelCTF{
 		// Filling up the universe with basic non movable entities and inclusion in the universe
 		for (int i = 0; i < _height; ++i) {
 			for (int j = 0; j < _width; ++j) {
+				//if(j==0)System.out.println(_map[i][j]);
 				switch(_map[i][j]){
 				case 1:
 					universe.addGameEntity(new IndestructibleWall(_canvas, j * SPRITE_SIZE, i * SPRITE_SIZE));;
@@ -114,26 +114,29 @@ public class CTFLevel2 extends AbstractLevelCTF{
 					getAgeFactory.add(()->{return new AgeFutureFactory();});
 					ArmyFactory armyFactory=null;
 					try {
-						armyFactory = new ArmyFactory(getAgeFactory);
+						armyFactory = new ArmyFactory(getAgeFactory, _canvas);
 					} catch (Exception e) {e.printStackTrace();}
 					
 					//position format de la matrice
 					Point p = new Point(i,j);
 					Point flag_pos = cfr.getFlagPosition(p, new Point((_width)/2,(_height)/2));
-					
+
 					//position au format de la carte
 					p.setLocation(p.x* SPRITE_SIZE, p.y* SPRITE_SIZE);
 					flag_pos.setLocation(flag_pos.x* SPRITE_SIZE, flag_pos.y* SPRITE_SIZE);
 					
 					int team_id = _teams_played.size()+_teams_ia.size();
+					System.out.println(equips[team_id]);
 					Team t = new Team(team_id, p, equips[team_id], armyFactory, cfr);
+					
 					universe.addGameEntity(new Barrack(_canvas, p));
 					universe.addGameEntity(new Flag(_canvas, flag_pos, t));
-					if(team_id == 0)
+					if(team_id == 0){
 						_teams_played.add(t);
+					}
 					else{
 						_teams_ia.add(t);
-						universe.addGameEntity(new IAEntityUnitsVariable(this, t, new MoveStrategyRandom(),5,5,2));
+						universe.addGameEntity(new IAEntityUnitsVariable(this, t, new MoveStrategyRandom(),3,3,2));
 					}
 					break;
 				case 0:
@@ -143,37 +146,6 @@ public class CTFLevel2 extends AbstractLevelCTF{
 			} 
 		}
 		createLevelButtons();
-	}
-	
-	private JButton createButton(String name){
-		JButton res = new JButton();
-		try {
-			Image img = ImageIO.read(new FileInputStream("images/"+name+"_icon.png"));
-			res.setIcon(new ImageIcon(img));
-		} catch (Exception ex) {System.out.println(ex);}
-		res.setVerticalTextPosition(SwingConstants.BOTTOM);
-		res.setHorizontalTextPosition(SwingConstants.RIGHT);
-		
-		return res;
-	}
-	
-	private void createLevelButtons(){
-		final JButton infantryman_button = createButton("infantryman");
-		final JButton rider_button = createButton("rider");
-		final JButton release_button = createButton("release");
-		
-		MouseListener infantryman_button_action = getAddSoldierButtonAction(infantryman_button, "infantryman", INFANTRY_MAN_COST);
-		MouseListener rider_button_action = getAddSoldierButtonAction(rider_button, "rider", RIDER_COST);
-		MouseListener[] tmp = {infantryman_button_action,rider_button_action};
-		ActionListener release_button_action = getReleaseArmyButtonAction(tmp, release_button);
-
-		infantryman_button.addMouseListener(infantryman_button_action);
-		rider_button.addMouseListener(rider_button_action);
-		release_button.addActionListener(release_button_action);
-		
-		((GameCTFImpl)g).addJButton(infantryman_button);
-		((GameCTFImpl)g).addJButton(rider_button);
-		((GameCTFImpl)g).addJButton(release_button);
 	}
 	
 	public CTFLevel2(Game g, int height, int width) {

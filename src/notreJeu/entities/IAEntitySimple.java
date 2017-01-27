@@ -33,7 +33,7 @@ public class IAEntitySimple extends GameMovable implements GameEntity{
 	public void oneStepMoveAddedBehavior() {
 		_timer++;
 		if(_timer%50 == 0){// && _level.getArmy(_team)== null){
-			_level.addArmy(_team, _movestrategy, _nb_riders, _nb_infantryman,"IA");
+			_level.addArmy(_team, _nb_riders, _nb_infantryman, _movestrategy);
 		}
 	}
 }

@@ -1,16 +1,16 @@
 package notreJeu.buttons;
 
-import java.awt.Canvas;
 import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
 
 import notreJeu.Team;
+import notreJeu.levels.AbstractLevelCTF;
 
 public abstract class Action implements MouseListener{
 
+
 	protected JButton button;
-	protected Canvas canvas;
 	
 	/*
 	 * Static variables :
@@ -19,10 +19,17 @@ public abstract class Action implements MouseListener{
 	 * and that this number is decided by another action
 	 */
 	
-	protected static int nb_infantryman = 0 ;
-	protected static int nb_riders = 0 ;
-	protected static int army_cost = 0;
+	protected static Integer nb_infantryman = 0 ;
+	protected static Integer nb_riders = 0 ;
+	protected static Integer army_cost = 0;
 	
 	protected static Team side ;
-	
+	protected static AbstractLevelCTF level;
+
+	public Action(JButton button, AbstractLevelCTF level, Team team) {
+		// TODO Auto-generated constructor stub
+		this.button = button;
+		this.level = level;
+		this.side = team;
+	}
 }

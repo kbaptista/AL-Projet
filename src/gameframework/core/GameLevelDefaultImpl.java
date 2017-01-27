@@ -31,6 +31,7 @@ public abstract class GameLevelDefaultImpl extends Thread implements GameLevel {
 	// start of class Thread which calls the run method (see below) 
 	@Override
 	public void start() {  
+		System.out.println("Lool");
 		endOfGame = g.endOfGame();
 		init();
 		super.start();

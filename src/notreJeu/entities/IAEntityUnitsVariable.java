@@ -25,7 +25,7 @@ public class IAEntityUnitsVariable extends IAEntitySimple{
 		_timer++;
 
 		if(_timer%50 == 0 ){//&& _level.getArmy(_team)== null){
-			_level.addArmy(_team, _movestrategy, getRandom(_nb_riders), getRandom(_nb_infantryman),"IA");
+			_level.addArmy(_team, getRandom(_nb_riders), getRandom(_nb_infantryman), _movestrategy);
 		}
 	}
 }

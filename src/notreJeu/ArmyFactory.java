@@ -33,9 +33,12 @@ public class ArmyFactory implements Cloneable{
 		return new Army(_canvas, group , null, nb_riders, nb_infantry);
 	}
 	
-	public Army getArmy(int nb_riders, int nb_infantry, Team side, String name, MoveStrategyKeyboard move){
+	public Army getArmy(int nb_riders, int nb_infantry, Team side, String name, MoveStrategy move){
 		UnitGroup group = initArmy(nb_riders, nb_infantry, name);
-		_canvas.addKeyListener(move);
+		
+		if(move instanceof MoveStrategyKeyboard)
+			_canvas.addKeyListener((MoveStrategyKeyboard)move);
+		
 		return new Army(_canvas, group, side, nb_riders, nb_infantry);
 	}
 	

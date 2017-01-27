@@ -17,7 +17,10 @@ public class Flag implements Entity {
 	public static final int RENDERING_SIZE = 32;
 
 	public Flag(Canvas defaultCanvas, Point pos, Team side) {
+		
+		System.out.println(">>>"+side.getColor());
 		_image = new DrawableImage(side.getPicture(), defaultCanvas);
+		System.out.println("<<<"+side.getPicture());
 
 		_position = pos;
 		_catched = false;

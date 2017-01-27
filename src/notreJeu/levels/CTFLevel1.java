@@ -27,6 +27,7 @@ import notreJeu.ArmyFactory;
 import notreJeu.Equip;
 import notreJeu.GetAgeFactory;
 import notreJeu.Team;
+import notreJeu.buttons.Action;
 import notreJeu.coreextensions.GameCTFImpl;
 import notreJeu.coreextensions.GameUniverseViewPortCTFImpl;
 import notreJeu.entities.Barrack;
@@ -39,9 +40,6 @@ import notreJeu.rules.CreationFlagRuleCenterImpl;
 import notreJeu.rules.CreationFlagRules;
 
 public class CTFLevel1 extends AbstractLevelCTF{
-
-	private static final int INFANTRY_MAN_COST = 5;
-	private static final int RIDER_COST = 5;
 	
 	protected int[][] generateMap(){
 		int[][] map = new int[_width][_height];
@@ -65,6 +63,14 @@ public class CTFLevel1 extends AbstractLevelCTF{
 		map[0+4][_height/2] = 3;
 		map[_width-5][_height/2] = 3;
 
+		StringBuffer res = new StringBuffer();
+		for (int i = 0; i < _height; i++) {
+			for(int j=0 ; i < _width ; j++)
+				res.append(map[i][j]);
+
+			res.append("\n");
+		}
+		System.out.println(res.toString());
 		return map;
 	}
 	
@@ -99,13 +105,15 @@ public class CTFLevel1 extends AbstractLevelCTF{
 					universe.addGameEntity(new IndestructibleWall(_canvas, i * SPRITE_SIZE, j * SPRITE_SIZE));;
 					break;
 				case 3:
+
+					System.out.println("J'ai vu une barrack");
 					//ArmyFactory initiate the first age factory
 					Queue<GetAgeFactory> getAgeFactory = new LinkedList<GetAgeFactory>();
 					getAgeFactory.add(()->{return new AgeMiddleFactory();});
 					getAgeFactory.add(()->{return new AgeFutureFactory();});
 					ArmyFactory armyFactory=null;
 					try{
-						armyFactory = new ArmyFactory(getAgeFactory);
+						armyFactory = new ArmyFactory(getAgeFactory, _canvas);
 					}
 					catch(Exception e){e.printStackTrace();}
 					
@@ -121,10 +129,11 @@ public class CTFLevel1 extends AbstractLevelCTF{
 					universe.addGameEntity(new Flag(_canvas, flag_pos, t));
 					if(team_id == 0){
 						_teams_played.add(t);
+						System.out.println(team_id);
 					}
 					else{
 						_teams_ia.add(t);
-						//Les IA ont une instance Entity pour avoir droit a des effets temporels.
+						//Les IAs ont une instance Entity pour avoir droit a des effets temporels.
 						universe.addGameEntity(new IAEntitySimple(this, t, new MoveStrategyRandom(),2,2));
 					}
 					break;
@@ -136,42 +145,8 @@ public class CTFLevel1 extends AbstractLevelCTF{
 		}
 		((GameCTFImpl)g).setGold1(_teams_played.iterator().next().get_gold());
 		((GameCTFImpl)g).setGold2(_teams_played.iterator().next().get_gold());
+		System.out.println("Je suis passé devant createLevelButtons");
 		createLevelButtons();
-	}
-	
-	private JButton createButton(String name){
-		JButton res = new JButton();
-		try {
-			Image img = ImageIO.read(new FileInputStream("images/"+name+"_icon.png"));
-			res.setIcon(new ImageIcon(img));
-		} catch (Exception ex) {System.out.println(ex);}
-		res.setVerticalTextPosition(SwingConstants.BOTTOM);
-		res.setHorizontalTextPosition(SwingConstants.RIGHT);
-		
-		return res;
-	}
-	
-	private void createLevelButtons(){
-		final JButton infantryman_button = createButton("infantryman");
-		final JButton rider_button = createButton("rider");
-		final JButton release_button = createButton("release");
-		final JButton nextAge_button = createButton("nextAge");
-		
-		MouseListener infantryman_button_action = getAddSoldierButtonAction(infantryman_button, "infantryman", INFANTRY_MAN_COST);
-		MouseListener rider_button_action = getAddSoldierButtonAction(rider_button, "rider", RIDER_COST);
-		MouseListener[] tmp = {infantryman_button_action,rider_button_action};
-		ActionListener release_button_action = getReleaseArmyButtonAction(tmp, release_button);
-		ActionListener nextAge_action = getNextAgeButtonAction(nextAge_button);
-
-		infantryman_button.addMouseListener(infantryman_button_action);
-		rider_button.addMouseListener(rider_button_action);
-		release_button.addActionListener(release_button_action);
-		nextAge_button.addActionListener(nextAge_action);
-		
-		((GameCTFImpl)g).addJButton(infantryman_button);
-		((GameCTFImpl)g).addJButton(rider_button);
-		((GameCTFImpl)g).addJButton(release_button);
-		((GameCTFImpl)g).addJButton(nextAge_button);
 	}
 		
 	public CTFLevel1(Game g, int height, int width) {

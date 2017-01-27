@@ -230,9 +230,8 @@ public class GameCTFImpl implements Game, Observer {
 				currentPlayedLevel.start();
 				currentPlayedLevel.join();
 			} catch (Exception e) {}
-			cleanLevel();
+			//cleanLevel();
 		}
-
 	}
 
 	public void restore() {

@@ -5,35 +5,41 @@ import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
 
-public class ActionRecruitSoldiers implements MouseListener{
-	private int nb_soldier = 0;
-	private int cost ;
-	private JButton button;
-	private String type ;
+import notreJeu.Team;
+import notreJeu.levels.AbstractLevelCTF;
+
+public class ActionRecruitSoldiers extends Action{
 	
-	public ActionRecruitSoldiers(JButton but, String type, int cost) {
-		button = but;
-		this.type = type;
-		this.cost = cost;
-		button.setText(String.valueOf(nb_soldier));
+	private String type;
+	private Integer valueToPerform;
+	
+	/**
+	 * 
+	 * @param butt the button the action will be applied on
+	 * @param level 
+	 * @param type has to be either Infantry or Rider
+	 * @param team 
+	 */
+	public ActionRecruitSoldiers(JButton butt, AbstractLevelCTF level, String type, Team team) {
+		super(butt, level, team);
+		this.type=type;
+		if(type.matches("Infantry"))
+			valueToPerform = nb_infantryman;
+		else if(type.matches("Rider"))
+			valueToPerform = nb_riders;
+			
+		button.setText(String.valueOf(valueToPerform));
 	}
 	
-	public int getCost(){return cost;}
 	public String getType(){return type;}
-	public int getValue(){return nb_soldier;}
-	
-	public void setValue(int i){
-		nb_soldier=i;
-		button.setText(String.valueOf(nb_soldier));
-	}
 
 	private void decrease(){
-		nb_soldier--;
-		button.setText(String.valueOf(nb_soldier));
+		valueToPerform--;
+		button.setText(String.valueOf(valueToPerform));
 	}
 	private void increase(){
-		nb_soldier++;
-		button.setText(String.valueOf(nb_soldier));
+		valueToPerform++;
+		button.setText(String.valueOf(valueToPerform));
 	}
 
 	@Override
