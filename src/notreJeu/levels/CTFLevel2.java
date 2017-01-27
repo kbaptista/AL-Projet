@@ -11,6 +11,7 @@ import gameframework.moves_rules.OverlapProcessorDefaultImpl;
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
 import java.io.FileInputStream;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -40,6 +41,9 @@ import notreJeu.rules.CreationFlagRules;
 
 public class CTFLevel2 extends AbstractLevelCTF{
 
+	private static final int INFANTRY_MAN_COST = 5;
+	private static final int RIDER_COST = 5;
+	
 	protected int[][] generateMap(){
 		int[][] map = new int[_width][_height];
 		// -- empty spaces 
@@ -158,13 +162,13 @@ public class CTFLevel2 extends AbstractLevelCTF{
 		final JButton rider_button = createButton("rider");
 		final JButton release_button = createButton("release");
 		
-		ActionListener infantryman_button_action = getAddSoldierButtonAction(infantryman_button, "infantryman");
-		ActionListener rider_button_action = getAddSoldierButtonAction(rider_button, "rider");
-		ActionListener[] tmp = {infantryman_button_action,rider_button_action};
-		ActionListener release_button_action = getReleaseArmyButtonAction(tmp);
+		MouseListener infantryman_button_action = getAddSoldierButtonAction(infantryman_button, "infantryman", INFANTRY_MAN_COST);
+		MouseListener rider_button_action = getAddSoldierButtonAction(rider_button, "rider", RIDER_COST);
+		MouseListener[] tmp = {infantryman_button_action,rider_button_action};
+		ActionListener release_button_action = getReleaseArmyButtonAction(tmp, release_button);
 
-		infantryman_button.addActionListener(infantryman_button_action);
-		rider_button.addActionListener(rider_button_action);
+		infantryman_button.addMouseListener(infantryman_button_action);
+		rider_button.addMouseListener(rider_button_action);
 		release_button.addActionListener(release_button_action);
 		
 		((GameCTFImpl)g).addJButton(infantryman_button);
